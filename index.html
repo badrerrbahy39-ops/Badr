@@ -35,6 +35,29 @@
     ::-webkit-scrollbar-track { background: var(--black); }
     ::-webkit-scrollbar-thumb { background: var(--green); }
 
+    /* ── LOGO ────────────────────────────────────── */
+    .logo-img {
+      height: 52px; width: auto;
+      object-fit: contain;
+      transition: height 0.4s ease;
+    }
+    nav.scrolled .logo-img { height: 38px; }
+    .logo-text-fallback {
+      display: flex; flex-direction: column; line-height: 1;
+      text-decoration: none;
+    }
+    .logo-text-fallback .rh {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-weight: 600;
+      background: linear-gradient(135deg, #0F4C3A, #2a9d78);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
+    }
+    .logo-text-fallback .lux {
+      font-size: 9px; letter-spacing: 8px;
+      color: var(--silver2); text-transform: uppercase; margin-top: 1px;
+    }
+
     /* ── NAV ─────────────────────────────────────── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
@@ -781,9 +804,13 @@
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="#hero" class="nav-logo">
-    <span class="nav-logo-rh">RH</span>
-    <span class="nav-logo-luxury">Luxury</span>
+  <a href="#hero">
+    <img src="assets/logo.png" alt="RH Luxury" class="logo-img"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+    <span class="logo-text-fallback" style="display:none">
+      <span class="rh">RH</span>
+      <span class="lux">Luxury</span>
+    </span>
   </a>
   <ul class="nav-links">
     <li><a href="#collection">Colección</a></li>
@@ -938,8 +965,13 @@
   <div class="story-visual">
     <span class="story-visual-quote">FOR THOSE WHO BUILD</span>
     <div class="story-visual-main">
-      <div class="story-logo-large">RH</div>
-      <div class="story-logo-sub">Luxury</div>
+      <img src="assets/logo-white.png" alt="RH Luxury"
+           style="max-width:240px;width:100%;height:auto;object-fit:contain;filter:brightness(0) invert(1);"
+           onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block'"/>
+      <div id="logoFallback" style="display:none">
+        <div class="story-logo-large">RH</div>
+        <div class="story-logo-sub">Luxury</div>
+      </div>
     </div>
   </div>
   <div class="story-text">
@@ -1064,8 +1096,13 @@
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-brand-rh">RH</div>
-      <div class="footer-brand-luxury">Luxury</div>
+      <img src="assets/logo.png" alt="RH Luxury"
+           style="height:64px;width:auto;object-fit:contain;margin-bottom:16px;display:block;"
+           onerror="this.style.display='none';document.getElementById('footerLogoFallback').style.display='block'"/>
+      <div id="footerLogoFallback" style="display:none">
+        <div class="footer-brand-rh">RH</div>
+        <div class="footer-brand-luxury">Luxury</div>
+      </div>
       <p class="footer-tagline">For Those Who Build. La marca de relojes para personas que están construyendo algo grande, aunque todavía nadie lo vea.</p>
       <div class="footer-social">
         <a class="f-social" href="#" title="Instagram">📷</a>
