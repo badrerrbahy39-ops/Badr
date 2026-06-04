@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RH Timepieces — Relojería de Alta Gama</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold:    #C9A84C;
+      --gold2:   #E8C97A;
+      --black:   #080808;
+      --dark:    #111111;
+      --dark2:   #1A1A1A;
+      --grey:    #888888;
+      --light:   #F5F5F0;
+      --white:   #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--light);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ─────────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+    /* ── NAV ───────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 60px;
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(8,8,8,0.96);
+      backdrop-filter: blur(12px);
+      padding: 14px 60px;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 6px;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--light); }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a {
+      color: var(--light);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 10px 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+    .nav-cta:hover { background: var(--gold); color: var(--black); }
+
+    /* ── HERO ──────────────────────────────────────────────────── */
+    #hero {
+      height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      background: radial-gradient(ellipse at 60% 50%, #1a1208 0%, var(--black) 70%);
+    }
+    .hero-bg-lines {
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(90deg, rgba(201,168,76,0.03) 0px, rgba(201,168,76,0.03) 1px, transparent 1px, transparent 80px),
+        repeating-linear-gradient(0deg,  rgba(201,168,76,0.03) 0px, rgba(201,168,76,0.03) 1px, transparent 1px, transparent 80px);
+    }
+    .hero-circle {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.08);
+      top: 50%; left: 60%; transform: translate(-50%,-50%);
+      animation: rotate 30s linear infinite;
+    }
+    .hero-circle::before {
+      content: '';
+      position: absolute; inset: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.06);
+    }
+    @keyframes rotate { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 700px; padding: 0 40px;
+      text-align: left;
+    }
+    .hero-label {
+      font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 24px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .hero-label::before {
+      content: ''; display: block;
+      width: 40px; height: 1px; background: var(--gold);
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 7vw, 88px);
+      font-weight: 300;
+      line-height: 1.05;
+      margin-bottom: 28px;
+      color: var(--white);
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-subtitle {
+      font-size: 12px; letter-spacing: 2px; line-height: 2;
+      color: var(--grey); max-width: 460px;
+      margin-bottom: 48px;
+    }
+    .hero-buttons { display: flex; gap: 20px; align-items: center; }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+      padding: 16px 40px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      border: none; cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+    .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); }
+    .btn-secondary {
+      color: var(--light);
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+      transition: color 0.3s;
+    }
+    .btn-secondary::after {
+      content: '→'; font-size: 16px; transition: transform 0.3s;
+    }
+    .btn-secondary:hover { color: var(--gold); }
+    .btn-secondary:hover::after { transform: translateX(4px); }
+
+    .hero-watch {
+      position: absolute; right: 8%; top: 50%;
+      transform: translateY(-50%);
+      width: 340px; height: 340px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .watch-placeholder {
+      width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #2a2a1a, #0d0d08);
+      border: 2px solid rgba(201,168,76,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 100px;
+      box-shadow: 0 0 80px rgba(201,168,76,0.1), inset 0 0 40px rgba(0,0,0,0.5);
+      animation: float 6s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    .watch-placeholder img {
+      width: 100%; height: 100%;
+      object-fit: cover; border-radius: 50%;
+      opacity: 0.9;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-16px); }
+    }
+
+    .hero-stats {
+      position: absolute; bottom: 60px; left: 60px;
+      display: flex; gap: 60px;
+    }
+    .stat-item { text-align: left; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px; font-weight: 300; color: var(--gold);
+    }
+    .stat-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--grey); margin-top: 4px;
+    }
+
+    /* ── MARQUEE ───────────────────────────────────────────────── */
+    .marquee-wrap {
+      border-top: 1px solid rgba(201,168,76,0.15);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      padding: 18px 0;
+      overflow: hidden;
+      background: var(--dark);
+    }
+    .marquee-track {
+      display: flex; gap: 0;
+      animation: marquee 20s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee-item {
+      font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--grey); padding: 0 40px;
+      display: flex; align-items: center; gap: 40px;
+    }
+    .marquee-item::after {
+      content: '✦'; color: var(--gold); font-size: 8px;
+    }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── SECTIONS ──────────────────────────────────────────────── */
+    section { padding: 100px 60px; }
+
+    .section-label {
+      font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .section-label::before {
+      content: ''; display: block;
+      width: 30px; height: 1px; background: var(--gold);
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 300; line-height: 1.1;
+      margin-bottom: 60px;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    /* ── FEATURED ──────────────────────────────────────────────── */
+    #featured { background: var(--black); }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+    }
+    .featured-card {
+      position: relative; overflow: hidden;
+      background: var(--dark2);
+      aspect-ratio: 3/4;
+      cursor: pointer;
+    }
+    .featured-card:first-child {
+      grid-row: span 2;
+      aspect-ratio: unset;
+    }
+    .featured-card-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: brightness(0.7);
+    }
+    .featured-card:hover .featured-card-img { transform: scale(1.05); filter: brightness(0.5); }
+    .featured-card-content {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 30px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      transform: translateY(10px);
+      transition: transform 0.3s;
+    }
+    .featured-card:hover .featured-card-content { transform: translateY(0); }
+    .featured-card-num {
+      font-size: 9px; letter-spacing: 3px; color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .featured-card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 300; margin-bottom: 4px;
+    }
+    .featured-card-price {
+      font-size: 11px; color: var(--grey); letter-spacing: 2px;
+    }
+
+    /* ── COLLECTION ────────────────────────────────────────────── */
+    #collection { background: var(--dark); }
+
+    .collection-filters {
+      display: flex; gap: 4px; margin-bottom: 48px;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--grey);
+      padding: 10px 24px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--gold); color: var(--black);
+      border-color: var(--gold);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2px;
+    }
+    .product-card {
+      background: var(--dark2);
+      position: relative; overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .product-card:hover { transform: translateY(-4px); }
+    .product-img-wrap {
+      aspect-ratio: 1;
+      background: radial-gradient(circle at 40% 40%, #1e1c14, #0a0a08);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .product-img-wrap img {
+      width: 85%; height: 85%;
+      object-fit: contain;
+      transition: transform 0.5s ease;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+    }
+    .product-card:hover .product-img-wrap img { transform: scale(1.06); }
+    .product-badge {
+      position: absolute; top: 16px; left: 16px;
+      background: var(--gold); color: var(--black);
+      font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+      padding: 4px 10px; font-weight: 600;
+    }
+    .product-info {
+      padding: 24px;
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+    .product-ref {
+      font-size: 9px; letter-spacing: 3px; color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 300;
+      margin-bottom: 6px; color: var(--light);
+    }
+    .product-desc {
+      font-size: 10px; color: var(--grey); letter-spacing: 1px;
+      margin-bottom: 20px; line-height: 1.7;
+    }
+    .product-footer {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .product-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; color: var(--gold);
+    }
+    .product-price span { font-size: 12px; color: var(--grey); margin-left: 4px; }
+    .add-btn {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold);
+      width: 40px; height: 40px;
+      font-size: 20px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s;
+    }
+    .add-btn:hover { background: var(--gold); color: var(--black); }
+
+    /* ── SPECS STRIP ───────────────────────────────────────────── */
+    #specs-strip {
+      background: var(--dark2);
+      padding: 60px;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+    }
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+    .spec-icon {
+      font-size: 28px; margin-bottom: 16px;
+    }
+    .spec-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .spec-key {
+      font-size: 9px; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--grey);
+    }
+
+    /* ── ABOUT ─────────────────────────────────────────────────── */
+    #about {
+      background: var(--black);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0; padding: 0;
+    }
+    .about-visual {
+      background: radial-gradient(ellipse at 40% 60%, #1a1208, #080808);
+      display: flex; align-items: center; justify-content: center;
+      min-height: 600px; position: relative; overflow: hidden;
+    }
+    .about-visual-ring {
+      width: 300px; height: 300px; border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 80px;
+      position: relative;
+    }
+    .about-visual-ring::before, .about-visual-ring::after {
+      content: ''; position: absolute;
+      border-radius: 50%; border: 1px solid rgba(201,168,76,0.08);
+    }
+    .about-visual-ring::before { inset: -40px; }
+    .about-visual-ring::after  { inset: -80px; }
+    .about-text {
+      padding: 100px 80px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .about-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 3vw, 44px);
+      font-style: italic; font-weight: 300;
+      line-height: 1.3; color: var(--light);
+      margin-bottom: 32px;
+    }
+    .about-quote em { color: var(--gold); }
+    .about-body {
+      font-size: 12px; line-height: 2;
+      color: var(--grey); max-width: 460px;
+      margin-bottom: 40px;
+    }
+    .about-signature {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px; font-style: italic;
+      color: var(--gold);
+    }
+
+    /* ── PROMISE ───────────────────────────────────────────────── */
+    #promise {
+      background: var(--dark);
+      text-align: center; padding: 100px 60px;
+    }
+    .promise-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 60px; margin-top: 60px;
+    }
+    .promise-item { padding: 40px 30px; }
+    .promise-icon {
+      font-size: 36px; margin-bottom: 24px;
+      display: block;
+    }
+    .promise-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px; margin-bottom: 16px; color: var(--gold);
+    }
+    .promise-text {
+      font-size: 12px; line-height: 2; color: var(--grey);
+    }
+
+    /* ── NEWSLETTER ────────────────────────────────────────────── */
+    #newsletter {
+      background: var(--dark2);
+      text-align: center; padding: 80px 60px;
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+    .newsletter-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px; font-weight: 300;
+      margin-bottom: 12px;
+    }
+    .newsletter-sub {
+      font-size: 12px; color: var(--grey);
+      letter-spacing: 2px; margin-bottom: 40px;
+    }
+    .newsletter-form {
+      display: flex; gap: 0; max-width: 480px;
+      margin: 0 auto;
+    }
+    .newsletter-input {
+      flex: 1;
+      background: var(--dark);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-right: none;
+      color: var(--light);
+      padding: 16px 24px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      outline: none;
+    }
+    .newsletter-input::placeholder { color: var(--grey); }
+    .newsletter-submit {
+      background: var(--gold);
+      border: none; color: var(--black);
+      padding: 16px 32px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px; letter-spacing: 3px;
+      text-transform: uppercase; cursor: pointer;
+      font-weight: 500; transition: background 0.3s;
+    }
+    .newsletter-submit:hover { background: var(--gold2); }
+
+    /* ── FOOTER ────────────────────────────────────────────────── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(201,168,76,0.1);
+      padding: 60px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px; margin-bottom: 60px;
+    }
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; color: var(--gold);
+      letter-spacing: 6px; margin-bottom: 16px;
+    }
+    .footer-brand-text {
+      font-size: 11px; line-height: 2; color: var(--grey);
+      max-width: 280px;
+    }
+    .footer-social {
+      display: flex; gap: 16px; margin-top: 24px;
+    }
+    .social-link {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--grey); font-size: 14px;
+      text-decoration: none; transition: all 0.3s;
+    }
+    .social-link:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-col-title {
+      font-size: 10px; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 12px; }
+    .footer-links a {
+      font-size: 11px; color: var(--grey);
+      text-decoration: none; letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 30px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-copy {
+      font-size: 10px; color: var(--grey); letter-spacing: 2px;
+    }
+    .footer-legal {
+      display: flex; gap: 30px;
+    }
+    .footer-legal a {
+      font-size: 10px; color: var(--grey);
+      text-decoration: none; letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    .footer-legal a:hover { color: var(--gold); }
+
+    /* ── MODAL ─────────────────────────────────────────────────── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.9);
+      display: none; align-items: center; justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--dark2);
+      max-width: 900px; width: 95%; max-height: 90vh;
+      overflow-y: auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 20px; right: 20px;
+      background: none; border: none;
+      color: var(--grey); font-size: 24px;
+      cursor: pointer; z-index: 10;
+      transition: color 0.3s;
+    }
+    .modal-close:hover { color: var(--gold); }
+    .modal-img {
+      background: radial-gradient(circle, #1e1c14, #0a0a08);
+      display: flex; align-items: center; justify-content: center;
+      min-height: 400px; padding: 40px;
+    }
+    .modal-img img {
+      max-width: 100%; max-height: 320px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 60px rgba(0,0,0,0.7));
+    }
+    .modal-info { padding: 50px 40px; }
+    .modal-ref { font-size: 10px; letter-spacing: 4px; color: var(--gold); margin-bottom: 12px; }
+    .modal-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px; font-weight: 300; margin-bottom: 8px;
+    }
+    .modal-desc { font-size: 11px; color: var(--grey); line-height: 2; margin-bottom: 30px; }
+    .modal-specs { margin-bottom: 30px; }
+    .modal-spec-row {
+      display: flex; justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 11px;
+    }
+    .modal-spec-row span:first-child { color: var(--grey); letter-spacing: 1px; }
+    .modal-spec-row span:last-child { color: var(--light); }
+    .modal-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px; color: var(--gold); margin-bottom: 24px;
+    }
+    .modal-buy {
+      width: 100%; background: var(--gold);
+      border: none; color: var(--black);
+      padding: 18px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px; letter-spacing: 3px;
+      text-transform: uppercase; cursor: pointer;
+      font-weight: 600; transition: background 0.3s;
+    }
+    .modal-buy:hover { background: var(--gold2); }
+
+    /* ── CURSOR ────────────────────────────────────────────────── */
+    .cursor {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      position: fixed; pointer-events: none;
+      z-index: 9999; transform: translate(-50%,-50%);
+      transition: transform 0.1s;
+      mix-blend-mode: difference;
+    }
+    .cursor-ring {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.5);
+      position: fixed; pointer-events: none;
+      z-index: 9998; transform: translate(-50%,-50%);
+      transition: all 0.15s ease;
+    }
+
+    /* ── RESPONSIVE ────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      nav { padding: 20px 30px; }
+      nav.scrolled { padding: 14px 30px; }
+      .nav-links { display: none; }
+      section { padding: 80px 30px; }
+      .featured-grid { grid-template-columns: 1fr 1fr; }
+      .featured-card:first-child { grid-row: auto; aspect-ratio: 3/4; }
+      #about { grid-template-columns: 1fr; }
+      .about-visual { min-height: 300px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .specs-grid { grid-template-columns: repeat(3,1fr); }
+      .promise-grid { grid-template-columns: 1fr; gap: 30px; }
+    }
+    @media (max-width: 640px) {
+      .hero-watch { display: none; }
+      .hero-content { max-width: 100%; }
+      .hero-stats { left: 30px; gap: 30px; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .modal { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .specs-grid { grid-template-columns: repeat(2,1fr); }
+      #specs-strip { padding: 60px 30px; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-input { border-right: 1px solid rgba(201,168,76,0.3); border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">RH <span>TIMEPIECES</span></a>
+  <ul class="nav-links">
+    <li><a href="#featured">Colección</a></li>
+    <li><a href="#collection">Catálogo</a></li>
+    <li><a href="#about">Nosotros</a></li>
+    <li><a href="#newsletter">Contacto</a></li>
+  </ul>
+  <a href="#collection" class="nav-cta">Ver Colección</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-content">
+    <div class="hero-label">Primera Colección 2026</div>
+    <h1 class="hero-title">El Tiempo<br>como <em>Arte</em></h1>
+    <p class="hero-subtitle">Relojería de alta gama para quienes entienden que el lujo no es un precio — es una actitud.</p>
+    <div class="hero-buttons">
+      <a href="#collection" class="btn-primary">Descubrir Colección</a>
+      <a href="#about" class="btn-secondary">Nuestra historia</a>
+    </div>
+  </div>
+  <div class="hero-watch">
+    <div class="watch-placeholder">⌚</div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">10</div>
+      <div class="stat-label">Modelos exclusivos</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100M</div>
+      <div class="stat-label">Resistencia agua</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Años de garantía</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item">Cristal de Zafiro</div>
+    <div class="marquee-item">Acero 316L</div>
+    <div class="marquee-item">Seiko VK63</div>
+    <div class="marquee-item">100M Waterproof</div>
+    <div class="marquee-item">Cronógrafo</div>
+    <div class="marquee-item">Garantía 3 años</div>
+    <div class="marquee-item">MOQ: 1 unidad</div>
+    <div class="marquee-item">Envío Directo</div>
+    <div class="marquee-item">Cristal de Zafiro</div>
+    <div class="marquee-item">Acero 316L</div>
+    <div class="marquee-item">Seiko VK63</div>
+    <div class="marquee-item">100M Waterproof</div>
+    <div class="marquee-item">Cronógrafo</div>
+    <div class="marquee-item">Garantía 3 años</div>
+    <div class="marquee-item">MOQ: 1 unidad</div>
+    <div class="marquee-item">Envío Directo</div>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<section id="featured">
+  <div class="section-label">Lo más destacado</div>
+  <h2 class="section-title">Piezas <em>Icónicas</em></h2>
+  <div class="featured-grid">
+    <div class="featured-card" onclick="openModal(6)">
+      <div class="product-img-wrap" style="aspect-ratio:unset;height:100%;background:radial-gradient(circle at 40% 40%, #1e1c14, #0a0a08);">
+        <img src="watches/watch6.png" onerror="this.style.display='none'" style="width:70%;height:auto;object-fit:contain;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)" />
+        <span style="font-size:80px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">⌚</span>
+      </div>
+      <div class="featured-card-content">
+        <div class="featured-card-num">RH — 06</div>
+        <div class="featured-card-name">Two-Tone White</div>
+        <div class="featured-card-price">169 € — Más vendido</div>
+      </div>
+    </div>
+    <div class="featured-card" onclick="openModal(9)">
+      <div class="product-img-wrap" style="aspect-ratio:3/4;height:auto;background:radial-gradient(circle, #0d1a0d, #080808);">
+        <span style="font-size:60px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">⌚</span>
+      </div>
+      <div class="featured-card-content">
+        <div class="featured-card-num">RH — 09</div>
+        <div class="featured-card-name">Green Signature</div>
+        <div class="featured-card-price">169 € — Edición firma</div>
+      </div>
+    </div>
+    <div class="featured-card" onclick="openModal(7)">
+      <div class="product-img-wrap" style="aspect-ratio:3/4;height:auto;background:radial-gradient(circle, #1a1208, #080808);">
+        <span style="font-size:60px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">⌚</span>
+      </div>
+      <div class="featured-card-content">
+        <div class="featured-card-num">RH — 07</div>
+        <div class="featured-card-name">Two-Tone Salmon</div>
+        <div class="featured-card-price">179 € — Más exclusivo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section id="collection">
+  <div class="section-label">Catálogo completo</div>
+  <h2 class="section-title">La <em>Colección</em></h2>
+  <div class="collection-filters">
+    <button class="filter-btn active" onclick="filterProducts('all',this)">Todos</button>
+    <button class="filter-btn" onclick="filterProducts('goma',this)">Correa Goma</button>
+    <button class="filter-btn" onclick="filterProducts('acero',this)">Brazalete Acero</button>
+    <button class="filter-btn" onclick="filterProducts('doston',this)">Dos Tonos</button>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- SPECS STRIP -->
+<div id="specs-strip">
+  <div class="specs-grid">
+    <div>
+      <div class="spec-icon">💎</div>
+      <div class="spec-value">Zafiro</div>
+      <div class="spec-key">Cristal</div>
+    </div>
+    <div>
+      <div class="spec-icon">⚙️</div>
+      <div class="spec-value">Seiko VK63</div>
+      <div class="spec-key">Movimiento</div>
+    </div>
+    <div>
+      <div class="spec-icon">🔩</div>
+      <div class="spec-value">316L</div>
+      <div class="spec-key">Acero quirúrgico</div>
+    </div>
+    <div>
+      <div class="spec-icon">💧</div>
+      <div class="spec-value">100M</div>
+      <div class="spec-key">Resistencia agua</div>
+    </div>
+    <div>
+      <div class="spec-icon">📏</div>
+      <div class="spec-value">40mm</div>
+      <div class="spec-key">Diámetro caja</div>
+    </div>
+    <div>
+      <div class="spec-icon">🛡️</div>
+      <div class="spec-value">3 años</div>
+      <div class="spec-key">Garantía</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual">
+    <div class="about-visual-ring">⌚</div>
+  </div>
+  <div class="about-text">
+    <div class="section-label">Nuestra historia</div>
+    <p class="about-quote">El lujo no se mide en euros.<br>Se mide en <em>carácter</em>.</p>
+    <p class="about-body">RH Timepieces nació de una convicción simple: el hombre que sabe lo que vale no necesita una marca millonaria en la muñeca. Necesita un reloj que hable por él.<br><br>Cada pieza de nuestra colección está seleccionada con los más altos estándares — cristal de zafiro, acero quirúrgico 316L, movimiento Seiko — porque creemos que la calidad no debería ser un privilegio.</p>
+    <div class="about-signature">RH</div>
+  </div>
+</section>
+
+<!-- PROMISE -->
+<section id="promise">
+  <div class="section-label">Por qué RH</div>
+  <h2 class="section-title">Nuestra <em>Promesa</em></h2>
+  <div class="promise-grid">
+    <div class="promise-item">
+      <span class="promise-icon">💎</span>
+      <div class="promise-title">Calidad Real</div>
+      <p class="promise-text">Cristal de zafiro, acero 316L y movimiento Seiko. Los mismos materiales de relojes que cuestan miles de euros, a un precio que tiene sentido.</p>
+    </div>
+    <div class="promise-item">
+      <span class="promise-icon">🚀</span>
+      <div class="promise-title">Envío Rápido</div>
+      <p class="promise-text">Tu pedido llega directamente a tu puerta. Sin intermediarios, sin esperas innecesarias. Seguimiento en tiempo real desde el primer momento.</p>
+    </div>
+    <div class="promise-item">
+      <span class="promise-icon">🛡️</span>
+      <div class="promise-title">Garantía 3 Años</div>
+      <p class="promise-text">Respaldamos cada reloj con 3 años de garantía completa. Si algo falla, nosotros lo resolvemos. Sin preguntas, sin complicaciones.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div class="section-label" style="justify-content:center">Acceso exclusivo</div>
+  <h2 class="newsletter-title">Sé el <em style="font-style:italic;color:var(--gold)">primero</em> en saberlo</h2>
+  <p class="newsletter-sub">Nuevos modelos · Lanzamientos exclusivos · Ofertas para miembros</p>
+  <form class="newsletter-form" onsubmit="return false;">
+    <input class="newsletter-input" type="email" placeholder="Tu correo electrónico" />
+    <button class="newsletter-submit">Unirme</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">RH TIMEPIECES</div>
+      <p class="footer-brand-text">Relojería de alta gama para hombres que entienden el valor del tiempo. Calidad, profesionalidad y carisma en cada pieza.</p>
+      <div class="footer-social">
+        <a class="social-link" href="#" title="Instagram">📷</a>
+        <a class="social-link" href="#" title="TikTok">🎵</a>
+        <a class="social-link" href="#" title="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Colección</div>
+      <ul class="footer-links">
+        <li><a href="#">Correa Goma</a></li>
+        <li><a href="#">Brazalete Acero</a></li>
+        <li><a href="#">Dos Tonos</a></li>
+        <li><a href="#">Ediciones Especiales</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Información</div>
+      <ul class="footer-links">
+        <li><a href="#">Sobre RH</a></li>
+        <li><a href="#">Cómo Comprar</a></li>
+        <li><a href="#">Envíos</a></li>
+        <li><a href="#">Garantía</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contacto</div>
+      <ul class="footer-links">
+        <li><a href="#">WhatsApp</a></li>
+        <li><a href="#">Email</a></li>
+        <li><a href="#">Instagram DM</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 RH Timepieces. Todos los derechos reservados.</div>
+    <div class="footer-legal">
+      <a href="#">Privacidad</a>
+      <a href="#">Términos</a>
+      <a href="#">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-img">
+      <img id="modalImg" src="" alt="" onerror="this.style.display='none'" />
+      <span id="modalEmoji" style="font-size:80px">⌚</span>
+    </div>
+    <div class="modal-info">
+      <div class="modal-ref" id="modalRef"></div>
+      <div class="modal-name" id="modalName"></div>
+      <div class="modal-desc" id="modalDesc"></div>
+      <div class="modal-specs" id="modalSpecs"></div>
+      <div class="modal-price" id="modalPrice"></div>
+      <button class="modal-buy" onclick="alert('¡Añadido al carrito! Conecta tu pasarela de pago para activar las compras.')">Comprar Ahora</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const products = [
+    { id:1,  name:"RH Classic Silver White",  ref:"RH-01", desc:"Esfera blanca · Bisel negro · Correa goma negra", style:"goma",   price:"149 €", badge:"",           movimiento:"Seiko VK63", cristal:"Zafiro", agua:"100M", caja:"Plata / Acero 316L", correa:"Goma negra", diametro:"40mm" },
+    { id:2,  name:"RH Classic Silver Black",  ref:"RH-02", desc:"Esfera negra · Bisel negro · Correa goma negra",  style:"goma",   price:"149 €", badge:"",           movimiento:"Seiko VK63", cristal:"Zafiro", agua:"100M", caja:"Plata / Acero 316L", correa:"Goma negra", diametro:"40mm" },
+    { id:3,  name:"RH Rose Gold Edition",     ref:"RH-03", desc:"Esfera blanca · Caja oro rosa · Correa goma",     style:"goma",   price:"159 €", badge:"Premium",    movimiento:"Seiko VK63", cristal:"Zafiro", agua:"100M", caja:"Oro rosa / 316L",    correa:"Goma negra", diametro:"40mm" },
+    { id:4,  name:"RH Steel Classic White",   ref:"RH-04", desc:"Esfera blanca · Bisel negro · Brazalete acero",   style:"acero",  price:"159 €", badge:"",           movimiento:"Seiko VK63", cristal:"Zafiro", agua:"100M", caja:"Plata / Acero 316L", correa:"Brazalete acero", diametro:"40mm" },
+    { id:5,  name:"RH Steel Classic Black",   ref:"RH-05", desc:"Esfera negra · Bisel negro · Brazalete acero",    style:"acero",  price:"159 €", badge:"",           movimiento:"Seiko VK63", cristal:"Zafiro", agua:"100M", caja:"Plata / Acero 316L", correa:"Brazalete acero", diametro:"40mm" },
+    { id:6,  name:"RH Two-Tone White",        ref:"RH-06", desc:"Esfera blanca · Bisel oro rosa · Brazalete bicolor", style:"doston", price:"169 €", badge:"Más vendido", movimiento:"Seiko VK63", cristal:"Zafiro", agua:"100M", caja:"Dos tonos / 316L", correa:"Bicolor plata+oro rosa", diametro:"40mm" },
+    { id:7,  name:"RH Two-Tone Salmon",       ref:"RH-07", desc:"Esfera salmón · Bisel oro rosa · Brazalete bicolor", style:"doston", price:"179 €", badge:"Exclusivo",  movimiento:"Seiko VK63", cristal:"Zafiro", agua:"100M", caja:"Dos tonos / 316L", correa:"Bicolor plata+oro rosa", diametro:"40mm" },
+    { id:8,  name:"RH Blue Bezel Edition",    ref:"RH-08", desc:"Esfera blanca · Bisel azul cerámico · Brazalete acero", style:"acero", price:"169 €", badge:"",          movimiento:"Seiko VK63", cristal:"Zafiro", agua:"100M", caja:"Plata / Acero 316L", correa:"Brazalete acero", diametro:"40mm" },
+    { id:9,  name:"RH Green Signature",       ref:"RH-09", desc:"Esfera blanca · Bisel verde cerámico · Brazalete acero", style:"acero", price:"169 €", badge:"Firma RH",  movimiento:"Seiko VK63", cristal:"Zafiro", agua:"100M", caja:"Plata / Acero 316L", correa:"Brazalete acero", diametro:"40mm" },
+    { id:10, name:"RH Two-Tone Black",        ref:"RH-10", desc:"Esfera negra · Bisel oro rosa · Brazalete bicolor",  style:"doston", price:"169 €", badge:"",           movimiento:"Seiko VK63", cristal:"Zafiro", agua:"100M", caja:"Dos tonos / 316L", correa:"Bicolor plata+oro rosa", diametro:"40mm" },
+  ];
+
+  let activeFilter = 'all';
+
+  function renderProducts(filter) {
+    const grid = document.getElementById('productsGrid');
+    const filtered = filter === 'all' ? products : products.filter(p => p.style === filter);
+    grid.innerHTML = filtered.map(p => `
+      <div class="product-card" onclick="openModal(${p.id})">
+        <div class="product-img-wrap">
+          <span style="font-size:70px;position:relative;z-index:1">⌚</span>
+          ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
+        </div>
+        <div class="product-info">
+          <div class="product-ref">${p.ref}</div>
+          <div class="product-name">${p.name}</div>
+          <div class="product-desc">${p.desc}</div>
+          <div class="product-footer">
+            <div class="product-price">${p.price}</div>
+            <button class="add-btn" onclick="event.stopPropagation();alert('Añadir al carrito — conecta tu pasarela de pago')">+</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function filterProducts(filter, btn) {
+    activeFilter = filter;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderProducts(filter);
+  }
+
+  function openModal(id) {
+    const p = products.find(x => x.id === id);
+    if (!p) return;
+    document.getElementById('modalRef').textContent   = p.ref;
+    document.getElementById('modalName').textContent  = p.name;
+    document.getElementById('modalDesc').textContent  = p.desc;
+    document.getElementById('modalPrice').textContent = p.price;
+    document.getElementById('modalSpecs').innerHTML   = `
+      <div class="modal-spec-row"><span>Movimiento</span><span>${p.movimiento}</span></div>
+      <div class="modal-spec-row"><span>Cristal</span><span>${p.cristal}</span></div>
+      <div class="modal-spec-row"><span>Resistencia</span><span>${p.agua}</span></div>
+      <div class="modal-spec-row"><span>Caja</span><span>${p.caja}</span></div>
+      <div class="modal-spec-row"><span>Correa</span><span>${p.correa}</span></div>
+      <div class="modal-spec-row"><span>Diámetro</span><span>${p.diametro}</span></div>
+      <div class="modal-spec-row"><span>Garantía</span><span>3 años</span></div>
+    `;
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(e) {
+    if (e && e.target !== document.getElementById('modalOverlay') && e.type !== 'click') return;
+    if (e && e.currentTarget === document.getElementById('modal')) return;
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('modal').addEventListener('click', e => e.stopPropagation());
+
+  // NAV scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Custom cursor (desktop only)
+  if (window.innerWidth > 768) {
+    const cur = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => {
+      cur.style.left  = e.clientX + 'px';
+      cur.style.top   = e.clientY + 'px';
+      rx += (e.clientX - rx) * 0.12;
+      ry += (e.clientY - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+    });
+    requestAnimationFrame(function loop() {
+      rx += (parseFloat(cur.style.left) - rx) * 0.12;
+      ry += (parseFloat(cur.style.top)  - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      requestAnimationFrame(loop);
+    });
+  }
+
+  // Intersection observer — fade in
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.promise-item, .spec-icon').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+
+  // Init
+  renderProducts('all');
+</script>
+</body>
+</html>
