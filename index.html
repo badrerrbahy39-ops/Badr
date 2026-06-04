@@ -401,6 +401,8 @@
       transition: all 0.3s;
     }
     .p-btn:hover { background: var(--green); color: var(--white); border-color: var(--green); }
+    .p-btn-link { text-decoration: none; font-size: 18px; background: rgba(15,76,58,0.15); border-color: var(--green); color: var(--green); }
+    .p-btn-link:hover { background: var(--green); color: var(--white); }
 
     /* ── SPECS ───────────────────────────────────── */
     #specs {
@@ -1148,7 +1150,7 @@
         <li><a href="#">Correa Goma</a></li>
         <li><a href="#">Brazalete Acero</a></li>
         <li><a href="#">Dos Tonos</a></li>
-        <li><a href="#">Green Signature</a></li>
+        <li><a href="green-signature.html">Green Signature</a></li>
       </ul>
     </div>
     <div>
@@ -1208,7 +1210,7 @@ const watches = [
   {id:6, ref:"RH-06", name:"Two-Tone White",       desc:"Esfera blanca · Bisel oro rosa · Brazalete bicolor",   style:"doston", price:"169 €", badge:"Más vendido",mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Dos tonos / 316L",correa:"Bicolor plata+oro rosa",diam:"40mm"},
   {id:7, ref:"RH-07", name:"Two-Tone Salmon",      desc:"Esfera salmón · Bisel oro rosa · Brazalete bicolor",   style:"doston", price:"179 €", badge:"Exclusivo",  mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Dos tonos / 316L",correa:"Bicolor plata+oro rosa",diam:"40mm"},
   {id:8, ref:"RH-08", name:"Blue Bezel Edition",   desc:"Esfera blanca · Bisel azul cerámico · Brazalete acero",style:"acero",  price:"169 €", badge:"",           mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",diam:"40mm"},
-  {id:9, ref:"RH-09", name:"Green Signature",      desc:"Esfera blanca · Bisel verde cerámico · Brazalete acero",style:"acero", price:"169 €", badge:"Firma RH",   mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",diam:"40mm"},
+  {id:9, ref:"RH-09", name:"Green Signature",      desc:"Esfera blanca · Bisel verde cerámico · Brazalete acero",style:"acero", price:"169 €", badge:"Firma RH",   mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",diam:"40mm",link:"green-signature.html"},
   {id:10,ref:"RH-10", name:"Two-Tone Black",       desc:"Esfera negra · Bisel oro rosa · Brazalete bicolor",    style:"doston", price:"169 €", badge:"",           mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Dos tonos / 316L",correa:"Bicolor plata+oro rosa",diam:"40mm"},
 ];
 
@@ -1226,7 +1228,9 @@ function renderGrid(f) {
         <div class="p-desc">${w.desc}</div>
         <div class="p-footer">
           <div class="p-price">${w.price}</div>
-          <button class="p-btn" onclick="event.stopPropagation()">+</button>
+          ${w.link
+            ? `<a class="p-btn p-btn-link" href="${w.link}" onclick="event.stopPropagation()">→</a>`
+            : `<button class="p-btn" onclick="event.stopPropagation()">+</button>`}
         </div>
       </div>
     </div>

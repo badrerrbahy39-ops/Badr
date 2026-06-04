@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RH Luxury — Green Signature · For Those Who Build</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --green:#0F4C3A;--green2:#1a6b54;--green3:#0a3329;
+      --black:#0A0A0A;--dark:#111;--dark2:#181818;
+      --silver:#D9D9D9;--silver2:#AAAAAA;--white:#fff;
+    }
+    html{scroll-behavior:smooth}
+    body{background:var(--black);color:var(--white);font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden}
+    ::-webkit-scrollbar{width:3px}
+    ::-webkit-scrollbar-thumb{background:var(--green)}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:22px 60px;transition:all .4s}
+    nav.scrolled{background:rgba(10,10,10,.97);backdrop-filter:blur(20px);padding:14px 60px;border-bottom:1px solid rgba(15,76,58,.3)}
+    .nav-back{display:flex;align-items:center;gap:10px;color:var(--silver2);text-decoration:none;font-size:10px;letter-spacing:3px;text-transform:uppercase;transition:color .3s}
+    .nav-back:hover{color:var(--white)}
+    .nav-back::before{content:'←';font-size:16px}
+    .nav-logo-svg{height:44px;width:auto;transition:height .4s}
+    nav.scrolled .nav-logo-svg{height:32px}
+    .nav-buy{background:var(--green);color:var(--white);border:none;padding:12px 32px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;font-weight:600;text-decoration:none;transition:background .3s}
+    .nav-buy:hover{background:var(--green2)}
+
+    /* HERO */
+    #hero{height:100vh;min-height:700px;position:relative;overflow:hidden;display:flex;align-items:flex-end}
+    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+    .hero-img-placeholder{position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,#0d2318,#050a07);display:flex;align-items:center;justify-content:center;font-size:120px}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.95) 0%,rgba(10,10,10,.4) 50%,rgba(10,10,10,.1) 100%)}
+    .hero-content{position:relative;z-index:2;padding:0 60px 80px;width:100%}
+    .hero-tag{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--green2);margin-bottom:16px;display:flex;align-items:center;gap:14px}
+    .hero-tag::before{content:'';display:block;width:36px;height:1px;background:var(--green2)}
+    .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,7vw,96px);font-weight:300;line-height:.95;margin-bottom:20px}
+    .hero-title em{font-style:italic;color:var(--green2)}
+    .hero-sub{font-size:12px;color:var(--silver2);letter-spacing:2px;margin-bottom:40px}
+    .hero-actions{display:flex;gap:16px;align-items:center}
+    .btn-buy{background:var(--green);color:var(--white);border:none;padding:18px 52px;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;font-weight:600;transition:all .3s;text-decoration:none;display:inline-block}
+    .btn-buy:hover{background:var(--green2);transform:translateY(-2px)}
+    .btn-outline{border:1px solid rgba(217,217,217,.3);color:var(--silver2);padding:18px 36px;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;background:transparent;transition:all .3s}
+    .btn-outline:hover{border-color:var(--white);color:var(--white)}
+    .hero-price{position:absolute;top:50%;right:60px;transform:translateY(-50%);text-align:right;z-index:2}
+    .price-tag{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:var(--white);line-height:1}
+    .price-sub{font-size:10px;letter-spacing:3px;color:var(--silver2);text-transform:uppercase;margin-top:8px}
+
+    /* SPECS STRIP */
+    #specs-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(15,76,58,.2);border-bottom:1px solid rgba(15,76,58,.2)}
+    .spec-cell{padding:36px 32px;border-right:1px solid rgba(15,76,58,.15);display:flex;align-items:center;gap:20px;background:var(--dark)}
+    .spec-cell:last-child{border-right:none}
+    .spec-icon{font-size:28px;flex-shrink:0}
+    .spec-val{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--green2);margin-bottom:4px}
+    .spec-key{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--silver2)}
+
+    /* GALLERY */
+    #gallery{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:3px;background:var(--black)}
+    .gallery-main{grid-row:span 2;position:relative;overflow:hidden;min-height:700px}
+    .gallery-item{position:relative;overflow:hidden}
+    .gallery-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+    .gallery-img-placeholder{width:100%;aspect-ratio:1;background:radial-gradient(circle,#0d2318,#050a07);display:flex;align-items:center;justify-content:center;font-size:60px}
+    .gallery-main .gallery-img-placeholder{aspect-ratio:unset;height:100%;min-height:700px}
+    .gallery-item:hover .gallery-img{transform:scale(1.04)}
+    .gallery-label{position:absolute;bottom:24px;left:24px;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5)}
+
+    /* PRODUCT DETAIL */
+    #detail{display:grid;grid-template-columns:1fr 1fr;background:var(--dark);min-height:600px}
+    .detail-img-wrap{background:radial-gradient(ellipse at 40% 40%,#0d2318,#080808);display:flex;align-items:center;justify-content:center;padding:60px;min-height:600px}
+    .detail-img-wrap img{max-width:100%;max-height:500px;object-fit:contain;filter:drop-shadow(0 30px 80px rgba(0,0,0,.8))}
+    .detail-img-placeholder{font-size:120px}
+    .detail-info{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid rgba(15,76,58,.15)}
+    .detail-tag{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--green2);margin-bottom:16px}
+    .detail-name{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,56px);font-weight:300;line-height:1.05;margin-bottom:8px}
+    .detail-ref{font-size:10px;letter-spacing:3px;color:var(--silver2);margin-bottom:32px}
+    .detail-desc{font-size:13px;line-height:2.1;color:var(--silver2);margin-bottom:40px;max-width:460px}
+    .detail-desc strong{color:var(--white);font-weight:500}
+    .specs-table{margin-bottom:40px;border-top:1px solid rgba(15,76,58,.15)}
+    .spec-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px}
+    .spec-row span:first-child{color:var(--silver2);letter-spacing:1px}
+    .spec-row span:last-child{color:var(--white);font-weight:500}
+    .detail-price-wrap{display:flex;align-items:baseline;gap:16px;margin-bottom:32px}
+    .detail-price{font-family:'Cormorant Garamond',serif;font-size:52px;color:var(--white)}
+    .detail-price-note{font-size:10px;color:var(--silver2);letter-spacing:2px}
+    .btn-buy-full{width:100%;background:var(--green);color:var(--white);border:none;padding:20px;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;font-weight:700;transition:background .3s;margin-bottom:12px}
+    .btn-buy-full:hover{background:var(--green2)}
+    .btn-wishlist{width:100%;background:transparent;border:1px solid rgba(15,76,58,.3);color:var(--silver2);padding:16px;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:all .3s}
+    .btn-wishlist:hover{border-color:var(--green2);color:var(--white)}
+    .guarantee{display:flex;gap:32px;margin-top:28px;padding-top:28px;border-top:1px solid rgba(15,76,58,.15)}
+    .guarantee-item{display:flex;flex-direction:column;gap:4px}
+    .guarantee-icon{font-size:20px}
+    .guarantee-text{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--silver2)}
+
+    /* LIFESTYLE */
+    #lifestyle{padding:100px 60px;background:var(--black)}
+    .section-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--green2);margin-bottom:16px;display:flex;align-items:center;gap:16px}
+    .section-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--green2)}
+    .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,56px);font-weight:300;margin-bottom:60px}
+    .section-title em{font-style:italic;color:var(--green2)}
+    .lifestyle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+    .ls-item{position:relative;overflow:hidden;cursor:pointer}
+    .ls-item img{width:100%;aspect-ratio:1;object-fit:cover;display:block;transition:transform .6s ease}
+    .ls-item:hover img{transform:scale(1.05)}
+    .ls-placeholder{width:100%;aspect-ratio:1;background:radial-gradient(circle,#0d2318,#050a07);display:flex;align-items:center;justify-content:center;font-size:48px}
+    .ls-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.8),transparent);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:24px}
+    .ls-item:hover .ls-overlay{opacity:1}
+    .ls-caption{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--white)}
+
+    /* MANIFESTO STRIP */
+    #manifesto-strip{background:var(--green3);border-top:1px solid rgba(15,76,58,.3);border-bottom:1px solid rgba(15,76,58,.3);padding:80px 60px;text-align:center}
+    .manifesto-text{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,52px);font-weight:300;line-height:1.2;margin-bottom:20px}
+    .manifesto-text strong{font-style:italic;color:var(--green2)}
+    .manifesto-sub{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--silver2)}
+
+    /* CTA SECTION */
+    #cta{padding:100px 60px;background:var(--dark2);text-align:center}
+    .cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,56px);font-weight:300;margin-bottom:16px}
+    .cta-sub{font-size:12px;color:var(--silver2);letter-spacing:2px;margin-bottom:48px}
+    .cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+    /* FOOTER */
+    footer{background:var(--black);border-top:1px solid rgba(15,76,58,.2);padding:48px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+    .footer-copy{font-size:10px;color:var(--silver2);letter-spacing:2px}
+    .footer-links{display:flex;gap:28px}
+    .footer-links a{font-size:10px;color:var(--silver2);text-decoration:none;letter-spacing:1px;transition:color .3s}
+    .footer-links a:hover{color:var(--white)}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      nav{padding:18px 28px}
+      nav.scrolled{padding:14px 28px}
+      #hero .hero-content{padding:0 28px 60px}
+      .hero-price{right:28px}
+      #gallery{grid-template-columns:1fr}
+      .gallery-main{grid-row:auto}
+      #detail{grid-template-columns:1fr}
+      .detail-img-wrap{min-height:400px}
+      #lifestyle .lifestyle-grid{grid-template-columns:1fr 1fr}
+      section,#lifestyle,#manifesto-strip,#cta{padding:64px 28px}
+      #specs-strip{grid-template-columns:1fr 1fr}
+      footer{padding:40px 28px}
+    }
+    @media(max-width:600px){
+      .hero-price{display:none}
+      .hero-title{font-size:48px}
+      .lifestyle-grid{grid-template-columns:1fr!important}
+      .cta-actions{flex-direction:column;align-items:center}
+      .specs-strip{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-back">Volver a la colección</a>
+  <svg class="nav-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+    <defs>
+      <linearGradient id="ng1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#0F4C3A"/><stop offset="55%" stop-color="#1e8a66"/><stop offset="100%" stop-color="#0d3d2e"/>
+      </linearGradient>
+      <linearGradient id="ng2" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#888"/><stop offset="50%" stop-color="#D9D9D9"/><stop offset="100%" stop-color="#999"/>
+      </linearGradient>
+    </defs>
+    <path d="M95 48 Q52 22 68 72 Q56 118 92 148" fill="none" stroke="url(#ng1)" stroke-width="5.5" stroke-linecap="round" opacity="0.9"/>
+    <text x="88" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" font-style="italic" fill="url(#ng1)" letter-spacing="-6">R</text>
+    <text x="206" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" fill="url(#ng1)">H</text>
+    <line x1="68" y1="194" x2="332" y2="194" stroke="url(#ng2)" stroke-width="1.2" opacity="0.6"/>
+    <text x="200" y="236" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="30" font-weight="300" letter-spacing="13" fill="url(#ng2)" text-anchor="middle">LUXURY</text>
+  </svg>
+  <a href="#detail" class="nav-buy">Comprar — 169 €</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <!-- IMAGEN 5: la del fondo negro con reloj centrado y logo arriba -->
+  <img src="rh09-hero.jpg" alt="RH Green Signature" class="hero-img"
+       onerror="this.style.display='none';document.getElementById('heroPlaceholder').style.display='flex'"/>
+  <div id="heroPlaceholder" class="hero-img-placeholder" style="display:none">⌚</div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">RH-09 · Firma de la Colección</div>
+    <h1 class="hero-title">Green<br><em>Signature</em></h1>
+    <p class="hero-sub">Bisel Verde Cerámico · Brazalete Acero 316L · Cristal Zafiro</p>
+    <div class="hero-actions">
+      <a href="#detail" class="btn-buy">Comprar Ahora</a>
+      <button class="btn-outline" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">Ver Galería</button>
+    </div>
+  </div>
+  <div class="hero-price">
+    <div class="price-tag">169€</div>
+    <div class="price-sub">Envío gratuito · Garantía 3 años</div>
+  </div>
+</section>
+
+<!-- SPECS STRIP -->
+<div id="specs-strip">
+  <div class="spec-cell">
+    <span class="spec-icon">💎</span>
+    <div><div class="spec-val">Cristal Zafiro</div><div class="spec-key">Máxima resistencia a los arañazos</div></div>
+  </div>
+  <div class="spec-cell">
+    <span class="spec-icon">🔩</span>
+    <div><div class="spec-val">Acero 316L</div><div class="spec-key">Acero inoxidable de alta calidad</div></div>
+  </div>
+  <div class="spec-cell">
+    <span class="spec-icon">💧</span>
+    <div><div class="spec-val">100M</div><div class="spec-key">Resistencia al agua para tu día a día</div></div>
+  </div>
+  <div class="spec-cell">
+    <span class="spec-icon">⚙️</span>
+    <div><div class="spec-val">Seiko VK63</div><div class="spec-key">Movimiento de cuarzo de alto rendimiento</div></div>
+  </div>
+</div>
+
+<!-- GALLERY 2x2 -->
+<div id="gallery">
+  <!-- IMAGEN 2: hombre en cafetería con portátil -->
+  <div class="gallery-main gallery-item">
+    <img src="rh09-cafe.jpg" alt="RH Green Signature lifestyle" class="gallery-img"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+    <div class="gallery-img-placeholder" style="display:none">☕</div>
+    <div class="gallery-label">The Builder's Watch</div>
+  </div>
+  <!-- IMAGEN 3: mano sobre cuaderno de objetivos -->
+  <div class="gallery-item">
+    <img src="rh09-goals.jpg" alt="RH Luxury — Builder Goals" class="gallery-img"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+    <div class="gallery-img-placeholder" style="display:none">📓</div>
+    <div class="gallery-label">Built For Builders</div>
+  </div>
+  <!-- IMAGEN 4: noche con ciudad al fondo -->
+  <div class="gallery-item">
+    <img src="rh09-night.jpg" alt="RH Luxury — Night Edition" class="gallery-img"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+    <div class="gallery-img-placeholder" style="display:none">🌃</div>
+    <div class="gallery-label">For Those Who Build</div>
+  </div>
+</div>
+
+<!-- PRODUCT DETAIL -->
+<section id="detail">
+  <!-- IMAGEN 1: ficha técnica / producto con specs -->
+  <div class="detail-img-wrap">
+    <img src="rh09-specs.jpg" alt="RH Green Signature — Especificaciones"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+    <div class="detail-img-placeholder" style="display:none">⌚</div>
+  </div>
+  <div class="detail-info">
+    <div class="detail-tag">RH-09 · Green Signature</div>
+    <h2 class="detail-name">Green<br>Signature</h2>
+    <div class="detail-ref">Referencia RH-09 · Primera Colección 2026</div>
+    <p class="detail-desc">
+      El reloj que define la identidad de <strong>RH Luxury</strong>.<br><br>
+      El bisel verde cerámico no es un detalle — es una declaración. Para quienes construyen en silencio mientras el mundo duerme. Para quienes llevan sus objetivos en la muñeca.<br><br>
+      <strong>Vale cada segundo.</strong>
+    </p>
+    <div class="specs-table">
+      <div class="spec-row"><span>Movimiento</span><span>Seiko VK63 Meca-Quartz</span></div>
+      <div class="spec-row"><span>Cristal</span><span>Zafiro antirreflejo</span></div>
+      <div class="spec-row"><span>Resistencia al agua</span><span>100M / 10 ATM</span></div>
+      <div class="spec-row"><span>Material caja</span><span>Acero inoxidable 316L</span></div>
+      <div class="spec-row"><span>Bisel</span><span>Verde cerámico · Taquímetro</span></div>
+      <div class="spec-row"><span>Correa</span><span>Brazalete acero 316L</span></div>
+      <div class="spec-row"><span>Diámetro</span><span>40mm · 12mm grosor</span></div>
+      <div class="spec-row"><span>Funciones</span><span>Cronógrafo + Fecha</span></div>
+      <div class="spec-row"><span>Garantía</span><span>3 años completa</span></div>
+    </div>
+    <div class="detail-price-wrap">
+      <div class="detail-price">169 €</div>
+      <div class="detail-price-note">Envío gratuito incluido</div>
+    </div>
+    <button class="btn-buy-full" onclick="alert('Conecta tu pasarela de pago para activar compras')">
+      Comprar Ahora — 169 €
+    </button>
+    <button class="btn-wishlist">♡ &nbsp; Añadir a favoritos</button>
+    <div class="guarantee">
+      <div class="guarantee-item"><span class="guarantee-icon">🛡️</span><span class="guarantee-text">Garantía 3 años</span></div>
+      <div class="guarantee-item"><span class="guarantee-icon">📦</span><span class="guarantee-text">Envío gratuito</span></div>
+      <div class="guarantee-item"><span class="guarantee-icon">↩️</span><span class="guarantee-text">30 días devolución</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFESTYLE SECTION -->
+<section id="lifestyle">
+  <div class="section-eyebrow">La filosofía RH</div>
+  <h2 class="section-title">Precisión. Diseño. <em>Legado.</em></h2>
+  <div class="lifestyle-grid">
+    <div class="ls-item">
+      <img src="rh09-cafe.jpg" alt="The Builder"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="ls-placeholder" style="display:none">☕</div>
+      <div class="ls-overlay"><span class="ls-caption">The Builder · Cafetería</span></div>
+    </div>
+    <div class="ls-item">
+      <img src="rh09-goals.jpg" alt="The Goals"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="ls-placeholder" style="display:none">📓</div>
+      <div class="ls-overlay"><span class="ls-caption">Goals · Disciplina</span></div>
+    </div>
+    <div class="ls-item">
+      <img src="rh09-night.jpg" alt="The Night"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="ls-placeholder" style="display:none">🌃</div>
+      <div class="ls-overlay"><span class="ls-caption">Night · Ambición</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<div id="manifesto-strip">
+  <p class="manifesto-text">"La disciplina de hoy<br>es la <strong>libertad de mañana.</strong>"</p>
+  <p class="manifesto-sub">RH Luxury · For Those Who Build</p>
+</div>
+
+<!-- CTA -->
+<section id="cta">
+  <h2 class="cta-title">¿Listo para llevarlo<br>en tu <em style="font-style:italic;color:var(--green2)">muñeca</em>?</h2>
+  <p class="cta-sub">169 € · Envío gratuito · Garantía 3 años · Devolución 30 días</p>
+  <div class="cta-actions">
+    <button class="btn-buy" onclick="document.getElementById('detail').scrollIntoView({behavior:'smooth'})">Comprar Green Signature</button>
+    <a href="index.html" class="btn-outline">Ver toda la colección</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2026 RH Luxury · For Those Who Build</div>
+  <div class="footer-links">
+    <a href="index.html">Colección</a>
+    <a href="#">Instagram</a>
+    <a href="#">TikTok</a>
+    <a href="#">Contacto</a>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',scrollY>60)
+})
+</script>
+</body>
+</html>
