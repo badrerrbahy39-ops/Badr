@@ -804,13 +804,26 @@
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="#hero">
-    <img src="assets/logo.png" alt="RH Luxury" class="logo-img"
-         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-    <span class="logo-text-fallback" style="display:none">
-      <span class="rh">RH</span>
-      <span class="lux">Luxury</span>
-    </span>
+  <a href="#hero" style="text-decoration:none;display:block">
+    <svg id="rh-logo-nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" style="height:48px;width:auto;transition:height 0.4s">
+      <defs>
+        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0F4C3A"/>
+          <stop offset="55%" stop-color="#1e8a66"/>
+          <stop offset="100%" stop-color="#0d3d2e"/>
+        </linearGradient>
+        <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#888"/>
+          <stop offset="50%" stop-color="#D9D9D9"/>
+          <stop offset="100%" stop-color="#999"/>
+        </linearGradient>
+      </defs>
+      <path d="M95 48 Q52 22 68 72 Q56 118 92 148" fill="none" stroke="url(#g1)" stroke-width="5.5" stroke-linecap="round" opacity="0.9"/>
+      <text x="88" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" font-style="italic" fill="url(#g1)" letter-spacing="-6">R</text>
+      <text x="206" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" fill="url(#g1)">H</text>
+      <line x1="68" y1="194" x2="332" y2="194" stroke="url(#g2)" stroke-width="1.2" opacity="0.6"/>
+      <text x="200" y="236" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="30" font-weight="300" letter-spacing="13" fill="url(#g2)" text-anchor="middle">LUXURY</text>
+    </svg>
   </a>
   <ul class="nav-links">
     <li><a href="#collection">Colección</a></li>
@@ -965,13 +978,19 @@
   <div class="story-visual">
     <span class="story-visual-quote">FOR THOSE WHO BUILD</span>
     <div class="story-visual-main">
-      <img src="assets/logo-white.png" alt="RH Luxury"
-           style="max-width:240px;width:100%;height:auto;object-fit:contain;filter:brightness(0) invert(1);"
-           onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block'"/>
-      <div id="logoFallback" style="display:none">
-        <div class="story-logo-large">RH</div>
-        <div class="story-logo-sub">Luxury</div>
-      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" style="width:260px;height:auto;opacity:0.15">
+        <defs>
+          <linearGradient id="gw1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#cccccc"/>
+          </linearGradient>
+        </defs>
+        <path d="M95 48 Q52 22 68 72 Q56 118 92 148" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round" opacity="0.9"/>
+        <text x="88" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" font-style="italic" fill="url(#gw1)" letter-spacing="-6">R</text>
+        <text x="206" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" fill="url(#gw1)">H</text>
+        <line x1="68" y1="194" x2="332" y2="194" stroke="#fff" stroke-width="1.2" opacity="0.4"/>
+        <text x="200" y="236" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="30" font-weight="300" letter-spacing="13" fill="#ccc" text-anchor="middle">LUXURY</text>
+      </svg>
     </div>
   </div>
   <div class="story-text">
@@ -1096,13 +1115,25 @@
 <footer>
   <div class="footer-top">
     <div>
-      <img src="assets/logo.png" alt="RH Luxury"
-           style="height:64px;width:auto;object-fit:contain;margin-bottom:16px;display:block;"
-           onerror="this.style.display='none';document.getElementById('footerLogoFallback').style.display='block'"/>
-      <div id="footerLogoFallback" style="display:none">
-        <div class="footer-brand-rh">RH</div>
-        <div class="footer-brand-luxury">Luxury</div>
-      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" style="height:72px;width:auto;display:block;margin-bottom:16px">
+        <defs>
+          <linearGradient id="gf1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0F4C3A"/>
+            <stop offset="55%" stop-color="#1e8a66"/>
+            <stop offset="100%" stop-color="#0d3d2e"/>
+          </linearGradient>
+          <linearGradient id="gf2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#888"/>
+            <stop offset="50%" stop-color="#D9D9D9"/>
+            <stop offset="100%" stop-color="#999"/>
+          </linearGradient>
+        </defs>
+        <path d="M95 48 Q52 22 68 72 Q56 118 92 148" fill="none" stroke="url(#gf1)" stroke-width="5.5" stroke-linecap="round" opacity="0.9"/>
+        <text x="88" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" font-style="italic" fill="url(#gf1)" letter-spacing="-6">R</text>
+        <text x="206" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" fill="url(#gf1)">H</text>
+        <line x1="68" y1="194" x2="332" y2="194" stroke="url(#gf2)" stroke-width="1.2" opacity="0.6"/>
+        <text x="200" y="236" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="30" font-weight="300" letter-spacing="13" fill="url(#gf2)" text-anchor="middle">LUXURY</text>
+      </svg>
       <p class="footer-tagline">For Those Who Build. La marca de relojes para personas que están construyendo algo grande, aunque todavía nadie lo vea.</p>
       <div class="footer-social">
         <a class="f-social" href="#" title="Instagram">📷</a>
