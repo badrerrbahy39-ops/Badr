@@ -104,6 +104,55 @@ footer{padding:40px 60px;border-top:1px solid rgba(255,255,255,0.06);display:fle
   .cta-section{padding:60px 24px}
   footer{flex-direction:column;gap:16px;text-align:center;padding:32px 24px}
 }
+
+/* STICKY BOTTOM BAR — mobile only */
+.sticky-buy {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 999;
+  background: rgba(8,8,8,0.96);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(15,76,58,0.4);
+  padding: 14px 24px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.sticky-buy-name {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #999;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.sticky-buy-name strong {
+  display: block;
+  color: #F5F5F0;
+  font-weight: 400;
+  font-size: 13px;
+}
+.sticky-buy-btn {
+  background: #0F4C3A;
+  color: #F5F5F0;
+  border: none;
+  padding: 14px 28px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  white-space: nowrap;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background .3s;
+}
+.sticky-buy-btn:hover { background: rgba(15,76,58,0.8); }
+@media(max-width: 900px) {
+  .sticky-buy { display: flex; }
+  body { padding-bottom: 72px; }
+}
+
 </style>
 </head>
 <body>
@@ -204,6 +253,16 @@ footer{padding:40px 60px;border-top:1px solid rgba(255,255,255,0.06);display:fle
   <div class="footer-brand">R<span>H</span> LUXURY</div>
   <div class="footer-copy">© 2026 RH Luxury · For Those Who Build</div>
 </footer>
+
+
+<!-- STICKY BOTTOM BUY BAR (mobile) -->
+<div class="sticky-buy">
+  <div class="sticky-buy-name">
+    <span>RH-08 Blue Bezel Edition</span>
+    <strong>169 € · Envío gratis</strong>
+  </div>
+  <a href="#comprar" class="sticky-buy-btn">Comprar ahora</a>
+</div>
 
 </body>
 </html>
