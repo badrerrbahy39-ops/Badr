@@ -146,7 +146,9 @@
       #gallery{grid-template-columns:1fr}
       .gallery-main{grid-row:auto}
       #detail{grid-template-columns:1fr}
-      .detail-img-wrap{min-height:400px}
+      .detail-img-wrap{min-height:0;padding:0}
+      .detail-img-wrap img{max-height:none;width:100%;height:auto;object-fit:cover}
+      .detail-info{padding:48px 24px}
       #lifestyle .lifestyle-grid{grid-template-columns:1fr 1fr}
       section,#lifestyle,#manifesto-strip,#cta{padding:64px 28px}
       #specs-strip{grid-template-columns:1fr 1fr}
