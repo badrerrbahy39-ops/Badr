@@ -2,12 +2,21 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>RH Luxury — For Those Who Build</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+
+    /* iOS full-screen fix */
+    html { height: -webkit-fill-available; }
+    body { min-height: 100vh; min-height: -webkit-fill-available; }
+
+@supports (-webkit-touch-callout: none) {
+  #hero { height: -webkit-fill-available; min-height: -webkit-fill-available; }
+}
+
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {

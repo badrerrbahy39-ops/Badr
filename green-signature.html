@@ -2,18 +2,27 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>RH Luxury — Green Signature · For Those Who Build</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
+
+    /* iOS full-screen fix */
+    html { height: -webkit-fill-available; }
+    body { min-height: 100vh; min-height: -webkit-fill-available; }
+
+@supports (-webkit-touch-callout: none) {
+  #hero { height: -webkit-fill-available; min-height: -webkit-fill-available; }
+}
+
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     :root{
       --green:#0F4C3A;--green2:#1a6b54;--green3:#0a3329;
       --black:#0A0A0A;--dark:#111;--dark2:#181818;
       --silver:#D9D9D9;--silver2:#AAAAAA;--white:#fff;
     }
-    html{scroll-behavior:smooth}
+    html{scroll-behavior:smooth;width:100%;-webkit-text-size-adjust:100%}
     body{background:var(--black);color:var(--white);font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden}
     ::-webkit-scrollbar{width:3px}
     ::-webkit-scrollbar-thumb{background:var(--green)}

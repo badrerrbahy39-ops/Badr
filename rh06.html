@@ -2,12 +2,22 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>RH-06 — Two-Tone White | RH Luxury</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
 <style>
+
+    /* iOS full-screen fix */
+    html { height: -webkit-fill-available; }
+    body { min-height: 100vh; min-height: -webkit-fill-available; }
+
+@supports (-webkit-touch-callout: none) {
+  #hero { height: -webkit-fill-available; min-height: -webkit-fill-available; }
+}
+
 *{margin:0;padding:0;box-sizing:border-box}
+    html,body{width:100%;-webkit-text-size-adjust:100%}
 :root{--green:#A07830;--black:#0A0A0A;--dark2:#111;--white:#F5F5F0;--silver:#D9D9D9;--silver2:#999}
 body{background:var(--black);color:var(--white);font-family:'Montserrat',sans-serif;overflow-x:hidden}
 
