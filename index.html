@@ -1,950 +1,401 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>RH Luxury — For Those Who Build</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
-
-    /* iOS full-screen fix */
-    html { height: -webkit-fill-available; }
-    body { min-height: 100vh; min-height: -webkit-fill-available; }
-
-@supports (-webkit-touch-callout: none) {
-  #hero { height: -webkit-fill-available; min-height: -webkit-fill-available; }
-}
-
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --green:   #0F4C3A;
-      --green2:  #1a6b54;
-      --green3:  #0a3329;
-      --black:   #0A0A0A;
-      --dark:    #111111;
-      --dark2:   #181818;
-      --silver:  #D9D9D9;
-      --silver2: #AAAAAA;
-      --white:   #FFFFFF;
-      --off:     #F8F8F6;
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --black:#0A0A0A;
+      --white:#FFFFFF;
+      --off:#F8F7F2;
+      --green:#0F4C3A;
+      --green2:#1a6b54;
+      --silver:#D9D9D9;
+      --gray:#999999;
+      --border:#E8E8E8;
     }
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{background:var(--white);color:var(--black);font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden}
+    ::-webkit-scrollbar{width:2px}
+    ::-webkit-scrollbar-thumb{background:var(--green)}
 
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 300;
-      overflow-x: hidden;
-    }
-    ::-webkit-scrollbar { width: 3px; }
-    ::-webkit-scrollbar-track { background: var(--black); }
-    ::-webkit-scrollbar-thumb { background: var(--green); }
-
-    /* ── LOGO ────────────────────────────────────── */
-    .logo-img {
-      height: 52px; width: auto;
-      object-fit: contain;
-      transition: height 0.4s ease;
-    }
-    nav.scrolled .logo-img { height: 38px; }
-    .logo-text-fallback {
-      display: flex; flex-direction: column; line-height: 1;
-      text-decoration: none;
-    }
-    .logo-text-fallback .rh {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px; font-weight: 600;
-      background: linear-gradient(135deg, #0F4C3A, #2a9d78);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      letter-spacing: 2px;
-    }
-    .logo-text-fallback .lux {
-      font-size: 9px; letter-spacing: 8px;
-      color: var(--silver2); text-transform: uppercase; margin-top: 1px;
+    /* ── ANNOUNCEMENT BAR ── */
+    .announce{
+      background:var(--black);color:var(--white);
+      text-align:center;padding:10px 24px;
+      font-size:10px;letter-spacing:3px;text-transform:uppercase;
     }
 
-    /* ── NAV ─────────────────────────────────────── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 28px 64px;
-      transition: all 0.4s ease;
+    /* ── NAV ── */
+    nav{
+      position:sticky;top:0;z-index:200;
+      background:var(--white);
+      border-bottom:1px solid var(--border);
+      display:grid;grid-template-columns:1fr auto 1fr;
+      align-items:center;padding:0 48px;height:72px;
+      transition:box-shadow .3s;
     }
-    nav.scrolled {
-      background: rgba(10,10,10,0.97);
-      backdrop-filter: blur(20px);
-      padding: 18px 64px;
-      border-bottom: 1px solid rgba(15,76,58,0.3);
+    nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07)}
+    .nav-left{display:flex;gap:36px;align-items:center}
+    .nav-right{display:flex;gap:24px;align-items:center;justify-content:flex-end}
+    .nav-link{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--black);text-decoration:none;font-weight:400;transition:color .3s}
+    .nav-link:hover{color:var(--green)}
+    .nav-logo-wrap{display:flex;align-items:center;justify-content:center}
+    .nav-logo-svg{height:48px;width:auto;transition:height .3s}
+    nav.scrolled .nav-logo-svg{height:38px}
+    .nav-icon{font-size:17px;cursor:pointer;color:var(--black);transition:color .3s;text-decoration:none}
+    .nav-icon:hover{color:var(--green)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+    .hamburger span{display:block;width:22px;height:1.5px;background:var(--black);transition:all .3s}
+
+    /* ── HERO ── */
+    #hero{
+      position:relative;height:90vh;min-height:560px;
+      overflow:hidden;
     }
-    .nav-logo {
-      display: flex; flex-direction: column;
-      text-decoration: none; line-height: 1;
+    .hero-img-bg{
+      position:absolute;inset:0;width:100%;height:100%;
+      object-fit:cover;object-position:center;
     }
-    .nav-logo-rh {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px; font-weight: 600;
-      color: var(--white); letter-spacing: 4px;
+    .hero-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(to bottom,rgba(0,0,0,.08) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,.52) 100%);
     }
-    .nav-logo-luxury {
-      font-size: 9px; letter-spacing: 8px;
-      color: var(--green2); text-transform: uppercase;
-      margin-top: 1px;
+    .hero-content{
+      position:absolute;bottom:72px;left:64px;z-index:2;
     }
-    .nav-links { display: flex; gap: 44px; list-style: none; }
-    .nav-links a {
-      color: var(--silver2); text-decoration: none;
-      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-      transition: color 0.3s;
+    .hero-eyebrow{
+      font-size:10px;letter-spacing:5px;text-transform:uppercase;
+      color:rgba(255,255,255,.7);margin-bottom:16px;
+      display:flex;align-items:center;gap:14px;
     }
-    .nav-links a:hover { color: var(--white); }
-    .nav-btn {
-      background: var(--green);
-      border: none; color: var(--white);
-      padding: 12px 32px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-      cursor: pointer; text-decoration: none;
-      display: inline-block; font-weight: 500;
-      transition: background 0.3s;
+    .hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:rgba(255,255,255,.5)}
+    .hero-title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(48px,6.5vw,92px);
+      font-weight:400;line-height:.95;color:var(--white);
+      margin-bottom:36px;
     }
-    .nav-btn:hover { background: var(--green2); }
-    .hamburger {
-      display: none; flex-direction: column;
-      gap: 5px; cursor: pointer; padding: 4px;
+    .hero-title em{font-style:italic}
+    .hero-btn{
+      display:inline-block;
+      background:var(--white);color:var(--black);
+      padding:14px 36px;font-size:10px;letter-spacing:4px;
+      text-transform:uppercase;text-decoration:none;
+      font-family:'Montserrat',sans-serif;font-weight:500;
+      border:1px solid var(--white);transition:all .3s;
     }
-    .hamburger span {
-      display: block; width: 24px; height: 1.5px;
-      background: var(--white); transition: all 0.3s;
+    .hero-btn:hover{background:transparent;color:var(--white)}
+    .hero-dots{
+      position:absolute;bottom:28px;right:48px;
+      display:flex;gap:8px;
+    }
+    .hero-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35)}
+    .hero-dot.on{background:var(--white)}
+
+    /* ── COLLECTION ── */
+    #collection{padding:80px 48px;background:var(--white)}
+    .sec-eye{
+      text-align:center;font-size:10px;letter-spacing:5px;
+      text-transform:uppercase;color:var(--gray);margin-bottom:12px;
+    }
+    .sec-title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(32px,4vw,52px);
+      font-weight:400;font-style:italic;color:var(--green);
+      text-align:center;margin-bottom:52px;
+    }
+    .filters{display:flex;justify-content:center;gap:2px;margin-bottom:48px;flex-wrap:wrap}
+    .filter-btn{
+      background:transparent;border:1px solid var(--border);
+      color:var(--gray);padding:9px 24px;
+      font-family:'Montserrat',sans-serif;font-size:9px;
+      letter-spacing:3px;text-transform:uppercase;
+      cursor:pointer;transition:all .3s;font-weight:400;
+    }
+    .filter-btn.active,.filter-btn:hover{background:var(--black);color:var(--white);border-color:var(--black)}
+    .grid-products{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+    .p-card{cursor:pointer}
+    .p-card:hover .p-img-inner{transform:scale(1.04)}
+    .p-img{background:var(--off);aspect-ratio:1;overflow:hidden;position:relative;margin-bottom:14px}
+    .p-img-inner{
+      width:100%;height:100%;
+      display:flex;align-items:center;justify-content:center;
+      transition:transform .5s ease;
+    }
+    .p-img-inner img{width:80%;height:80%;object-fit:contain}
+    .p-img-inner .p-emoji{font-size:72px}
+    .p-badge{
+      position:absolute;top:12px;left:12px;
+      background:var(--green);color:var(--white);
+      font-size:8px;letter-spacing:2px;text-transform:uppercase;
+      padding:4px 10px;font-weight:600;
+    }
+    .p-ref{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gray);margin-bottom:6px}
+    .p-name{font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:400;color:var(--black);margin-bottom:8px}
+    .p-footer{display:flex;align-items:center;justify-content:space-between}
+    .p-price{font-size:14px;color:var(--gray);font-weight:300}
+    .p-arrow{font-size:16px;color:var(--gray);transition:color .3s,transform .3s;text-decoration:none}
+    .p-card:hover .p-arrow{color:var(--green);transform:translateX(4px)}
+
+    /* ── FEATURES STRIP ── */
+    #features{
+      border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+      display:grid;grid-template-columns:repeat(4,1fr);
+    }
+    .feat{padding:28px 24px;display:flex;align-items:center;gap:14px;border-right:1px solid var(--border)}
+    .feat:last-child{border-right:none}
+    .feat-icon{font-size:22px;flex-shrink:0}
+    .feat-text{font-size:10px;letter-spacing:1px;color:var(--gray);line-height:1.6}
+    .feat-text strong{display:block;color:var(--black);font-weight:500;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:3px}
+
+    /* ── STORY (dark) ── */
+    #story{background:var(--black);padding:100px 48px;text-align:center}
+    .story-eye{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--green2);margin-bottom:20px}
+    .story-quote{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(28px,4vw,56px);font-weight:400;font-style:italic;
+      color:var(--white);line-height:1.2;
+      max-width:760px;margin:0 auto 28px;
+    }
+    .story-sub{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:48px}
+    .story-btn{
+      display:inline-block;border:1px solid rgba(255,255,255,.25);
+      color:var(--white);padding:14px 36px;
+      font-size:10px;letter-spacing:4px;text-transform:uppercase;
+      text-decoration:none;font-family:'Montserrat',sans-serif;font-weight:400;
+      transition:all .3s;
+    }
+    .story-btn:hover{border-color:var(--white);background:rgba(255,255,255,.05)}
+
+    /* ── NEWSLETTER ── */
+    #newsletter{
+      background:var(--off);padding:80px 48px;text-align:center;
+      border-top:1px solid var(--border);
+    }
+    .nl-eye{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gray);margin-bottom:12px}
+    .nl-title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(26px,3vw,42px);font-style:italic;
+      color:var(--black);margin-bottom:10px;
+    }
+    .nl-sub{font-size:11px;color:var(--gray);letter-spacing:2px;margin-bottom:32px}
+    .nl-form{display:flex;max-width:460px;margin:0 auto}
+    .nl-input{
+      flex:1;background:var(--white);
+      border:1px solid var(--border);border-right:none;
+      color:var(--black);padding:14px 20px;
+      font-family:'Montserrat',sans-serif;font-size:12px;outline:none;
+    }
+    .nl-input::placeholder{color:var(--gray)}
+    .nl-btn{
+      background:var(--black);border:1px solid var(--black);
+      color:var(--white);padding:14px 28px;
+      font-family:'Montserrat',sans-serif;font-size:10px;
+      letter-spacing:3px;text-transform:uppercase;cursor:pointer;font-weight:500;
+      transition:background .3s;
+    }
+    .nl-btn:hover{background:var(--green);border-color:var(--green)}
+
+    /* ── FOOTER ── */
+    footer{background:var(--black);color:var(--white);padding:64px 48px 36px}
+    .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+    .footer-rh{font-family:'Playfair Display',serif;font-size:30px;font-weight:400;letter-spacing:4px;margin-bottom:4px}
+    .footer-luxury{font-size:9px;letter-spacing:7px;text-transform:uppercase;color:var(--green2);margin-bottom:20px}
+    .footer-tagline{font-size:11px;color:rgba(255,255,255,.35);line-height:2;max-width:230px;margin-bottom:24px}
+    .footer-social{display:flex;gap:10px}
+    .f-soc{
+      width:32px;height:32px;
+      border:1px solid rgba(255,255,255,.12);
+      display:flex;align-items:center;justify-content:center;
+      color:rgba(255,255,255,.4);text-decoration:none;font-size:13px;
+      transition:all .3s;
+    }
+    .f-soc:hover{border-color:var(--green2);color:var(--green2)}
+    .footer-col-title{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:22px;font-weight:500}
+    .footer-links{list-style:none}
+    .footer-links li{margin-bottom:12px}
+    .footer-links a{font-size:11px;color:rgba(255,255,255,.55);text-decoration:none;transition:color .3s;letter-spacing:.5px}
+    .footer-links a:hover{color:var(--white)}
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,.07);padding-top:28px;
+      display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+    }
+    .footer-copy{font-size:10px;color:rgba(255,255,255,.25);letter-spacing:1px}
+    .footer-legal{display:flex;gap:22px}
+    .footer-legal a{font-size:10px;color:rgba(255,255,255,.25);text-decoration:none;transition:color .3s}
+    .footer-legal a:hover{color:var(--white)}
+
+    /* ── MOBILE NAV ── */
+    .mobile-nav{
+      position:fixed;inset:0;z-index:300;background:var(--white);
+      display:none;flex-direction:column;align-items:center;justify-content:center;gap:36px;
+    }
+    .mobile-nav.open{display:flex}
+    .mobile-nav a{
+      font-family:'Playfair Display',serif;font-size:36px;font-weight:400;
+      color:var(--black);text-decoration:none;transition:color .3s;
+    }
+    .mobile-nav a:hover{color:var(--green)}
+    .mobile-nav-close{
+      position:absolute;top:24px;right:28px;
+      background:none;border:none;color:var(--black);font-size:26px;cursor:pointer;
     }
 
-    /* ── HERO ────────────────────────────────────── */
-    #hero {
-      height: 100vh; min-height: 700px;
-      display: flex; align-items: center;
-      position: relative; overflow: hidden;
-      background: var(--black);
+    /* ── MODAL ── */
+    .modal-overlay{
+      position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.65);
+      display:none;align-items:center;justify-content:center;
+      backdrop-filter:blur(4px);
     }
-    .hero-green-glow {
-      position: absolute;
-      width: 700px; height: 700px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(15,76,58,0.25) 0%, transparent 70%);
-      top: 50%; right: -100px; transform: translateY(-50%);
-      pointer-events: none;
+    .modal-overlay.open{display:flex}
+    .modal{
+      background:var(--white);max-width:840px;width:95%;max-height:90vh;
+      overflow-y:auto;display:grid;grid-template-columns:1fr 1fr;position:relative;
     }
-    .hero-grid-lines {
-      position: absolute; inset: 0;
-      background-image:
-        repeating-linear-gradient(90deg, rgba(15,76,58,0.04) 0, rgba(15,76,58,0.04) 1px, transparent 1px, transparent 100px),
-        repeating-linear-gradient(0deg,  rgba(15,76,58,0.04) 0, rgba(15,76,58,0.04) 1px, transparent 1px, transparent 100px);
+    .modal-close{
+      position:absolute;top:16px;right:20px;background:none;border:none;
+      color:var(--gray);font-size:22px;cursor:pointer;transition:color .3s;
     }
-    .hero-content {
-      position: relative; z-index: 2;
-      padding: 0 64px; max-width: 760px;
+    .modal-close:hover{color:var(--black)}
+    .modal-img{
+      background:var(--off);display:flex;align-items:center;justify-content:center;
+      min-height:360px;padding:48px;
     }
-    .hero-eyebrow {
-      display: flex; align-items: center; gap: 16px;
-      margin-bottom: 28px;
+    .modal-img img{max-width:100%;max-height:260px;object-fit:contain}
+    .modal-info{padding:44px 40px}
+    .modal-ref{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+    .modal-name{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;margin-bottom:8px;color:var(--black)}
+    .modal-desc{font-size:11px;color:var(--gray);line-height:2;margin-bottom:24px}
+    .modal-spec-row{
+      display:flex;justify-content:space-between;
+      padding:10px 0;border-bottom:1px solid var(--border);font-size:11px;
     }
-    .hero-eyebrow-line {
-      width: 48px; height: 1px; background: var(--green2);
+    .modal-spec-row span:first-child{color:var(--gray)}
+    .modal-price{font-family:'Playfair Display',serif;font-size:38px;color:var(--black);margin:18px 0}
+    .modal-buy{
+      width:100%;background:var(--black);border:none;color:var(--white);
+      padding:15px;font-family:'Montserrat',sans-serif;font-size:10px;
+      letter-spacing:4px;text-transform:uppercase;cursor:pointer;font-weight:500;
+      transition:background .3s;
     }
-    .hero-eyebrow-text {
-      font-size: 10px; letter-spacing: 5px;
-      text-transform: uppercase; color: var(--green2);
-    }
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(52px, 6.5vw, 96px);
-      font-weight: 400; line-height: 0.92;
-      margin-bottom: 32px;
-    }
-    .hero-title .line1 { color: var(--white); display: block; }
-    .hero-title .line2 { color: var(--green2); display: block; font-style: italic; }
-    .hero-title .line3 { color: var(--white); display: block; }
-    .hero-sub {
-      font-size: 13px; line-height: 2;
-      color: var(--silver2); max-width: 480px;
-      margin-bottom: 52px;
-    }
-    .hero-sub em {
-      color: var(--white); font-style: normal; font-weight: 500;
-    }
-    .hero-actions { display: flex; align-items: center; gap: 32px; }
-    .btn-main {
-      background: var(--green);
-      color: var(--white); border: none;
-      padding: 18px 48px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px; letter-spacing: 4px;
-      text-transform: uppercase; font-weight: 600;
-      cursor: pointer; text-decoration: none;
-      display: inline-block;
-      transition: all 0.3s;
-    }
-    .btn-main:hover { background: var(--green2); transform: translateY(-2px); }
-    .btn-ghost {
-      color: var(--silver2); text-decoration: none;
-      font-size: 10px; letter-spacing: 3px;
-      text-transform: uppercase;
-      display: flex; align-items: center; gap: 12px;
-      transition: color 0.3s;
-    }
-    .btn-ghost::after { content: '↓'; font-size: 16px; }
-    .btn-ghost:hover { color: var(--white); }
-    .hero-watch-frame {
-      position: absolute; right: 6%; top: 50%;
-      transform: translateY(-50%);
-      width: 380px; height: 380px;
-    }
-    .watch-ring {
-      width: 100%; height: 100%;
-      border-radius: 50%;
-      border: 1px solid rgba(15,76,58,0.3);
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-      animation: float 7s ease-in-out infinite;
-    }
-    .watch-ring::before {
-      content: ''; position: absolute; inset: 28px;
-      border-radius: 50%;
-      border: 1px solid rgba(15,76,58,0.15);
-    }
-    .watch-ring-inner {
-      width: 260px; height: 260px; border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #0d2e23, #050f0b);
-      display: flex; align-items: center; justify-content: center;
-      border: 1px solid rgba(15,76,58,0.4);
-      overflow: hidden;
-      box-shadow: 0 0 80px rgba(15,76,58,0.2), inset 0 0 40px rgba(0,0,0,0.6);
-    }
-    .watch-ring-inner img {
-      width: 90%; height: 90%; object-fit: contain;
-      border-radius: 50%;
-    }
-    .watch-ring-inner .watch-emoji { font-size: 90px; }
-    @keyframes float {
-      0%,100% { transform: translateY(0) rotate(0deg); }
-      50%      { transform: translateY(-18px) rotate(1deg); }
-    }
-    .hero-bottom {
-      position: absolute; bottom: 48px; left: 64px; right: 64px;
-      display: flex; align-items: flex-end; justify-content: space-between;
-    }
-    .hero-stats { display: flex; gap: 64px; }
-    .stat { text-align: left; }
-    .stat-n {
-      font-family: 'Playfair Display', serif;
-      font-size: 40px; font-weight: 300; color: var(--green2); line-height: 1;
-    }
-    .stat-l {
-      font-size: 9px; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--silver2); margin-top: 4px;
-    }
-    .hero-scroll {
-      display: flex; flex-direction: column;
-      align-items: center; gap: 8px;
-    }
-    .scroll-line {
-      width: 1px; height: 56px;
-      background: linear-gradient(to bottom, var(--green2), transparent);
-      animation: scrolldown 2s ease-in-out infinite;
-    }
-    @keyframes scrolldown {
-      0%   { transform: scaleY(0); transform-origin: top; opacity: 0; }
-      50%  { transform: scaleY(1); opacity: 1; }
-      100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
-    }
+    .modal-buy:hover{background:var(--green)}
 
-    /* ── MARQUEE ─────────────────────────────────── */
-    .marquee-wrap {
-      border-top: 1px solid rgba(15,76,58,0.2);
-      border-bottom: 1px solid rgba(15,76,58,0.2);
-      background: var(--green3);
-      padding: 16px 0; overflow: hidden;
-    }
-    .marquee-track {
-      display: flex; white-space: nowrap;
-      animation: marquee 25s linear infinite;
-    }
-    .m-item {
-      font-size: 10px; letter-spacing: 5px;
-      text-transform: uppercase; color: rgba(217,217,217,0.5);
-      padding: 0 48px;
-      display: flex; align-items: center; gap: 48px;
-    }
-    .m-item::after { content: '✦'; color: var(--green2); font-size: 7px; }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-    /* ── SECTIONS ────────────────────────────────── */
-    section { padding: 120px 64px; }
-    .eyebrow {
-      display: flex; align-items: center; gap: 16px;
-      margin-bottom: 20px;
-    }
-    .eyebrow-line { width: 32px; height: 1px; background: var(--green2); }
-    .eyebrow-text {
-      font-size: 10px; letter-spacing: 5px;
-      text-transform: uppercase; color: var(--green2);
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(40px, 4.5vw, 64px);
-      font-weight: 300; line-height: 1.05;
-      margin-bottom: 64px;
-    }
-    .section-title em { font-style: italic; color: var(--green2); }
-
-    /* ── MANIFESTO ───────────────────────────────── */
-    #manifesto {
-      background: var(--green3);
-      border-top: 1px solid rgba(15,76,58,0.3);
-      border-bottom: 1px solid rgba(15,76,58,0.3);
-      padding: 100px 64px; text-align: center;
-    }
-    .manifesto-quote {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(36px, 5vw, 72px);
-      font-weight: 300; line-height: 1.1;
-      max-width: 900px; margin: 0 auto 32px;
-    }
-    .manifesto-quote strong {
-      font-weight: 600; color: var(--green2);
-      font-style: italic;
-    }
-    .manifesto-sub {
-      font-size: 12px; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--silver2);
-    }
-
-    /* ── COLLECTION ──────────────────────────────── */
-    #collection { background: var(--black); }
-    .filters {
-      display: flex; gap: 2px; margin-bottom: 52px; flex-wrap: wrap;
-    }
-    .filter-btn {
-      background: transparent;
-      border: 1px solid rgba(15,76,58,0.25);
-      color: var(--silver2);
-      padding: 10px 28px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-      cursor: pointer; transition: all 0.3s;
-    }
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--green); color: var(--white);
-      border-color: var(--green);
-    }
-    .grid-products {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2px;
-    }
-    .p-card {
-      background: var(--dark2);
-      cursor: pointer; position: relative;
-      overflow: hidden;
-      transition: transform 0.4s ease;
-    }
-    .p-card:hover { transform: translateY(-6px); }
-    .p-img {
-      aspect-ratio: 1;
-      background: radial-gradient(circle at 40% 40%, #0d2318, #060d0a);
-      display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
-    }
-    .p-img img {
-      width: 82%; height: 82%; object-fit: contain;
-      transition: transform 0.6s ease;
-      filter: drop-shadow(0 16px 40px rgba(0,0,0,0.6));
-    }
-    .p-card:hover .p-img img { transform: scale(1.07); }
-    .p-img .p-emoji {
-      font-size: 80px; position: relative; z-index: 1;
-      transition: transform 0.6s ease;
-    }
-    .p-card:hover .p-img .p-emoji { transform: scale(1.07); }
-    .p-badge {
-      position: absolute; top: 16px; left: 16px;
-      background: var(--green); color: var(--white);
-      font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
-      padding: 5px 12px; font-weight: 600;
-    }
-    .p-info {
-      padding: 28px;
-      border-top: 1px solid rgba(15,76,58,0.15);
-    }
-    .p-ref {
-      font-size: 9px; letter-spacing: 4px;
-      text-transform: uppercase; color: var(--green2);
-      margin-bottom: 10px;
-    }
-    .p-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px; font-weight: 300;
-      margin-bottom: 8px;
-    }
-    .p-desc {
-      font-size: 10px; color: var(--silver2);
-      letter-spacing: 1px; line-height: 1.8;
-      margin-bottom: 24px;
-    }
-    .p-footer {
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .p-price {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px; color: var(--white);
-    }
-    .p-btn {
-      background: transparent;
-      border: 1px solid rgba(15,76,58,0.4);
-      color: var(--green2);
-      width: 44px; height: 44px;
-      font-size: 22px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: all 0.3s;
-    }
-    .p-btn:hover { background: var(--green); color: var(--white); border-color: var(--green); }
-    .p-btn-link { text-decoration: none; font-size: 18px; background: rgba(15,76,58,0.15); border-color: var(--green); color: var(--green); }
-    .p-btn-link:hover { background: var(--green); color: var(--white); }
-
-    /* ── SPECS ───────────────────────────────────── */
-    #specs {
-      background: var(--dark);
-      border-top: 1px solid rgba(15,76,58,0.15);
-      border-bottom: 1px solid rgba(15,76,58,0.15);
-      padding: 64px;
-    }
-    .specs-grid {
-      display: grid; grid-template-columns: repeat(6,1fr);
-      gap: 0; text-align: center;
-    }
-    .spec-item {
-      padding: 32px 20px;
-      border-right: 1px solid rgba(15,76,58,0.15);
-    }
-    .spec-item:last-child { border-right: none; }
-    .spec-icon { font-size: 26px; margin-bottom: 14px; display: block; }
-    .spec-val {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px; color: var(--green2); margin-bottom: 6px;
-    }
-    .spec-key {
-      font-size: 9px; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--silver2);
-    }
-
-    /* ── STORY ───────────────────────────────────── */
-    #story {
-      background: var(--black); padding: 0;
-      display: grid; grid-template-columns: 1fr 1fr;
-      min-height: 700px;
-    }
-    .story-visual {
-      background: var(--green3);
-      position: relative; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-      padding: 80px;
-    }
-    .story-visual-quote {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(48px, 6vw, 80px);
-      font-style: italic; font-weight: 300;
-      color: rgba(255,255,255,0.08);
-      text-align: center; line-height: 1.1;
-      position: absolute;
-      user-select: none;
-    }
-    .story-visual-main {
-      position: relative; z-index: 2;
-      text-align: center;
-    }
-    .story-logo-large {
-      font-family: 'Playfair Display', serif;
-      font-size: 96px; font-weight: 600;
-      color: var(--white); letter-spacing: 8px;
-      line-height: 1;
-    }
-    .story-logo-sub {
-      font-size: 11px; letter-spacing: 10px;
-      text-transform: uppercase; color: rgba(217,217,217,0.4);
-      margin-top: 8px;
-    }
-    .story-text {
-      padding: 100px 80px;
-      display: flex; flex-direction: column; justify-content: center;
-      background: var(--dark);
-    }
-    .story-body {
-      font-size: 13px; line-height: 2.2;
-      color: var(--silver2); margin-bottom: 40px;
-    }
-    .story-body strong { color: var(--white); font-weight: 500; }
-    .story-philosophy {
-      border-left: 2px solid var(--green);
-      padding-left: 24px; margin-bottom: 40px;
-    }
-    .story-philosophy p {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px; font-weight: 300; font-style: italic;
-      color: var(--white); line-height: 1.5;
-    }
-
-    /* ── COMMUNITY ───────────────────────────────── */
-    #community { background: var(--dark2); }
-    .community-intro {
-      max-width: 640px; margin-bottom: 80px;
-    }
-    .community-intro p {
-      font-size: 13px; line-height: 2; color: var(--silver2);
-    }
-    .builders-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px; margin-bottom: 64px;
-    }
-    .builder-card {
-      background: var(--dark);
-      padding: 40px 36px;
-      border-top: 2px solid transparent;
-      transition: border-color 0.3s;
-    }
-    .builder-card:hover { border-top-color: var(--green); }
-    .builder-icon { font-size: 32px; margin-bottom: 20px; display: block; }
-    .builder-type {
-      font-size: 10px; letter-spacing: 4px;
-      text-transform: uppercase; color: var(--green2);
-      margin-bottom: 12px;
-    }
-    .builder-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 26px; font-weight: 300;
-      margin-bottom: 16px; color: var(--white);
-    }
-    .builder-desc {
-      font-size: 11px; line-height: 2; color: var(--silver2);
-    }
-    .community-cta {
-      text-align: center; padding: 64px;
-      background: var(--green3);
-      border: 1px solid rgba(15,76,58,0.3);
-    }
-    .community-cta h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 40px; font-weight: 300;
-      margin-bottom: 12px;
-    }
-    .community-cta p {
-      font-size: 12px; color: var(--silver2);
-      letter-spacing: 2px; margin-bottom: 32px;
-    }
-
-    /* ── JOURNAL ─────────────────────────────────── */
-    #journal { background: var(--black); }
-    .journal-grid {
-      display: grid; grid-template-columns: 2fr 1fr 1fr;
-      gap: 2px;
-    }
-    .j-card {
-      background: var(--dark2);
-      padding: 48px 40px;
-      position: relative; overflow: hidden;
-      cursor: pointer; transition: transform 0.3s;
-      border-top: 1px solid rgba(15,76,58,0.1);
-    }
-    .j-card:hover { transform: translateY(-4px); }
-    .j-card:first-child {
-      border-top: 2px solid var(--green);
-      padding-top: 46px;
-    }
-    .j-tag {
-      font-size: 9px; letter-spacing: 4px;
-      text-transform: uppercase; color: var(--green2);
-      margin-bottom: 20px;
-    }
-    .j-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px; font-weight: 300;
-      line-height: 1.3; margin-bottom: 16px;
-    }
-    .j-card:first-child .j-title { font-size: 32px; }
-    .j-excerpt {
-      font-size: 11px; line-height: 1.9;
-      color: var(--silver2); margin-bottom: 28px;
-    }
-    .j-read {
-      font-size: 9px; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--silver2);
-      display: flex; align-items: center; gap: 8px;
-      transition: color 0.3s; cursor: pointer;
-    }
-    .j-read::after { content: '→'; font-size: 14px; transition: transform 0.3s; }
-    .j-card:hover .j-read { color: var(--green2); }
-    .j-card:hover .j-read::after { transform: translateX(4px); }
-
-    /* ── NEWSLETTER ──────────────────────────────── */
-    #newsletter {
-      background: var(--green3);
-      padding: 100px 64px; text-align: center;
-      border-top: 1px solid rgba(15,76,58,0.3);
-    }
-    .nl-label {
-      font-size: 10px; letter-spacing: 5px;
-      text-transform: uppercase; color: var(--green2);
-      margin-bottom: 20px;
-    }
-    .nl-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(36px, 4vw, 56px);
-      font-weight: 300; margin-bottom: 16px;
-    }
-    .nl-sub {
-      font-size: 12px; color: var(--silver2);
-      letter-spacing: 2px; margin-bottom: 48px;
-    }
-    .nl-form {
-      display: flex; max-width: 520px; margin: 0 auto;
-    }
-    .nl-input {
-      flex: 1; background: rgba(0,0,0,0.4);
-      border: 1px solid rgba(15,76,58,0.4);
-      border-right: none; color: var(--white);
-      padding: 18px 28px;
-      font-family: 'Montserrat', sans-serif; font-size: 12px;
-      outline: none;
-    }
-    .nl-input::placeholder { color: var(--silver2); }
-    .nl-btn {
-      background: var(--green); border: none;
-      color: var(--white); padding: 18px 36px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px; letter-spacing: 3px;
-      text-transform: uppercase; cursor: pointer; font-weight: 600;
-      transition: background 0.3s;
-    }
-    .nl-btn:hover { background: var(--green2); }
-
-    /* ── FOOTER ──────────────────────────────────── */
-    footer {
-      background: var(--black);
-      border-top: 1px solid rgba(15,76,58,0.2);
-      padding: 80px 64px 40px;
-    }
-    .footer-top {
-      display: grid; grid-template-columns: 2.5fr 1fr 1fr 1fr;
-      gap: 60px; margin-bottom: 64px;
-    }
-    .footer-brand-rh {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px; color: var(--white); letter-spacing: 4px;
-    }
-    .footer-brand-luxury {
-      font-size: 9px; letter-spacing: 8px;
-      text-transform: uppercase; color: var(--green2); margin-bottom: 20px;
-    }
-    .footer-tagline {
-      font-size: 11px; color: var(--silver2);
-      letter-spacing: 1px; line-height: 2;
-      max-width: 280px; margin-bottom: 28px;
-    }
-    .footer-social { display: flex; gap: 12px; }
-    .f-social {
-      width: 38px; height: 38px;
-      border: 1px solid rgba(15,76,58,0.3);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--silver2); text-decoration: none;
-      font-size: 14px; transition: all 0.3s;
-    }
-    .f-social:hover { border-color: var(--green); color: var(--green2); }
-    .footer-col-title {
-      font-size: 9px; letter-spacing: 4px;
-      text-transform: uppercase; color: var(--green2);
-      margin-bottom: 28px;
-    }
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 14px; }
-    .footer-links a {
-      font-size: 11px; color: var(--silver2);
-      text-decoration: none; letter-spacing: 1px;
-      transition: color 0.3s;
-    }
-    .footer-links a:hover { color: var(--white); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding-top: 32px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .footer-copy { font-size: 10px; color: var(--silver2); letter-spacing: 2px; }
-    .footer-legal { display: flex; gap: 28px; }
-    .footer-legal a {
-      font-size: 10px; color: var(--silver2);
-      text-decoration: none; transition: color 0.3s;
-    }
-    .footer-legal a:hover { color: var(--white); }
-
-    /* ── MODAL ───────────────────────────────────── */
-    .modal-overlay {
-      position: fixed; inset: 0; z-index: 500;
-      background: rgba(0,0,0,0.93);
-      display: none; align-items: center; justify-content: center;
-      backdrop-filter: blur(6px);
-    }
-    .modal-overlay.open { display: flex; }
-    .modal {
-      background: var(--dark);
-      max-width: 920px; width: 95%; max-height: 90vh;
-      overflow-y: auto;
-      display: grid; grid-template-columns: 1fr 1fr;
-      position: relative;
-    }
-    .modal-close {
-      position: absolute; top: 20px; right: 24px;
-      background: none; border: none;
-      color: var(--silver2); font-size: 24px; cursor: pointer; z-index: 10;
-      transition: color 0.3s;
-    }
-    .modal-close:hover { color: var(--white); }
-    .modal-img {
-      background: radial-gradient(circle, #0d2318, #060d0a);
-      display: flex; align-items: center; justify-content: center;
-      min-height: 420px; padding: 48px;
-    }
-    .modal-img img {
-      max-width: 100%; max-height: 300px; object-fit: contain;
-      filter: drop-shadow(0 20px 60px rgba(0,0,0,0.8));
-    }
-    .modal-info { padding: 52px 44px; }
-    .modal-ref { font-size: 10px; letter-spacing: 4px; color: var(--green2); margin-bottom: 12px; }
-    .modal-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px; font-weight: 300; margin-bottom: 10px;
-    }
-    .modal-desc { font-size: 11px; color: var(--silver2); line-height: 2; margin-bottom: 32px; }
-    .modal-spec-row {
-      display: flex; justify-content: space-between;
-      padding: 11px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      font-size: 11px;
-    }
-    .modal-spec-row span:first-child { color: var(--silver2); letter-spacing: 1px; }
-    .modal-price {
-      font-family: 'Playfair Display', serif;
-      font-size: 44px; color: var(--white); margin: 24px 0;
-    }
-    .modal-buy {
-      width: 100%; background: var(--green); border: none;
-      color: var(--white); padding: 20px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px; letter-spacing: 4px;
-      text-transform: uppercase; cursor: pointer;
-      font-weight: 600; transition: background 0.3s;
-    }
-    .modal-buy:hover { background: var(--green2); }
-
-    /* ── MOBILE NAV ──────────────────────────────── */
-    .mobile-nav {
-      position: fixed; inset: 0; z-index: 300;
-      background: var(--black);
-      display: none; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 40px;
-    }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a {
-      font-family: 'Playfair Display', serif;
-      font-size: 40px; font-weight: 300;
-      color: var(--white); text-decoration: none;
-      transition: color 0.3s;
-    }
-    .mobile-nav a:hover { color: var(--green2); }
-    .mobile-nav-close {
-      position: absolute; top: 28px; right: 28px;
-      background: none; border: none;
-      color: var(--silver2); font-size: 28px; cursor: pointer;
-    }
-
-    /* ── RESPONSIVE ──────────────────────────────── */
-    @media (max-width: 1100px) {
-      nav, nav.scrolled { padding: 20px 32px; }
-      .nav-links { display: none; }
-      .nav-btn { display: none; }
-      .hamburger { display: flex; }
-      section { padding: 80px 32px; }
-      .hero-content { padding: 0 32px; }
-      .hero-watch-frame { display: none; }
-      .hero-bottom { left: 32px; right: 32px; }
-      #story { grid-template-columns: 1fr; }
-      .story-visual { min-height: 300px; }
-      .story-text { padding: 64px 40px; }
-      .builders-grid { grid-template-columns: 1fr 1fr; }
-      .journal-grid { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
-      .specs-grid { grid-template-columns: repeat(3,1fr); }
-      .spec-item { border-right: none; border-bottom: 1px solid rgba(15,76,58,0.15); }
-      #specs { padding: 64px 32px; }
-    }
-    @media (max-width: 640px) {
-      .hero-stats { gap: 28px; }
-      .hero-title { font-size: 48px; }
-      .hero-actions { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .builders-grid { grid-template-columns: 1fr; }
-      .modal { grid-template-columns: 1fr; }
-      .modal-img { min-height: 280px; }
-      .footer-top { grid-template-columns: 1fr; }
-      .nl-form { flex-direction: column; }
-      .nl-input { border-right: 1px solid rgba(15,76,58,0.4); border-bottom: none; }
-      #manifesto, section { padding: 64px 24px; }
-      .community-cta { padding: 48px 24px; }
-      .hero-bottom { left: 24px; right: 24px; bottom: 80px; }
-      .stat-n { font-size: 30px; }
-      .grid-products { grid-template-columns: 1fr; }
+    /* ── RESPONSIVE ── */
+    @media(max-width:1100px){
+      nav{padding:0 28px}
+      .nav-left .nav-link:not(:first-child){display:none}
+      .hamburger{display:flex}
+      #collection{padding:64px 28px}
+      .grid-products{grid-template-columns:repeat(2,1fr);gap:20px}
+      #features{grid-template-columns:repeat(2,1fr)}
+      .feat:nth-child(2){border-right:none}
+      .feat:nth-child(3){border-top:1px solid var(--border)}
+      .footer-top{grid-template-columns:1fr 1fr;gap:36px}
+      #story{padding:80px 32px}
+      #newsletter{padding:64px 28px}
+    }
+    @media(max-width:640px){
+      .announce{font-size:9px;letter-spacing:1px;padding:9px 16px}
+      nav{padding:0 20px;height:60px}
+      .nav-left{display:none}
+      .nav-logo-svg{height:38px}
+      #hero{height:80vh;min-height:480px}
+      .hero-content{left:24px;bottom:52px}
+      .hero-title{font-size:clamp(42px,11vw,68px)}
+      #collection{padding:52px 20px}
+      .grid-products{grid-template-columns:repeat(2,1fr);gap:14px}
+      #features{grid-template-columns:1fr 1fr}
+      .feat{padding:20px 16px;gap:10px}
+      #story{padding:64px 24px}
+      #newsletter{padding:56px 20px}
+      .nl-form{flex-direction:column}
+      .nl-input{border-right:1px solid var(--border);border-bottom:none}
+      footer{padding:48px 24px 28px}
+      .footer-top{grid-template-columns:1fr 1fr;gap:24px}
+      .footer-bottom{flex-direction:column;align-items:flex-start}
+      .modal{grid-template-columns:1fr}
+      .modal-img{min-height:240px}
     }
   </style>
 </head>
 <body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce">Envío gratuito a España · Garantía 3 años · Devolución 30 días</div>
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-nav-close" onclick="closeMobile()">✕</button>
   <a href="#hero"       onclick="closeMobile()">Inicio</a>
   <a href="#collection" onclick="closeMobile()">Colección</a>
-  <a href="#story"      onclick="closeMobile()">Nuestra Historia</a>
-  <a href="#community"  onclick="closeMobile()">Comunidad</a>
-  <a href="#journal"    onclick="closeMobile()">Journal</a>
+  <a href="#story"      onclick="closeMobile()">Nosotros</a>
   <a href="#newsletter" onclick="closeMobile()">Contacto</a>
 </div>
 
-<!-- NAV -->
+<!-- NAV — logo centrado (estilo Zelos) -->
 <nav id="navbar">
-  <a href="#hero" style="text-decoration:none;display:block">
-    <svg id="rh-logo-nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" style="height:48px;width:auto;transition:height 0.4s">
+  <div class="nav-left">
+    <a href="#collection" class="nav-link">Colección</a>
+    <a href="#story"      class="nav-link">Nosotros</a>
+    <a href="#newsletter" class="nav-link">Contacto</a>
+  </div>
+  <div class="nav-logo-wrap">
+    <svg class="nav-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
       <defs>
-        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="ng1" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#0F4C3A"/>
           <stop offset="55%" stop-color="#1e8a66"/>
           <stop offset="100%" stop-color="#0d3d2e"/>
         </linearGradient>
-        <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#888"/>
-          <stop offset="50%" stop-color="#D9D9D9"/>
-          <stop offset="100%" stop-color="#999"/>
+        <linearGradient id="ng2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#666"/>
+          <stop offset="50%" stop-color="#444"/>
+          <stop offset="100%" stop-color="#555"/>
         </linearGradient>
       </defs>
-      <path d="M95 48 Q52 22 68 72 Q56 118 92 148" fill="none" stroke="url(#g1)" stroke-width="5.5" stroke-linecap="round" opacity="0.9"/>
-      <text x="88" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" font-style="italic" fill="url(#g1)" letter-spacing="-6">R</text>
-      <text x="206" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" fill="url(#g1)">H</text>
-      <line x1="68" y1="194" x2="332" y2="194" stroke="url(#g2)" stroke-width="1.2" opacity="0.6"/>
-      <text x="200" y="236" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="30" font-weight="300" letter-spacing="13" fill="url(#g2)" text-anchor="middle">LUXURY</text>
+      <path d="M95 48 Q52 22 68 72 Q56 118 92 148" fill="none" stroke="url(#ng1)" stroke-width="5.5" stroke-linecap="round" opacity="0.9"/>
+      <text x="88" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" font-style="italic" fill="url(#ng1)" letter-spacing="-6">R</text>
+      <text x="206" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" fill="url(#ng1)">H</text>
+      <line x1="68" y1="194" x2="332" y2="194" stroke="url(#ng2)" stroke-width="1.2" opacity="0.6"/>
+      <text x="200" y="236" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="30" font-weight="300" letter-spacing="13" fill="url(#ng2)" text-anchor="middle">LUXURY</text>
     </svg>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#collection">Colección</a></li>
-    <li><a href="#story">Nuestra Historia</a></li>
-    <li><a href="#community">Comunidad</a></li>
-    <li><a href="#journal">Journal</a></li>
-    <li><a href="#newsletter">Contacto</a></li>
-  </ul>
-  <a href="#collection" class="nav-btn">Explorar Colección</a>
-  <div class="hamburger" onclick="openMobile()">
-    <span></span><span></span><span></span>
+  </div>
+  <div class="nav-right">
+    <span class="nav-icon" title="Buscar">&#x1F50D;</span>
+    <span class="nav-icon" title="Cuenta">&#x1F464;</span>
+    <span class="nav-icon" title="Carrito">&#x1F6CD;</span>
+    <div class="hamburger" onclick="openMobile()">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-grid-lines"></div>
-  <div class="hero-green-glow"></div>
+  <img src="rh09-hero.webp" alt="RH Luxury — For Those Who Build" class="hero-img-bg"
+       onerror="this.style.background='#0a1a12'"/>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span class="hero-eyebrow-line"></span>
-      <span class="hero-eyebrow-text">RH Luxury · Primera Colección · 2026</span>
-    </div>
-    <h1 class="hero-title">
-      <span class="line1">For Those</span>
-      <span class="line2">Who Build</span>
-    </h1>
-    <p class="hero-sub">
-      No vendemos relojes.<br>
-      Creamos <em>símbolos</em> para quienes están construyendo algo grande,<br>
-      aunque todavía nadie lo vea.
-    </p>
-    <div class="hero-actions">
-      <a href="#collection" class="btn-main">Explorar Colección</a>
-      <a href="#story" class="btn-ghost">Nuestra historia</a>
-    </div>
+    <div class="hero-eyebrow">RH Luxury · Primera Colección · 2026</div>
+    <h1 class="hero-title">For Those<br><em>Who Build</em></h1>
+    <a href="#collection" class="hero-btn">Explorar Colección</a>
   </div>
-  <div class="hero-watch-frame">
-    <div class="watch-ring">
-      <div class="watch-ring-inner">
-        <span class="watch-emoji">⌚</span>
-      </div>
-    </div>
+  <div class="hero-dots">
+    <div class="hero-dot on"></div>
+    <div class="hero-dot"></div>
+    <div class="hero-dot"></div>
   </div>
-  <div class="hero-bottom">
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-n">10</div>
-        <div class="stat-l">Piezas exclusivas</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n">100M</div>
-        <div class="stat-l">Resistencia agua</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n">3Y</div>
-        <div class="stat-l">Garantía</div>
-      </div>
-    </div>
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
-    </div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <div class="m-item">For Those Who Build</div>
-    <div class="m-item">Cristal de Zafiro</div>
-    <div class="m-item">Acero 316L</div>
-    <div class="m-item">Seiko VK63</div>
-    <div class="m-item">100M Waterproof</div>
-    <div class="m-item">Built For Builders</div>
-    <div class="m-item">Garantía 3 Años</div>
-    <div class="m-item">Envío Directo</div>
-    <div class="m-item">For Those Who Build</div>
-    <div class="m-item">Cristal de Zafiro</div>
-    <div class="m-item">Acero 316L</div>
-    <div class="m-item">Seiko VK63</div>
-    <div class="m-item">100M Waterproof</div>
-    <div class="m-item">Built For Builders</div>
-    <div class="m-item">Garantía 3 Años</div>
-    <div class="m-item">Envío Directo</div>
-  </div>
-</div>
-
-<!-- MANIFESTO -->
-<section id="manifesto">
-  <p class="manifesto-quote">
-    "Trabajan mientras otros duermen.<br>
-    Siguen cuando nadie cree en ellos.<br>
-    Construyen lo que <strong>todavía nadie ve.</strong>"
-  </p>
-  <p class="manifesto-sub">— La filosofía RH Luxury</p>
 </section>
 
 <!-- COLLECTION -->
 <section id="collection">
-  <div class="eyebrow">
-    <span class="eyebrow-line"></span>
-    <span class="eyebrow-text">Primera Colección 2026</span>
-  </div>
-  <h2 class="section-title">La <em>Colección</em></h2>
+  <div class="sec-eye">Primera Colección 2026</div>
+  <h2 class="sec-title">La Colección</h2>
   <div class="filters">
     <button class="filter-btn active" onclick="filter('all',this)">Todos</button>
     <button class="filter-btn" onclick="filter('goma',this)">Correa Goma</button>
@@ -954,177 +405,42 @@
   <div class="grid-products" id="grid"></div>
 </section>
 
-<!-- SPECS -->
-<div id="specs">
-  <div class="specs-grid">
-    <div class="spec-item">
-      <span class="spec-icon">💎</span>
-      <div class="spec-val">Zafiro</div>
-      <div class="spec-key">Cristal</div>
-    </div>
-    <div class="spec-item">
-      <span class="spec-icon">⚙️</span>
-      <div class="spec-val">Seiko VK63</div>
-      <div class="spec-key">Movimiento</div>
-    </div>
-    <div class="spec-item">
-      <span class="spec-icon">🔩</span>
-      <div class="spec-val">316L</div>
-      <div class="spec-key">Acero quirúrgico</div>
-    </div>
-    <div class="spec-item">
-      <span class="spec-icon">💧</span>
-      <div class="spec-val">100M</div>
-      <div class="spec-key">Resistencia agua</div>
-    </div>
-    <div class="spec-item">
-      <span class="spec-icon">📏</span>
-      <div class="spec-val">40mm</div>
-      <div class="spec-key">Diámetro caja</div>
-    </div>
-    <div class="spec-item">
-      <span class="spec-icon">🛡️</span>
-      <div class="spec-val">3 Años</div>
-      <div class="spec-key">Garantía</div>
-    </div>
+<!-- FEATURES STRIP -->
+<div id="features">
+  <div class="feat">
+    <span class="feat-icon">&#x1F4E6;</span>
+    <div class="feat-text"><strong>Envío Gratuito</strong>A toda España y Europa</div>
+  </div>
+  <div class="feat">
+    <span class="feat-icon">&#x21A9;&#xFE0F;</span>
+    <div class="feat-text"><strong>30 Días</strong>Devolución sin preguntas</div>
+  </div>
+  <div class="feat">
+    <span class="feat-icon">&#x1F512;</span>
+    <div class="feat-text"><strong>Pago Seguro</strong>Encriptación SSL</div>
+  </div>
+  <div class="feat">
+    <span class="feat-icon">&#x1F6E1;&#xFE0F;</span>
+    <div class="feat-text"><strong>Garantía 3 años</strong>Movimiento Seiko VK63</div>
   </div>
 </div>
 
-<!-- STORY -->
+<!-- STORY / MANIFESTO (dark) -->
 <section id="story">
-  <div class="story-visual">
-    <span class="story-visual-quote">FOR THOSE WHO BUILD</span>
-    <div class="story-visual-main">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" style="width:260px;height:auto;opacity:0.15">
-        <defs>
-          <linearGradient id="gw1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#ffffff"/>
-            <stop offset="100%" stop-color="#cccccc"/>
-          </linearGradient>
-        </defs>
-        <path d="M95 48 Q52 22 68 72 Q56 118 92 148" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round" opacity="0.9"/>
-        <text x="88" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" font-style="italic" fill="url(#gw1)" letter-spacing="-6">R</text>
-        <text x="206" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" fill="url(#gw1)">H</text>
-        <line x1="68" y1="194" x2="332" y2="194" stroke="#fff" stroke-width="1.2" opacity="0.4"/>
-        <text x="200" y="236" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="30" font-weight="300" letter-spacing="13" fill="#ccc" text-anchor="middle">LUXURY</text>
-      </svg>
-    </div>
-  </div>
-  <div class="story-text">
-    <div class="eyebrow">
-      <span class="eyebrow-line"></span>
-      <span class="eyebrow-text">Nuestra Historia</span>
-    </div>
-    <h2 class="section-title" style="font-size:clamp(32px,3.5vw,48px);margin-bottom:32px;">
-      No es una historia<br>de <em>relojes</em>
-    </h2>
-    <div class="story-philosophy">
-      <p>"RH Luxury nació para las personas que trabajan mientras otros duermen. Para quienes siguen adelante cuando nadie cree en ellos. Para quienes están construyendo algo que puede tardar años en hacerse realidad."</p>
-    </div>
-    <p class="story-body">
-      <strong>RH Luxury no es una marca de relojes.</strong><br>
-      Es una comunidad de personas que están construyendo algo grande.<br><br>
-      No está dirigida a quienes quieren <em>aparentar</em> riqueza.<br>
-      Está dirigida a quienes están <em>creando</em> riqueza — empresas, marcas, proyectos, legados.<br><br>
-      Cada reloj RH es un recordatorio silencioso de lo que estás construyendo.<br>
-      Un símbolo en tu muñeca que dice: <strong>"Ya casi llego."</strong>
-    </p>
-    <a href="#community" class="btn-main" style="align-self:flex-start">Conoce la Comunidad</a>
-  </div>
-</section>
-
-<!-- COMMUNITY -->
-<section id="community">
-  <div class="eyebrow">
-    <span class="eyebrow-line"></span>
-    <span class="eyebrow-text">Builders Community</span>
-  </div>
-  <h2 class="section-title">Hecho para <em>Constructores</em></h2>
-  <div class="community-intro">
-    <p>RH Luxury es para quien todavía no ha llegado, pero sigue avanzando. Para quien construye desde cero con disciplina, visión y ambición. Estas son las personas que llevan RH.</p>
-  </div>
-  <div class="builders-grid">
-    <div class="builder-card">
-      <span class="builder-icon">🏗️</span>
-      <div class="builder-type">Fundadores</div>
-      <div class="builder-title">El Emprendedor</div>
-      <p class="builder-desc">Está construyendo su empresa desde cero. Trabaja 14 horas al día. Aún no ha llegado, pero cada día está más cerca. RH es el símbolo de ese camino.</p>
-    </div>
-    <div class="builder-card">
-      <span class="builder-icon">📱</span>
-      <div class="builder-type">Creadores</div>
-      <div class="builder-title">El Creator</div>
-      <p class="builder-desc">Construye su audiencia, su marca personal, su negocio digital. Entiende que el tiempo es el activo más valioso. RH lo recuerda en cada mirada a la muñeca.</p>
-    </div>
-    <div class="builder-card">
-      <span class="builder-icon">📈</span>
-      <div class="builder-type">Inversores</div>
-      <div class="builder-title">El Inversor</div>
-      <p class="builder-desc">Construye patrimonio. Piensa a largo plazo. Cada decisión es un ladrillo en algo más grande. RH es la elegancia discreta de quien juega en otro nivel.</p>
-    </div>
-    <div class="builder-card">
-      <span class="builder-icon">💻</span>
-      <div class="builder-type">Tecnología</div>
-      <div class="builder-title">El Fundador Tech</div>
-      <p class="builder-desc">Construye su startup, su app, su plataforma. Sabe que el éxito no se mide en meses. RH es para quienes piensan en años y actúan cada día.</p>
-    </div>
-    <div class="builder-card">
-      <span class="builder-icon">🎯</span>
-      <div class="builder-type">Freelancers</div>
-      <div class="builder-title">El Independiente</div>
-      <p class="builder-desc">Construyó su libertad desde cero. Sin jefes, sin límites. Disciplina pura. RH representa esa independencia ganada con trabajo y visión.</p>
-    </div>
-    <div class="builder-card">
-      <span class="builder-icon">🏆</span>
-      <div class="builder-type">Ambición</div>
-      <div class="builder-title">El Ambicioso</div>
-      <p class="builder-desc">No sabe exactamente dónde va, pero sabe que llegará lejos. Esa energía, esa determinación — eso es lo que RH lleva en la muñeca.</p>
-    </div>
-  </div>
-  <div class="community-cta">
-    <h3>¿Eres un Builder?</h3>
-    <p>Comparte tu reloj · Comparte tu proceso · #RHLuxury</p>
-    <a href="#newsletter" class="btn-main">Unirme a la Comunidad</a>
-  </div>
-</section>
-
-<!-- JOURNAL -->
-<section id="journal">
-  <div class="eyebrow">
-    <span class="eyebrow-line"></span>
-    <span class="eyebrow-text">Journal</span>
-  </div>
-  <h2 class="section-title">Mentalidad de <em>Constructor</em></h2>
-  <div class="journal-grid">
-    <div class="j-card">
-      <div class="j-tag">Mentalidad · Fundacional</div>
-      <div class="j-title">Por qué los mejores empresarios llevan relojes de alto valor</div>
-      <p class="j-excerpt">No es casualidad que los fundadores más exitosos del mundo cuiden cada detalle de su imagen. El reloj en la muñeca no es vanidad — es un recordatorio constante de que el tiempo es el único recurso que no se recupera.</p>
-      <div class="j-read">Leer artículo</div>
-    </div>
-    <div class="j-card">
-      <div class="j-tag">Productividad</div>
-      <div class="j-title">La disciplina de los que construyen en silencio</div>
-      <p class="j-excerpt">Mientras otros celebran, ellos trabajan. Mientras otros descansan, ellos planifican. Esta es la mentalidad RH.</p>
-      <div class="j-read">Leer artículo</div>
-    </div>
-    <div class="j-card">
-      <div class="j-tag">Marca Personal</div>
-      <div class="j-title">Cómo construir una identidad que llegue antes que tú</div>
-      <p class="j-excerpt">Tu presencia, tu imagen, tu reloj. Todo comunica antes de que abras la boca. Aprende a construir una imagen que trabaje por ti.</p>
-      <div class="j-read">Leer artículo</div>
-    </div>
-  </div>
+  <div class="story-eye">For Those Who Build</div>
+  <p class="story-quote">"Trabajan cuando otros duermen.<br>Construyen lo que todavía nadie ve."</p>
+  <p class="story-sub">— La filosofía RH Luxury</p>
+  <a href="#collection" class="story-btn">Ver la Colección</a>
 </section>
 
 <!-- NEWSLETTER -->
 <section id="newsletter">
-  <div class="nl-label">Acceso exclusivo</div>
-  <h2 class="nl-title">Únete a los <em style="font-style:italic;color:var(--green2)">Builders</em></h2>
-  <p class="nl-sub">Lanzamientos · Contenido exclusivo · Comunidad RH Luxury</p>
+  <div class="nl-eye">Acceso exclusivo</div>
+  <h2 class="nl-title">Únete a los Builders</h2>
+  <p class="nl-sub">Lanzamientos · Contenido exclusivo · Comunidad RH</p>
   <form class="nl-form" onsubmit="return false;">
-    <input class="nl-input" type="email" placeholder="Tu correo electrónico" />
-    <button class="nl-btn">Unirme</button>
+    <input class="nl-input" type="email" placeholder="Tu correo electrónico"/>
+    <button class="nl-btn">Suscribirse</button>
   </form>
 </section>
 
@@ -1132,31 +448,14 @@
 <footer>
   <div class="footer-top">
     <div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" style="height:72px;width:auto;display:block;margin-bottom:16px">
-        <defs>
-          <linearGradient id="gf1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#0F4C3A"/>
-            <stop offset="55%" stop-color="#1e8a66"/>
-            <stop offset="100%" stop-color="#0d3d2e"/>
-          </linearGradient>
-          <linearGradient id="gf2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#888"/>
-            <stop offset="50%" stop-color="#D9D9D9"/>
-            <stop offset="100%" stop-color="#999"/>
-          </linearGradient>
-        </defs>
-        <path d="M95 48 Q52 22 68 72 Q56 118 92 148" fill="none" stroke="url(#gf1)" stroke-width="5.5" stroke-linecap="round" opacity="0.9"/>
-        <text x="88" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" font-style="italic" fill="url(#gf1)" letter-spacing="-6">R</text>
-        <text x="206" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" fill="url(#gf1)">H</text>
-        <line x1="68" y1="194" x2="332" y2="194" stroke="url(#gf2)" stroke-width="1.2" opacity="0.6"/>
-        <text x="200" y="236" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="30" font-weight="300" letter-spacing="13" fill="url(#gf2)" text-anchor="middle">LUXURY</text>
-      </svg>
+      <div class="footer-rh">RH</div>
+      <div class="footer-luxury">Luxury</div>
       <p class="footer-tagline">For Those Who Build. La marca de relojes para personas que están construyendo algo grande, aunque todavía nadie lo vea.</p>
       <div class="footer-social">
-        <a class="f-social" href="#" title="Instagram">📷</a>
-        <a class="f-social" href="#" title="TikTok">🎵</a>
-        <a class="f-social" href="#" title="YouTube">▶️</a>
-        <a class="f-social" href="#" title="WhatsApp">💬</a>
+        <a class="f-soc" href="#">&#x1F4F7;</a>
+        <a class="f-soc" href="#">&#x1F3B5;</a>
+        <a class="f-soc" href="#">&#x25B6;&#xFE0F;</a>
+        <a class="f-soc" href="#">&#x1F4AC;</a>
       </div>
     </div>
     <div>
@@ -1172,9 +471,9 @@
       <div class="footer-col-title">Marca</div>
       <ul class="footer-links">
         <li><a href="#">Nuestra Historia</a></li>
-        <li><a href="#">Builders Community</a></li>
-        <li><a href="#">Journal</a></li>
         <li><a href="#">Garantía</a></li>
+        <li><a href="#">Envíos</a></li>
+        <li><a href="#">FAQ</a></li>
       </ul>
     </div>
     <div>
@@ -1183,12 +482,11 @@
         <li><a href="#">Instagram DM</a></li>
         <li><a href="#">WhatsApp</a></li>
         <li><a href="#">Email</a></li>
-        <li><a href="#">FAQ</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 RH Luxury. For Those Who Build.</div>
+    <div class="footer-copy">© 2026 RH Luxury · For Those Who Build</div>
     <div class="footer-legal">
       <a href="#">Privacidad</a>
       <a href="#">Términos</a>
@@ -1201,8 +499,8 @@
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
   <div class="modal" id="modal">
     <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="modal-img">
-      <span style="font-size:90px">⌚</span>
+    <div class="modal-img" id="mImg">
+      <span style="font-size:80px">&#x231A;</span>
     </div>
     <div class="modal-info">
       <div class="modal-ref" id="mRef"></div>
@@ -1210,45 +508,42 @@
       <div class="modal-desc" id="mDesc"></div>
       <div id="mSpecs"></div>
       <div class="modal-price" id="mPrice"></div>
-      <button class="modal-buy">Comprar Ahora</button>
+      <button class="modal-buy" onclick="alert('Conecta tu pasarela de pago para activar compras')">Comprar Ahora</button>
     </div>
   </div>
 </div>
 
 <script>
 const watches = [
-  {id:1, ref:"RH-01", name:"Classic Silver White", desc:"Esfera blanca · Bisel negro · Correa goma negra",      style:"goma",   price:"149 €", badge:"",           img:"rh01-product.png", link:"rh01.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Goma negra",   diam:"40mm"},
-  {id:2, ref:"RH-02", name:"Classic Silver Black", desc:"Esfera negra · Bisel negro · Correa goma negra",       style:"goma",   price:"149 €", badge:"",           img:"rh02-product.png", link:"rh02.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Goma negra",   diam:"40mm"},
-  {id:3, ref:"RH-03", name:"Rose Gold Edition",    desc:"Esfera blanca · Caja oro rosa · Correa goma negra",    style:"goma",   price:"159 €", badge:"Premium",    img:"rh03-product.png", link:"rh03.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Oro rosa / 316L",correa:"Goma negra",diam:"40mm"},
-  {id:4, ref:"RH-04", name:"Steel Classic White",  desc:"Esfera blanca · Bisel negro · Brazalete acero plata",  style:"acero",  price:"159 €", badge:"",           img:"rh04-product.png", link:"rh04.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",diam:"40mm"},
-  {id:5, ref:"RH-05", name:"Steel Classic Black",  desc:"Esfera negra · Bisel negro · Brazalete acero plata",   style:"acero",  price:"159 €", badge:"",           img:"rh05-product.png", link:"rh05.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",diam:"40mm"},
-  {id:6, ref:"RH-06", name:"Two-Tone White",       desc:"Esfera blanca · Bisel oro rosa · Brazalete bicolor",   style:"doston", price:"169 €", badge:"Más vendido",img:"rh06-product.png", link:"rh06.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Dos tonos / 316L",correa:"Bicolor plata+oro rosa",diam:"40mm"},
-  {id:7, ref:"RH-07", name:"Two-Tone Salmon",      desc:"Esfera salmón · Bisel oro rosa · Brazalete bicolor",   style:"doston", price:"179 €", badge:"Exclusivo",  img:"rh07-product.png", link:"rh07.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Dos tonos / 316L",correa:"Bicolor plata+oro rosa",diam:"40mm"},
-  {id:8, ref:"RH-08", name:"Blue Bezel Edition",   desc:"Esfera blanca · Bisel azul cerámico · Brazalete acero",style:"acero",  price:"169 €", badge:"",           img:"rh08-product.png", link:"rh08.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",diam:"40mm"},
-  {id:9, ref:"RH-09", name:"Green Signature",      desc:"Esfera blanca · Bisel verde cerámico · Brazalete acero",style:"acero", price:"169 €", badge:"Firma RH",   img:"rh09-hero.webp",   link:"green-signature.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",diam:"40mm"},
-  {id:10,ref:"RH-10", name:"Two-Tone Black",       desc:"Esfera negra · Bisel oro rosa · Brazalete bicolor",    style:"doston", price:"169 €", badge:"",           img:"rh10-product.png", link:"rh10.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Dos tonos / 316L",correa:"Bicolor plata+oro rosa",diam:"40mm"},
+  {id:1, ref:"RH-01", name:"Classic Silver White", desc:"Esfera blanca · Bisel negro · Correa goma negra",       style:"goma",   price:"149 €", badge:"",           img:"rh01-product.png", link:"rh01.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Goma negra",          diam:"40mm"},
+  {id:2, ref:"RH-02", name:"Classic Silver Black", desc:"Esfera negra · Bisel negro · Correa goma negra",        style:"goma",   price:"149 €", badge:"",           img:"rh02-product.png", link:"rh02.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Goma negra",          diam:"40mm"},
+  {id:3, ref:"RH-03", name:"Rose Gold Edition",    desc:"Esfera blanca · Caja oro rosa · Correa goma negra",     style:"goma",   price:"159 €", badge:"Premium",    img:"rh03-product.png", link:"rh03.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Oro rosa / 316L",correa:"Goma negra",      diam:"40mm"},
+  {id:4, ref:"RH-04", name:"Steel Classic White",  desc:"Esfera blanca · Bisel negro · Brazalete acero plata",   style:"acero",  price:"159 €", badge:"",           img:"rh04-product.png", link:"rh04.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",     diam:"40mm"},
+  {id:5, ref:"RH-05", name:"Steel Classic Black",  desc:"Esfera negra · Bisel negro · Brazalete acero plata",    style:"acero",  price:"159 €", badge:"",           img:"rh05-product.png", link:"rh05.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",     diam:"40mm"},
+  {id:6, ref:"RH-06", name:"Two-Tone White",       desc:"Esfera blanca · Bisel oro rosa · Brazalete bicolor",    style:"doston", price:"169 €", badge:"Más vendido", img:"rh06-product.png", link:"rh06.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Dos tonos / 316L",correa:"Bicolor plata+oro",diam:"40mm"},
+  {id:7, ref:"RH-07", name:"Two-Tone Salmon",      desc:"Esfera salmón · Bisel oro rosa · Brazalete bicolor",    style:"doston", price:"179 €", badge:"Exclusivo",  img:"rh07-product.png", link:"rh07.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Dos tonos / 316L",correa:"Bicolor plata+oro",diam:"40mm"},
+  {id:8, ref:"RH-08", name:"Blue Bezel Edition",   desc:"Esfera blanca · Bisel azul cerámico · Brazalete acero", style:"acero",  price:"169 €", badge:"",           img:"rh08-product.png", link:"rh08.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",     diam:"40mm"},
+  {id:9, ref:"RH-09", name:"Green Signature",      desc:"Esfera blanca · Bisel verde cerámico · Brazalete acero",style:"acero",  price:"169 €", badge:"Firma RH",   img:"rh09-hero.webp",   link:"green-signature.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",diam:"40mm"},
+  {id:10,ref:"RH-10", name:"Two-Tone Black",       desc:"Esfera negra · Bisel oro rosa · Brazalete bicolor",     style:"doston", price:"169 €", badge:"",           img:"rh10-product.png", link:"rh10.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Dos tonos / 316L",correa:"Bicolor plata+oro",diam:"40mm"},
 ];
 
 function renderGrid(f) {
   const list = f === 'all' ? watches : watches.filter(w => w.style === f);
   document.getElementById('grid').innerHTML = list.map(w => `
-    <div class="p-card" onclick="openModal(${w.id})">
+    <div class="p-card" onclick="${w.link ? `window.location='${w.link}'` : `openModal(${w.id})`}">
       <div class="p-img">
-        ${w.img
-          ? `<img src="${w.img}" alt="${w.name}" onerror="this.style.display='none';this.nextSibling.style.display='block'"/><span class="p-emoji" style="display:none">⌚</span>`
-          : `<span class="p-emoji">⌚</span>`}
+        <div class="p-img-inner">
+          ${w.img
+            ? `<img src="${w.img}" alt="${w.name}" onerror="this.style.display='none';this.nextSibling.style.display='block'"/><span class="p-emoji" style="display:none">&#x231A;</span>`
+            : `<span class="p-emoji">&#x231A;</span>`}
+        </div>
         ${w.badge ? `<div class="p-badge">${w.badge}</div>` : ''}
       </div>
-      <div class="p-info">
-        <div class="p-ref">${w.ref}</div>
-        <div class="p-name">${w.name}</div>
-        <div class="p-desc">${w.desc}</div>
-        <div class="p-footer">
-          <div class="p-price">${w.price}</div>
-          ${w.link
-            ? `<a class="p-btn p-btn-link" href="${w.link}" onclick="event.stopPropagation()">→</a>`
-            : `<button class="p-btn" onclick="event.stopPropagation()">+</button>`}
-        </div>
+      <div class="p-ref">${w.ref}</div>
+      <div class="p-name">${w.name}</div>
+      <div class="p-footer">
+        <div class="p-price">${w.price}</div>
+        <span class="p-arrow">&#x2192;</span>
       </div>
     </div>
   `).join('');
@@ -1262,10 +557,10 @@ function filter(f, btn) {
 
 function openModal(id) {
   const w = watches.find(x => x.id === id);
-  document.getElementById('mRef').textContent   = w.ref;
-  document.getElementById('mName').textContent  = w.name;
-  document.getElementById('mDesc').textContent  = w.desc;
-  document.getElementById('mPrice').textContent = w.price;
+  document.getElementById('mRef').textContent  = w.ref;
+  document.getElementById('mName').textContent = w.name;
+  document.getElementById('mDesc').textContent = w.desc;
+  document.getElementById('mPrice').textContent= w.price;
   document.getElementById('mSpecs').innerHTML = `
     <div class="modal-spec-row"><span>Movimiento</span><span>${w.mov}</span></div>
     <div class="modal-spec-row"><span>Cristal</span><span>${w.cristal}</span></div>
@@ -1273,8 +568,9 @@ function openModal(id) {
     <div class="modal-spec-row"><span>Caja</span><span>${w.caja}</span></div>
     <div class="modal-spec-row"><span>Correa</span><span>${w.correa}</span></div>
     <div class="modal-spec-row"><span>Diámetro</span><span>${w.diam}</span></div>
-    <div class="modal-spec-row"><span>Garantía</span><span>3 años</span></div>
   `;
+  const imgEl = w.img ? `<img src="${w.img}" alt="${w.name}"/>` : `<span style="font-size:80px">&#x231A;</span>`;
+  document.getElementById('mImg').innerHTML = imgEl;
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
