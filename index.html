@@ -789,14 +789,20 @@
       #specs { padding: 64px 32px; }
     }
     @media (max-width: 640px) {
-      .hero-stats { gap: 32px; }
-      .hero-title { font-size: 52px; }
+      .hero-stats { gap: 28px; }
+      .hero-title { font-size: 48px; }
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: 16px; }
       .builders-grid { grid-template-columns: 1fr; }
       .modal { grid-template-columns: 1fr; }
+      .modal-img { min-height: 280px; }
       .footer-top { grid-template-columns: 1fr; }
       .nl-form { flex-direction: column; }
       .nl-input { border-right: 1px solid rgba(15,76,58,0.4); border-bottom: none; }
       #manifesto, section { padding: 64px 24px; }
+      .community-cta { padding: 48px 24px; }
+      .hero-bottom { left: 24px; right: 24px; bottom: 80px; }
+      .stat-n { font-size: 30px; }
+      .grid-products { grid-template-columns: 1fr; }
     }
   </style>
 </head>
