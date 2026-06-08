@@ -141,6 +141,57 @@ footer{padding:48px;background:var(--black);display:flex;justify-content:space-b
   footer{flex-direction:column;gap:16px;text-align:center;padding:32px 24px}
   .nav-back{font-size:9px}
 }
+
+/* EDITORIAL HEADLINE */
+.prod-headline{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(13px,1.4vw,16px);
+  font-weight:300;font-style:italic;
+  color:var(--gray);letter-spacing:.5px;line-height:1.8;
+  margin-bottom:28px;max-width:420px;
+  padding-left:20px;border-left:2px solid var(--green);
+}
+
+/* URGENCY BADGE */
+.prod-urgency{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#FFF8F0;border:1px solid #F0D9B5;
+  color:#8B5E00;padding:8px 16px;
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;
+  margin-bottom:16px;
+}
+.prod-urgency::before{content:'●';color:#E8A020;font-size:10px}
+
+/* 5 TECH ICONS */
+.tech-icons{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:0;border:1px solid var(--border);margin-bottom:36px;
+}
+.tech-icon-cell{
+  padding:16px 6px;text-align:center;
+  border-right:1px solid var(--border);
+}
+.tech-icon-cell:last-child{border-right:none}
+.ti-icon{font-size:18px;margin-bottom:5px}
+.ti-val{font-size:9px;color:var(--black);font-weight:500;letter-spacing:.5px;margin-bottom:3px}
+.ti-key{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray)}
+
+/* PAYMENT METHODS */
+.payment-methods{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  padding-top:18px;margin-top:18px;border-top:1px solid var(--border);
+}
+.payment-methods-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-right:4px}
+.pm-badge{
+  border:1px solid var(--border);padding:5px 10px;
+  font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--gray);font-weight:500;
+}
+
+@media(max-width:768px){
+  .tech-icons{grid-template-columns:repeat(3,1fr)!important}
+  .specs-strip{grid-template-columns:repeat(3,1fr)!important}
+}
+
 </style>
 </head>
 <body>
@@ -197,11 +248,12 @@ footer{padding:48px;background:var(--black);display:flex;justify-content:space-b
   </div>
 </section>
 
-<div class="specs-strip">
+<div class="specs-strip" style="grid-template-columns:repeat(5,1fr)">
+  <div class="spec-cell"><div class="spec-label">Movimiento</div><div class="spec-val">Seiko VK63</div></div>
   <div class="spec-cell"><div class="spec-label">Cristal</div><div class="spec-val">Zafiro</div></div>
   <div class="spec-cell"><div class="spec-label">Caja</div><div class="spec-val">316L</div></div>
   <div class="spec-cell"><div class="spec-label">Agua</div><div class="spec-val">100M</div></div>
-  <div class="spec-cell"><div class="spec-label">Movimiento</div><div class="spec-val">Seiko VK63</div></div>
+  <div class="spec-cell"><div class="spec-label">Garantía</div><div class="spec-val">3 años</div></div>
 </div>
 
 <section class="product-section" id="detalle">
@@ -213,6 +265,18 @@ footer{padding:48px;background:var(--black);display:flex;justify-content:space-b
     <div class="prod-ref">RH-07</div>
     <h2 class="prod-name">Two-Tone<br><em>Salmon</em></h2>
     <p class="prod-tagline">La tendencia mundial</p>
+    
+    <div class="prod-urgency">Stock limitado · Solo 5 unidades</div>
+    <p class="prod-headline">"Solo para los que se atreven.<br>Salmón sobre oro. Edición única."</p>
+    
+    <!-- 5 TECH ICONS -->
+    <div class="tech-icons">
+      <div class="tech-icon-cell"><div class="ti-icon">⚙️</div><div class="ti-val">Seiko VK63</div><div class="ti-key">Movimiento</div></div>
+      <div class="tech-icon-cell"><div class="ti-icon">💎</div><div class="ti-val">Zafiro</div><div class="ti-key">Cristal</div></div>
+      <div class="tech-icon-cell"><div class="ti-icon">🔩</div><div class="ti-val">316L</div><div class="ti-key">Acero</div></div>
+      <div class="tech-icon-cell"><div class="ti-icon">💧</div><div class="ti-val">100M</div><div class="ti-key">Agua</div></div>
+      <div class="tech-icon-cell"><div class="ti-icon">🛡️</div><div class="ti-val">3 Años</div><div class="ti-key">Garantía</div></div>
+    </div>
     <div class="specs-table">
       <div class="spec-row"><span class="s-label">Movimiento</span><span class="s-val">Seiko VK63 Meca-Quartz</span></div>
       <div class="spec-row"><span class="s-label">Cristal</span><span class="s-val">Zafiro Antirreflejo</span></div>
@@ -228,6 +292,14 @@ footer{padding:48px;background:var(--black);display:flex;justify-content:space-b
       <div class="price-note">Envío gratuito</div>
     </div>
     <a href="#" class="buy-btn">Comprar Ahora</a>
+    <div class="payment-methods">
+      <span class="payment-methods-label">Pago seguro:</span>
+      <span class="pm-badge">Visa</span>
+      <span class="pm-badge">Mastercard</span>
+      <span class="pm-badge">PayPal</span>
+      <span class="pm-badge">Bizum</span>
+      <span class="pm-badge">Apple Pay</span>
+    </div>
   </div>
 </section>
 
@@ -237,7 +309,7 @@ footer{padding:48px;background:var(--black);display:flex;justify-content:space-b
 </section>
 
 <section class="manifesto-strip">
-  <p class="manifesto-text">"El tiempo no espera.<br>Tampoco debería tu reloj."</p>
+  <p class="manifesto-text">"La edición que no se repite."</p>
   <p class="manifesto-tagline">For Those Who Build</p>
 </section>
 

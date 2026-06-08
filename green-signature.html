@@ -141,6 +141,51 @@
     .footer-links a{font-size:10px;color:rgba(255,255,255,.5);text-decoration:none;letter-spacing:1px;transition:color .3s}
     .footer-links a:hover{color:var(--white)}
 
+    /* URGENCY BADGE */
+    .detail-urgency{
+      display:inline-flex;align-items:center;gap:8px;
+      background:#FFF8F0;border:1px solid #F0D9B5;
+      color:#8B5E00;padding:8px 16px;
+      font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;
+      margin-bottom:20px;
+    }
+    .detail-urgency::before{content:'●';color:#E8A020;font-size:10px}
+
+    /* EDITORIAL HEADLINE */
+    .detail-headline{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(13px,1.5vw,16px);
+      font-weight:300;font-style:italic;
+      color:var(--gray);letter-spacing:.5px;line-height:1.8;
+      margin-bottom:28px;max-width:420px;
+      padding-left:20px;border-left:2px solid var(--green);
+    }
+
+    /* TECH ICONS STRIP */
+    .tech-icons{
+      display:grid;grid-template-columns:repeat(5,1fr);
+      gap:0;border:1px solid var(--border);margin-bottom:36px;
+    }
+    .tech-icon-cell{
+      padding:18px 8px;text-align:center;
+      border-right:1px solid var(--border);
+    }
+    .tech-icon-cell:last-child{border-right:none}
+    .ti-icon{font-size:20px;margin-bottom:6px}
+    .ti-val{font-size:10px;color:var(--black);font-weight:500;letter-spacing:.5px;margin-bottom:3px}
+    .ti-key{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray)}
+
+    /* PAYMENT METHODS */
+    .payment-methods{
+      display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+      padding-top:20px;margin-top:20px;border-top:1px solid var(--border);
+    }
+    .payment-methods-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-right:4px}
+    .pm-badge{
+      border:1px solid var(--border);padding:5px 10px;
+      font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--gray);font-weight:500;
+    }
+
     /* RESPONSIVE */
     @media(max-width:1024px){
       nav{padding:18px 28px}
@@ -155,7 +200,11 @@
       .detail-info{padding:48px 24px}
       #lifestyle .lifestyle-grid{grid-template-columns:1fr 1fr}
       section,#lifestyle,#manifesto-strip,#cta{padding:64px 28px}
-      #specs-strip{grid-template-columns:1fr 1fr}
+      #specs-strip{grid-template-columns:repeat(3,1fr)!important}
+      .spec-cell:nth-child(3){border-right:none}
+      .spec-cell:nth-child(4){border-top:1px solid rgba(15,76,58,.15)}
+      .spec-cell:nth-child(5){border-top:1px solid rgba(15,76,58,.15)}
+      .tech-icons{grid-template-columns:repeat(3,1fr)!important}
       footer{padding:40px 28px}
       .video-section{height:45vh;min-height:260px}
       .video-overlay{padding:0 28px}
@@ -166,7 +215,8 @@
       .hero-title{font-size:44px}
       .lifestyle-grid{grid-template-columns:1fr!important}
       .cta-actions{flex-direction:column;align-items:center}
-      #specs-strip{grid-template-columns:1fr 1fr}
+      #specs-strip{grid-template-columns:repeat(3,1fr)!important}
+      .tech-icons{grid-template-columns:repeat(3,1fr)!important}
       .video-section{height:52vw;min-height:200px}
       .video-title{font-size:32px}
       .btn-buy,.btn-outline{width:100%;text-align:center;display:block}
@@ -286,22 +336,26 @@
 </section>
 
 <!-- SPECS STRIP -->
-<div id="specs-strip">
+<div id="specs-strip" style="grid-template-columns:repeat(5,1fr)">
+  <div class="spec-cell">
+    <span class="spec-icon">⚙️</span>
+    <div><div class="spec-val">Seiko VK63</div><div class="spec-key">Movimiento Meca-Quartz</div></div>
+  </div>
   <div class="spec-cell">
     <span class="spec-icon">💎</span>
-    <div><div class="spec-val">Cristal Zafiro</div><div class="spec-key">Máxima resistencia a los arañazos</div></div>
+    <div><div class="spec-val">Cristal Zafiro</div><div class="spec-key">Antirreflejo · máx. dureza</div></div>
   </div>
   <div class="spec-cell">
     <span class="spec-icon">🔩</span>
-    <div><div class="spec-val">Acero 316L</div><div class="spec-key">Acero inoxidable de alta calidad</div></div>
+    <div><div class="spec-val">Acero 316L</div><div class="spec-key">Inox de grado quirúrgico</div></div>
   </div>
   <div class="spec-cell">
     <span class="spec-icon">💧</span>
-    <div><div class="spec-val">100M</div><div class="spec-key">Resistencia al agua para tu día a día</div></div>
+    <div><div class="spec-val">100M / 10 ATM</div><div class="spec-key">Resistencia al agua</div></div>
   </div>
   <div class="spec-cell">
-    <span class="spec-icon">⚙️</span>
-    <div><div class="spec-val">Seiko VK63</div><div class="spec-key">Movimiento de cuarzo de alto rendimiento</div></div>
+    <span class="spec-icon">🛡️</span>
+    <div><div class="spec-val">Garantía 3 años</div><div class="spec-key">Cobertura total RH</div></div>
   </div>
 </div>
 
@@ -352,14 +406,27 @@
     <div class="detail-img-placeholder" style="display:none">⌚</div>
   </div>
   <div class="detail-info">
+    <div class="detail-urgency">Stock limitado · Solo quedan 8 unidades</div>
     <div class="detail-tag">RH-09 · Green Signature</div>
     <h2 class="detail-name">Green<br>Signature</h2>
     <div class="detail-ref">Referencia RH-09 · Primera Colección 2026</div>
+    <p class="detail-headline">
+      "El capítulo verde. Para quienes construyen<br>cuando nadie los está mirando."
+    </p>
     <p class="detail-desc">
       El reloj que define la identidad de <strong>RH Luxury</strong>.<br><br>
       El bisel verde cerámico no es un detalle — es una declaración. Para quienes construyen en silencio mientras el mundo duerme. Para quienes llevan sus objetivos en la muñeca.<br><br>
       <strong>Vale cada segundo.</strong>
     </p>
+
+    <!-- 5 TECH ICONS -->
+    <div class="tech-icons">
+      <div class="tech-icon-cell"><div class="ti-icon">⚙️</div><div class="ti-val">Seiko VK63</div><div class="ti-key">Movimiento</div></div>
+      <div class="tech-icon-cell"><div class="ti-icon">💎</div><div class="ti-val">Zafiro</div><div class="ti-key">Cristal</div></div>
+      <div class="tech-icon-cell"><div class="ti-icon">🔩</div><div class="ti-val">316L</div><div class="ti-key">Acero</div></div>
+      <div class="tech-icon-cell"><div class="ti-icon">💧</div><div class="ti-val">100M</div><div class="ti-key">Agua</div></div>
+      <div class="tech-icon-cell"><div class="ti-icon">🛡️</div><div class="ti-val">3 Años</div><div class="ti-key">Garantía</div></div>
+    </div>
     <div class="specs-table">
       <div class="spec-row"><span>Movimiento</span><span>Seiko VK63 Meca-Quartz</span></div>
       <div class="spec-row"><span>Cristal</span><span>Zafiro antirreflejo</span></div>
@@ -383,6 +450,14 @@
       <div class="guarantee-item"><span class="guarantee-icon">🛡️</span><span class="guarantee-text">Garantía 3 años</span></div>
       <div class="guarantee-item"><span class="guarantee-icon">📦</span><span class="guarantee-text">Envío gratuito</span></div>
       <div class="guarantee-item"><span class="guarantee-icon">↩️</span><span class="guarantee-text">30 días devolución</span></div>
+    </div>
+    <div class="payment-methods">
+      <span class="payment-methods-label">Pago seguro:</span>
+      <span class="pm-badge">Visa</span>
+      <span class="pm-badge">Mastercard</span>
+      <span class="pm-badge">PayPal</span>
+      <span class="pm-badge">Bizum</span>
+      <span class="pm-badge">Apple Pay</span>
     </div>
   </div>
 </section>

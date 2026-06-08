@@ -285,6 +285,67 @@
     }
     .modal-buy:hover{background:var(--green)}
 
+    /* ── EDITORIAL BLOCK ── */
+    .editorial-block{text-align:center;margin:0 0 52px;padding:0 24px}
+    .editorial-text{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(18px,2.5vw,26px);font-weight:300;font-style:italic;
+      color:var(--gray);letter-spacing:.5px;line-height:1.7;
+      max-width:620px;margin:0 auto;
+    }
+
+    /* ── TRUST BAR ── */
+    #trust-bar{
+      background:var(--off);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+      padding:18px 48px;display:flex;align-items:center;justify-content:center;
+      gap:48px;flex-wrap:wrap;
+    }
+    .trust-item{display:flex;align-items:center;gap:10px}
+    .trust-icon{font-size:16px}
+    .trust-text{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);font-weight:400}
+    .trust-sep{width:1px;height:20px;background:var(--border)}
+
+    /* ── PAYMENTS ROW ── */
+    .payments-row{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      flex-wrap:wrap;margin-top:20px;
+    }
+    .pay-badge{
+      border:1px solid var(--border);padding:6px 14px;
+      font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);
+      font-weight:500;
+    }
+
+    /* ── HERO TAGLINE ── */
+    .hero-tagline{
+      font-size:12px;color:rgba(255,255,255,.55);
+      letter-spacing:2px;margin-top:-20px;margin-bottom:36px;
+      max-width:360px;line-height:1.9;
+    }
+
+    /* ── STOCK BADGE ── */
+    .p-badge-stock{
+      position:absolute;top:12px;right:12px;
+      background:rgba(255,255,255,.9);color:var(--black);
+      font-size:7px;letter-spacing:1.5px;text-transform:uppercase;
+      padding:4px 8px;font-weight:600;border:1px solid var(--border);
+    }
+
+    /* ── EDITORIAL MANIFESTO BAND ── */
+    .manifesto-band{
+      background:var(--black);color:var(--white);
+      padding:72px 48px;text-align:center;
+      border-top:1px solid rgba(255,255,255,.05);
+    }
+    .manifesto-band-eye{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--green2);margin-bottom:24px}
+    .manifesto-band-quote{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(22px,3.5vw,44px);font-weight:300;font-style:italic;
+      color:var(--white);line-height:1.3;max-width:700px;margin:0 auto 20px;
+    }
+    .manifesto-band-quote strong{font-style:normal;color:var(--green2)}
+    .manifesto-band-attr{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+
     /* ── RESPONSIVE ── */
     @media(max-width:1100px){
       nav{padding:0 28px}
@@ -298,19 +359,26 @@
       .footer-top{grid-template-columns:1fr 1fr;gap:36px}
       #story{padding:80px 32px}
       #newsletter{padding:64px 28px}
+      #trust-bar{gap:24px;padding:14px 24px}
+      .trust-sep{display:none}
+      .manifesto-band{padding:56px 32px}
     }
     @media(max-width:640px){
       .announce{font-size:9px;letter-spacing:1px;padding:9px 16px}
+      #trust-bar{padding:12px 16px;gap:14px}
+      .trust-text{font-size:8px;letter-spacing:1px}
       nav{padding:0 20px;height:60px}
       .nav-left{display:none}
       .nav-logo-svg{height:38px}
       #hero{height:80vh;min-height:480px}
       .hero-content{left:24px;bottom:52px}
       .hero-title{font-size:clamp(42px,11vw,68px)}
+      .hero-tagline{font-size:11px;margin-top:-16px}
       #collection{padding:52px 20px}
       .grid-products{grid-template-columns:repeat(2,1fr);gap:14px}
       #features{grid-template-columns:1fr 1fr}
       .feat{padding:20px 16px;gap:10px}
+      .manifesto-band{padding:48px 20px}
       #story{padding:64px 24px}
       #newsletter{padding:56px 20px}
       .nl-form{flex-direction:column}
@@ -327,6 +395,17 @@
 
 <!-- ANNOUNCEMENT BAR -->
 <div class="announce">Envío gratuito a España · Garantía 3 años · Devolución 30 días</div>
+
+<!-- TRUST BAR -->
+<div id="trust-bar">
+  <div class="trust-item"><span class="trust-icon">📦</span><span class="trust-text">Envío Gratuito · España & Europa</span></div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-icon">↩️</span><span class="trust-text">Devolución 30 días</span></div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-icon">🛡️</span><span class="trust-text">Garantía 3 Años</span></div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-icon">🔒</span><span class="trust-text">Pago 100% Seguro</span></div>
+</div>
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
@@ -383,7 +462,8 @@
   <div class="hero-content">
     <div class="hero-eyebrow">RH Luxury · Primera Colección · 2026</div>
     <h1 class="hero-title">For Those<br><em>Who Build</em></h1>
-    <a href="#collection" class="hero-btn">Explorar Colección</a>
+    <p class="hero-tagline">Construido para quienes se están<br>convirtiendo en más.</p>
+    <a href="#collection" class="hero-btn">Explorar Colección &nbsp;→</a>
   </div>
   <div class="hero-dots">
     <div class="hero-dot on"></div>
@@ -396,6 +476,9 @@
 <section id="collection">
   <div class="sec-eye">Primera Colección 2026</div>
   <h2 class="sec-title">La Colección</h2>
+  <div class="editorial-block">
+    <p class="editorial-text">"No es solo un reloj — es la medida de tu disciplina."</p>
+  </div>
   <div class="filters">
     <button class="filter-btn active" onclick="filter('all',this)">Todos</button>
     <button class="filter-btn" onclick="filter('goma',this)">Correa Goma</button>
@@ -425,6 +508,16 @@
   </div>
 </div>
 
+<!-- EDITORIAL MANIFESTO BAND -->
+<div class="manifesto-band">
+  <div class="manifesto-band-eye">La Filosofía RH</div>
+  <p class="manifesto-band-quote">
+    "Mientras otros miran el reloj,<br>
+    tú mides el <strong>tiempo que falta</strong> para construirlo."
+  </p>
+  <div class="manifesto-band-attr">RH Luxury · For Those Who Build · 2026</div>
+</div>
+
 <!-- STORY / MANIFESTO (dark) -->
 <section id="story">
   <div class="story-eye">For Those Who Build</div>
@@ -442,6 +535,14 @@
     <input class="nl-input" type="email" placeholder="Tu correo electrónico"/>
     <button class="nl-btn">Suscribirse</button>
   </form>
+  <div class="payments-row" style="margin-top:40px">
+    <div class="pay-badge">Visa</div>
+    <div class="pay-badge">Mastercard</div>
+    <div class="pay-badge">PayPal</div>
+    <div class="pay-badge">Bizum</div>
+    <div class="pay-badge">Apple Pay</div>
+  </div>
+  <p style="font-size:9px;letter-spacing:2px;color:var(--gray);margin-top:16px;text-transform:uppercase">Pago 100% Seguro · SSL Cifrado</p>
 </section>
 
 <!-- FOOTER -->
@@ -515,16 +616,16 @@
 
 <script>
 const watches = [
-  {id:1, ref:"RH-01", name:"Classic Silver White", desc:"Esfera blanca · Bisel negro · Correa goma negra",       style:"goma",   price:"149 €", badge:"",           img:"rh01-product.png", link:"rh01.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Goma negra",          diam:"40mm"},
-  {id:2, ref:"RH-02", name:"Classic Silver Black", desc:"Esfera negra · Bisel negro · Correa goma negra",        style:"goma",   price:"149 €", badge:"",           img:"rh02-product.png", link:"rh02.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Goma negra",          diam:"40mm"},
-  {id:3, ref:"RH-03", name:"Rose Gold Edition",    desc:"Esfera blanca · Caja oro rosa · Correa goma negra",     style:"goma",   price:"159 €", badge:"Premium",    img:"rh03-product.png", link:"rh03.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Oro rosa / 316L",correa:"Goma negra",      diam:"40mm"},
-  {id:4, ref:"RH-04", name:"Steel Classic White",  desc:"Esfera blanca · Bisel negro · Brazalete acero plata",   style:"acero",  price:"159 €", badge:"",           img:"rh04-product.png", link:"rh04.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",     diam:"40mm"},
-  {id:5, ref:"RH-05", name:"Steel Classic Black",  desc:"Esfera negra · Bisel negro · Brazalete acero plata",    style:"acero",  price:"159 €", badge:"",           img:"rh05-product.png", link:"rh05.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",     diam:"40mm"},
-  {id:6, ref:"RH-06", name:"Two-Tone White",       desc:"Esfera blanca · Bisel oro rosa · Brazalete bicolor",    style:"doston", price:"169 €", badge:"Más vendido", img:"rh06-product.png", link:"rh06.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Dos tonos / 316L",correa:"Bicolor plata+oro",diam:"40mm"},
-  {id:7, ref:"RH-07", name:"Two-Tone Salmon",      desc:"Esfera salmón · Bisel oro rosa · Brazalete bicolor",    style:"doston", price:"179 €", badge:"Exclusivo",  img:"rh07-product.png", link:"rh07.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Dos tonos / 316L",correa:"Bicolor plata+oro",diam:"40mm"},
-  {id:8, ref:"RH-08", name:"Blue Bezel Edition",   desc:"Esfera blanca · Bisel azul cerámico · Brazalete acero", style:"acero",  price:"169 €", badge:"",           img:"rh08-product.png", link:"rh08.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",     diam:"40mm"},
-  {id:9, ref:"RH-09", name:"Green Signature",      desc:"Esfera blanca · Bisel verde cerámico · Brazalete acero",style:"acero",  price:"169 €", badge:"Firma RH",   img:"rh09-hero.webp",   link:"green-signature.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",diam:"40mm"},
-  {id:10,ref:"RH-10", name:"Two-Tone Black",       desc:"Esfera negra · Bisel oro rosa · Brazalete bicolor",     style:"doston", price:"169 €", badge:"",           img:"rh10-product.png", link:"rh10.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Dos tonos / 316L",correa:"Bicolor plata+oro",diam:"40mm"},
+  {id:1, ref:"RH-01", name:"Classic Silver White", desc:"La arquitectura del blanco. Esfera limpia, bisel negro, correa goma. Claridad que domina.",         style:"goma",   price:"149 €", badge:"Nuevo",       stock:"",            img:"rh01-product.png", link:"rh01.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Goma negra",          diam:"40mm"},
+  {id:2, ref:"RH-02", name:"Classic Silver Black", desc:"Negra como la ambición. Esfera oscura, línea limpia, carácter sin compromiso.",                       style:"goma",   price:"149 €", badge:"Nuevo",       stock:"",            img:"rh02-product.png", link:"rh02.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Goma negra",          diam:"40mm"},
+  {id:3, ref:"RH-03", name:"Rose Gold Edition",    desc:"Elegancia redefinida. Oro rosa, esfera blanca, para quienes construyen con estilo.",                   style:"goma",   price:"159 €", badge:"Premium",     stock:"",            img:"rh03-product.png", link:"rh03.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Oro rosa / 316L",correa:"Goma negra",      diam:"40mm"},
+  {id:4, ref:"RH-04", name:"Steel Classic White",  desc:"Acero sobre blanco. Pureza industrial. El reloj para quienes prefieren hablar con hechos.",           style:"acero",  price:"159 €", badge:"",            stock:"",            img:"rh04-product.png", link:"rh04.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",     diam:"40mm"},
+  {id:5, ref:"RH-05", name:"Steel Classic Black",  desc:"El acero más oscuro. Esfera negra, brazalete plata. Contraste que impone presencia.",                 style:"acero",  price:"159 €", badge:"",            stock:"Stock bajo",  img:"rh05-product.png", link:"rh05.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",     diam:"40mm"},
+  {id:6, ref:"RH-06", name:"Two-Tone White",       desc:"Dos mundos en una muñeca. Plata y oro, blanco y ambición. El favorito de la colección.",               style:"doston", price:"169 €", badge:"Más vendido", stock:"",            img:"rh06-product.png", link:"rh06.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Dos tonos / 316L",correa:"Bicolor plata+oro",diam:"40mm"},
+  {id:7, ref:"RH-07", name:"Two-Tone Salmon",      desc:"La edición que no pasa desapercibida. Salmón, oro rosa, bicolor. Solo para los que se atreven.",       style:"doston", price:"179 €", badge:"Exclusivo",   stock:"Stock bajo",  img:"rh07-product.png", link:"rh07.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Dos tonos / 316L",correa:"Bicolor plata+oro",diam:"40mm"},
+  {id:8, ref:"RH-08", name:"Blue Bezel Edition",   desc:"Cerámica azul, acero vivo. La intensidad del mar en tu muñeca. Edición limitada.",                    style:"acero",  price:"169 €", badge:"Nuevo",       stock:"",            img:"rh08-product.png", link:"rh08.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",     diam:"40mm"},
+  {id:9, ref:"RH-09", name:"Green Signature",      desc:"El capítulo verde. Bisel cerámico, firma de colección. El reloj que define RH Luxury.",               style:"acero",  price:"169 €", badge:"Firma RH",    stock:"Stock bajo",  img:"rh09-hero.webp",   link:"green-signature.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Plata / 316L",correa:"Brazalete acero",diam:"40mm"},
+  {id:10,ref:"RH-10", name:"Two-Tone Black",       desc:"Bicolor y negro. Elegancia oscura que habla por sí sola. Para builders de noche.",                    style:"doston", price:"169 €", badge:"Nuevo",       stock:"",            img:"rh10-product.png", link:"rh10.html", mov:"Seiko VK63",cristal:"Zafiro",agua:"100M",caja:"Dos tonos / 316L",correa:"Bicolor plata+oro",diam:"40mm"},
 ];
 
 function renderGrid(f) {
@@ -538,6 +639,7 @@ function renderGrid(f) {
             : `<span class="p-emoji">&#x231A;</span>`}
         </div>
         ${w.badge ? `<div class="p-badge">${w.badge}</div>` : ''}
+        ${w.stock ? `<div class="p-badge-stock">🔴 ${w.stock}</div>` : ''}
       </div>
       <div class="p-ref">${w.ref}</div>
       <div class="p-name">${w.name}</div>
