@@ -1,378 +1,1564 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>RH-02 — Classic Silver Black | RH Luxury</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
-<style>
-    /* iOS full-screen fix */
-    html { height: -webkit-fill-available; }
-    body { min-height: 100vh; min-height: -webkit-fill-available; }
-@supports (-webkit-touch-callout: none) {
-  #hero { height: -webkit-fill-available; min-height: -webkit-fill-available; }
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classic Silver Black · RH-02 — RH LUXURY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-:root{--green:#0F4C3A;--green2:#1a6b54;--black:#0A0A0A;--white:#FFFFFF;--off:#F8F7F2;--gray:#999;--border:#E8E8E8}
-body{background:var(--white);color:var(--black);font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden}
-::-webkit-scrollbar{width:2px}
-::-webkit-scrollbar-thumb{background:var(--green)}
+    :root {
+      --black: #111111;
+      --white: #ffffff;
+      --gray-light: #f5f5f5;
+      --gray-mid: #cccccc;
+      --gray-text: #666666;
+      --gray-border: #e0e0e0;
+      --accent: #1a1a1a;
+      --btn-bg: #111111;
+      --btn-hover: #333333;
+      --star-color: #c8a96e;
+      --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Montserrat', Helvetica, Arial, sans-serif;
+    }
 
-/* ANNOUNCEMENT BAR */
-.announce{background:var(--black);color:var(--white);text-align:center;padding:10px 24px;font-size:10px;letter-spacing:3px;text-transform:uppercase}
+    body {
+      font-family: var(--font-sans);
+      color: var(--black);
+      background: var(--white);
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-/* NAV */
-nav{position:sticky;top:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 48px;height:68px;background:var(--white);border-bottom:1px solid var(--border);transition:box-shadow .3s}
-nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07)}
-.nav-back{color:var(--gray);text-decoration:none;font-size:10px;letter-spacing:3px;text-transform:uppercase;transition:color .3s;font-weight:400;display:flex;align-items:center;gap:8px}
-.nav-back:hover{color:var(--black)}
-.nav-back::before{content:"←";font-size:14px}
-.nav-logo-wrap{display:flex;align-items:center;justify-content:center}
-.nav-logo-svg{height:44px;width:auto;transition:height .3s}
-nav.scrolled .nav-logo-svg{height:36px}
-.nav-icons{display:flex;gap:20px;justify-content:flex-end;align-items:center}
-.nav-icon{font-size:16px;cursor:pointer;color:var(--gray);transition:color .3s;text-decoration:none}
-.nav-icon:hover{color:var(--black)}
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
 
-/* HERO */
-#hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.15) 0%,rgba(0,0,0,.05) 40%,rgba(10,10,10,.8) 100%)}
-.hero-content{position:relative;z-index:2;padding:0 60px 80px;width:100%;display:flex;justify-content:space-between;align-items:flex-end}
-.hero-left .hero-tag{font-size:10px;letter-spacing:4px;color:rgba(255,255,255,.65);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:14px}
-.hero-left .hero-tag::before{content:'';display:block;width:28px;height:1px;background:rgba(255,255,255,.45)}
-.hero-title{font-family:'Playfair Display',serif;font-size:clamp(52px,7vw,96px);font-weight:300;line-height:.95;color:var(--white)}
-.hero-title em{font-style:italic}
-.hero-sub{font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.55);margin-top:14px;text-transform:uppercase}
-.hero-btns{display:flex;gap:12px;margin-top:28px}
-.btn-primary{background:var(--white);color:var(--black);padding:14px 32px;font-size:10px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;font-family:'Montserrat',sans-serif;font-weight:500;border:1px solid var(--white);transition:all .3s}
-.btn-primary:hover{background:transparent;color:var(--white)}
-.btn-secondary{background:transparent;color:rgba(255,255,255,.65);padding:14px 32px;font-size:10px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.3);font-family:'Montserrat',sans-serif;transition:all .3s}
-.btn-secondary:hover{border-color:var(--white);color:var(--white)}
-.hero-right{text-align:right}
-.hero-price{font-family:'Playfair Display',serif;font-size:64px;font-weight:300;color:var(--white);line-height:1}
-.hero-price-meta{font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.45);text-transform:uppercase;margin-top:8px}
+    /* ===================== ANNOUNCEMENT BAR ===================== */
+    .announcement-bar {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
 
-/* SPECS STRIP */
-.specs-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--off)}
-.spec-cell{padding:32px 36px;border-right:1px solid var(--border)}
-.spec-cell:last-child{border-right:none}
-.spec-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gray);margin-bottom:10px}
-.spec-val{font-family:'Playfair Display',serif;font-size:22px;color:var(--black)}
+    /* ===================== HEADER ===================== */
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-/* PRODUCT SECTION */
-.product-section{display:grid;grid-template-columns:1fr 1fr;min-height:75vh}
-.product-img-col{background:var(--off);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.product-img-col img{width:100%;height:100%;object-fit:cover}
-.product-info-col{padding:72px 56px;display:flex;flex-direction:column;justify-content:center;background:var(--white);border-left:1px solid var(--border)}
-.prod-ref{font-size:10px;letter-spacing:5px;color:var(--green);text-transform:uppercase;margin-bottom:16px}
-.prod-name{font-family:'Playfair Display',serif;font-size:clamp(32px,3.5vw,52px);font-weight:300;line-height:1.1;margin-bottom:8px;color:var(--black)}
-.prod-name em{color:var(--green);font-style:italic}
-.prod-tagline{font-size:10px;letter-spacing:3px;color:var(--gray);text-transform:uppercase;margin-bottom:36px}
-.specs-table{border-top:1px solid var(--border);margin-bottom:40px}
-.spec-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)}
-.spec-row .s-label{font-size:10px;letter-spacing:2px;color:var(--gray);text-transform:uppercase}
-.spec-row .s-val{font-size:11px;color:var(--black);font-weight:300}
-.price-block{display:flex;align-items:baseline;gap:16px;margin-bottom:28px}
-.price-main{font-family:'Playfair Display',serif;font-size:56px;color:var(--black)}
-.price-note{font-size:10px;letter-spacing:2px;color:var(--gray);text-transform:uppercase}
-.buy-btn{background:var(--black);color:var(--white);padding:16px 40px;font-size:10px;letter-spacing:4px;text-transform:uppercase;border:1px solid var(--black);cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:500;transition:all .3s;text-decoration:none;display:inline-block}
-.buy-btn:hover{background:var(--green);border-color:var(--green)}
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
 
-/* SPECS IMAGE */
-.specs-img-section{padding:0}
-.specs-img-section img{width:100%;display:block}
+    .header-logo {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--black);
+      flex-shrink: 0;
+    }
 
-/* MANIFESTO */
-.manifesto-strip{background:var(--green);padding:64px 48px;text-align:center}
-.manifesto-text{font-family:'Playfair Display',serif;font-size:clamp(24px,3.5vw,44px);font-weight:300;font-style:italic;color:var(--white);line-height:1.3}
-.manifesto-tagline{font-size:10px;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:16px}
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
 
-/* SELL POINTS */
-.sell-section{padding:72px 48px;display:grid;grid-template-columns:repeat(3,1fr);background:var(--white);border-top:1px solid var(--border)}
-.sell-card{padding:48px 36px;border-right:1px solid var(--border)}
-.sell-card:last-child{border-right:none}
-.sell-num{font-family:'Playfair Display',serif;font-size:64px;color:rgba(15,76,58,.1);line-height:1;margin-bottom:16px}
-.sell-text{font-size:12px;color:#666;line-height:1.8}
-.sell-text strong{display:block;color:var(--black);font-size:13px;font-weight:500;margin-bottom:8px;letter-spacing:2px;text-transform:uppercase}
+    .header-nav > ul {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
 
-/* CTA */
-.cta-section{padding:80px 48px;text-align:center;background:var(--off);border-top:1px solid var(--border)}
-.cta-title{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,52px);font-weight:300;margin-bottom:12px;color:var(--black)}
-.cta-title em{color:var(--green);font-style:italic}
-.cta-sub{font-size:11px;letter-spacing:3px;color:var(--gray);text-transform:uppercase;margin-bottom:40px}
+    .header-nav > ul > li {
+      position: relative;
+    }
 
-/* FOOTER */
-footer{padding:48px;background:var(--black);display:flex;justify-content:space-between;align-items:center;border-top:none}
-.footer-brand{font-family:'Playfair Display',serif;font-size:18px;letter-spacing:4px;color:var(--white)}
-.footer-brand span{color:var(--green2);font-style:italic}
-.footer-copy{font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.3)}
+    .header-nav > ul > li > a {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--black);
+      transition: opacity 0.2s;
+      padding: 8px 0;
+      display: block;
+    }
 
-/* STICKY BOTTOM BAR */
-.sticky-buy{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid var(--border);padding:14px 24px;align-items:center;justify-content:space-between;gap:16px}
-.sticky-buy-name{font-size:11px;letter-spacing:2px;color:var(--gray);text-transform:uppercase;line-height:1.4}
-.sticky-buy-name strong{display:block;color:var(--black);font-weight:500;font-size:13px}
-.sticky-buy-btn{background:var(--black);color:var(--white);border:none;padding:14px 28px;font-size:11px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;font-family:'Montserrat',sans-serif;white-space:nowrap;text-decoration:none;flex-shrink:0;transition:background .3s}
-.sticky-buy-btn:hover{background:var(--green)}
-@media(max-width:900px){.sticky-buy{display:flex}body{padding-bottom:72px}}
+    .header-nav > ul > li > a:hover { opacity: 0.6; }
 
-/* LIFESTYLE SECTION */
-.lifestyle-section{position:relative;overflow:hidden}
-.lifestyle-img-wrap{position:relative}
-.lifestyle-img-wrap img{width:100%;height:70vh;object-fit:cover;object-position:center;display:block}
-.lifestyle-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.85) 0%,rgba(10,10,10,.2) 50%,transparent 100%);display:flex;align-items:flex-end;padding:60px}
-.lifestyle-caption{max-width:600px}
-.ls-eye{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--green2);margin-bottom:14px}
-.ls-quote{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,36px);font-weight:300;font-style:italic;color:var(--white);line-height:1.3}
-@media(max-width:768px){
-  .lifestyle-img-wrap img{height:50vh}
-  .lifestyle-overlay{padding:32px 24px}
-}
+    /* Dropdown */
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      min-width: 180px;
+      padding: 12px 0;
+      display: none;
+      z-index: 999;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  nav{padding:0 20px;height:60px}
-  .hero-content{padding:0 24px 60px;flex-direction:column;gap:20px}
-  .hero-right{text-align:left}
-  .hero-btns{flex-direction:column;gap:12px}
-  .hero-price{font-size:52px}
-  .hero-title{font-size:clamp(44px,10vw,72px)}
-  .specs-strip{grid-template-columns:repeat(2,1fr)}
-  .spec-cell{padding:24px 20px}
-  .product-section{grid-template-columns:1fr}
-  .product-img-col{min-height:0}
-  .product-img-col img{width:100%;height:auto;object-fit:cover}
-  .product-info-col{padding:40px 24px;border-left:none;border-top:1px solid var(--border)}
-  .manifesto-strip{padding:48px 24px}
-  .sell-section{grid-template-columns:1fr;padding:48px 24px}
-  .sell-card{border-right:none;border-bottom:1px solid var(--border)}
-  .sell-card:last-child{border-bottom:none}
-  .cta-section{padding:60px 24px}
-  footer{flex-direction:column;gap:16px;text-align:center;padding:32px 24px}
-  .nav-back{font-size:9px}
-}
+    .has-dropdown:hover .dropdown-menu { display: block; }
 
-/* EDITORIAL HEADLINE */
-.prod-headline{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(13px,1.4vw,16px);
-  font-weight:300;font-style:italic;
-  color:var(--gray);letter-spacing:.5px;line-height:1.8;
-  margin-bottom:28px;max-width:420px;
-  padding-left:20px;border-left:2px solid var(--green);
-}
+    .dropdown-menu li a {
+      display: block;
+      padding: 8px 20px;
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: background 0.15s;
+    }
 
-/* URGENCY BADGE */
-.prod-urgency{
-  display:inline-flex;align-items:center;gap:8px;
-  background:#FFF8F0;border:1px solid #F0D9B5;
-  color:#8B5E00;padding:8px 16px;
-  font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;
-  margin-bottom:16px;
-}
-.prod-urgency::before{content:'●';color:#E8A020;font-size:10px}
+    .dropdown-menu li a:hover { background: var(--gray-light); }
 
-/* 5 TECH ICONS */
-.tech-icons{
-  display:grid;grid-template-columns:repeat(5,1fr);
-  gap:0;border:1px solid var(--border);margin-bottom:36px;
-}
-.tech-icon-cell{
-  padding:16px 6px;text-align:center;
-  border-right:1px solid var(--border);
-}
-.tech-icon-cell:last-child{border-right:none}
-.ti-icon{font-size:18px;margin-bottom:5px}
-.ti-val{font-size:9px;color:var(--black);font-weight:500;letter-spacing:.5px;margin-bottom:3px}
-.ti-key{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray)}
+    .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
 
-/* PAYMENT METHODS */
-.payment-methods{
-  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
-  padding-top:18px;margin-top:18px;border-top:1px solid var(--border);
-}
-.payment-methods-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-right:4px}
-.pm-badge{
-  border:1px solid var(--border);padding:5px 10px;
-  font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--gray);font-weight:500;
-}
+    .header-icons a, .header-icons button {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: opacity 0.2s;
+    }
 
-@media(max-width:768px){
-  .tech-icons{grid-template-columns:repeat(3,1fr)!important}
-  .specs-strip{grid-template-columns:repeat(3,1fr)!important}
-}
+    .header-icons a:hover, .header-icons button:hover { opacity: 0.6; }
 
-</style>
+    .icon-svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--black);
+    }
+
+    /* ===================== BREADCRUMB ===================== */
+    .breadcrumb {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 14px 30px;
+      font-size: 11px;
+      color: var(--gray-text);
+      letter-spacing: 0.8px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .breadcrumb a { color: var(--gray-text); }
+    .breadcrumb a:hover { color: var(--black); }
+    .breadcrumb span { color: var(--gray-mid); }
+
+    /* ===================== PRODUCT SECTION ===================== */
+    .product-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 10px 30px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* ---- GALLERY ---- */
+    .product-gallery {
+      display: flex;
+      gap: 16px;
+      position: sticky;
+      top: 90px;
+    }
+
+    .gallery-thumbs {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .gallery-thumb {
+      width: 72px;
+      height: 72px;
+      background: var(--gray-mid);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .gallery-thumb.active { border-color: var(--black); }
+    .gallery-thumb:hover { border-color: #999; }
+
+    .gallery-main {
+      flex: 1;
+      background: var(--gray-mid);
+      aspect-ratio: 1 / 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-main-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--black);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 10px;
+    }
+
+    /* ---- PRODUCT INFO ---- */
+    .product-info {
+      padding-top: 10px;
+    }
+
+    .product-info .product-label {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gray-text);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .product-info h1 {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .product-price {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+
+    /* Color variants */
+    .variant-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: var(--black);
+    }
+
+    .variant-label span {
+      font-weight: 400;
+      color: var(--gray-text);
+    }
+
+    .color-swatches {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .color-swatch {
+      width: 44px;
+      height: 44px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      position: relative;
+    }
+
+    .color-swatch.active { border-color: var(--black); outline: 2px solid var(--white); outline-offset: -4px; }
+    .color-swatch:hover { border-color: #888; }
+
+    .swatch-ice-blue { background: #a8c8d8; }
+    .swatch-champagne { background: #c8a96e; }
+    .swatch-ocean-green { background: #2d6a4f; }
+    .swatch-deep-red { background: #8b1a1a; }
+
+    /* Quantity + Add to cart */
+    .quantity-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      align-items: stretch;
+    }
+
+    .qty-control {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--gray-border);
+      height: 52px;
+    }
+
+    .qty-control button {
+      width: 44px;
+      height: 100%;
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--black);
+      transition: background 0.15s;
+    }
+
+    .qty-control button:hover { background: var(--gray-light); }
+
+    .qty-control input {
+      width: 48px;
+      height: 100%;
+      text-align: center;
+      border: none;
+      border-left: 1px solid var(--gray-border);
+      border-right: 1px solid var(--gray-border);
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+    }
+
+    .btn-add-cart {
+      flex: 1;
+      background: var(--btn-bg);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      height: 52px;
+      transition: background 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-add-cart:hover { background: var(--btn-hover); }
+
+    .btn-wishlist {
+      width: 52px;
+      height: 52px;
+      border: 1px solid var(--gray-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+      flex-shrink: 0;
+    }
+
+    .btn-wishlist:hover { background: var(--gray-light); }
+
+    /* Stock badge */
+    .stock-info {
+      font-size: 11px;
+      color: #2d7a2d;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+
+    .stock-dot {
+      width: 8px;
+      height: 8px;
+      background: #2d7a2d;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Benefits */
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 22px 0;
+      border-top: 1px solid var(--gray-border);
+      border-bottom: 1px solid var(--gray-border);
+      margin-bottom: 28px;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .benefit-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Short description */
+    .product-short-desc {
+      font-size: 13px;
+      color: var(--gray-text);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    /* ===================== ACCORDION / TABS ===================== */
+    .accordion-section {
+      border-top: 1px solid var(--gray-border);
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid var(--gray-border);
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      padding: 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: inherit;
+    }
+
+    .accordion-trigger .plus-icon {
+      font-size: 22px;
+      font-weight: 300;
+      line-height: 1;
+      transition: transform 0.2s;
+    }
+
+    .accordion-trigger.open .plus-icon { transform: rotate(45deg); }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .accordion-content.open {
+      max-height: 600px;
+    }
+
+    .accordion-body {
+      padding-bottom: 20px;
+    }
+
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .specs-table tr { border-bottom: 1px solid var(--gray-border); }
+    .specs-table tr:last-child { border-bottom: none; }
+
+    .specs-table td {
+      padding: 10px 0;
+      vertical-align: top;
+    }
+
+    .specs-table td:first-child {
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--black);
+      width: 45%;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .specs-table td:last-child { color: var(--gray-text); }
+
+    /* ===================== STORY SECTIONS ===================== */
+    .story-section {
+      background: var(--black);
+      color: var(--white);
+      padding: 80px 30px;
+      text-align: center;
+    }
+
+    .story-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .story-tag {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .story-title {
+      font-family: var(--font-serif);
+      font-size: 42px;
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    .story-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Feature image band */
+    .feature-band {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 480px;
+    }
+
+    .feature-band .img-block {
+      background: var(--gray-mid);
+    }
+
+    .feature-band .text-block {
+      background: var(--black);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      padding: 60px;
+    }
+
+    .feature-band .text-block.left {
+      order: -1;
+    }
+
+    .feature-band .text-content { max-width: 480px; }
+
+    .feature-band .text-content .tag {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+
+    .feature-band .text-content h2 {
+      font-family: var(--font-serif);
+      font-size: 34px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+    }
+
+    .feature-band .text-content p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.85;
+    }
+
+    /* ===================== REVIEWS ===================== */
+    .reviews-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 70px 30px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-tag {
+      font-size: 10px;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--gray-text);
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .reviews-summary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 50px;
+      padding: 30px;
+      background: var(--gray-light);
+    }
+
+    .rating-big {
+      font-family: var(--font-serif);
+      font-size: 60px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .rating-info { text-align: center; }
+
+    .stars-row {
+      display: flex;
+      gap: 3px;
+      justify-content: center;
+      margin-bottom: 6px;
+    }
+
+    .star {
+      font-size: 18px;
+      color: var(--star-color);
+    }
+
+    .star.empty { color: var(--gray-border); }
+
+    .rating-count {
+      font-size: 11px;
+      color: var(--gray-text);
+      letter-spacing: 1px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      border: 1px solid var(--gray-border);
+      padding: 28px;
+    }
+
+    .review-card .stars-row { justify-content: flex-start; margin-bottom: 14px; }
+    .review-card .stars-row .star { font-size: 14px; }
+
+    .review-title {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    .review-body {
+      font-size: 12px;
+      color: var(--gray-text);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .review-meta {
+      font-size: 10px;
+      color: var(--gray-mid);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ===================== ALSO LIKE ===================== */
+    .also-like-section {
+      padding: 60px 30px 80px;
+      background: var(--gray-light);
+    }
+
+    .also-like-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .also-like-section .section-header { margin-bottom: 40px; }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      background: var(--white);
+    }
+
+    .product-card-img {
+      background: var(--gray-mid);
+      aspect-ratio: 1 / 1;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+
+    .product-card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--black);
+      color: var(--white);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 8px;
+    }
+
+    .product-card-info {
+      padding: 16px;
+    }
+
+    .product-card-name {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .product-card-price {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 14px;
+      color: var(--gray-text);
+    }
+
+    .btn-card-cart {
+      width: 100%;
+      background: var(--black);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 12px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: inherit;
+    }
+
+    .btn-card-cart:hover { background: var(--btn-hover); }
+
+    /* ===================== FOOTER ===================== */
+    .site-footer {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .footer-top {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 30px 40px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .footer-brand p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 14px;
+    }
+
+    .footer-socials a {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      transition: all 0.2s;
+    }
+
+    .footer-socials a:hover {
+      border-color: var(--white);
+      color: var(--white);
+    }
+
+    .footer-col h4 {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      color: var(--white);
+    }
+
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col ul li a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-col ul li a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 20px 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copyright {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.5px;
+    }
+
+    .payment-icons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .payment-icon {
+      background: rgba(255,255,255,0.1);
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 10px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    /* ===================== FLOATING ELEMENTS ===================== */
+    .whatsapp-fab {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 54px;
+      height: 54px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      z-index: 9999;
+      transition: transform 0.2s;
+    }
+
+    .whatsapp-fab:hover { transform: scale(1.08); }
+
+    .whatsapp-fab svg { width: 28px; height: 28px; fill: white; }
+
+    /* Mobile sticky bar */
+    .mobile-sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-top: 1px solid var(--gray-border);
+      padding: 12px 16px;
+      z-index: 900;
+      gap: 10px;
+    }
+
+    .mobile-sticky-bar .btn-add-cart {
+      flex: 1;
+      height: 48px;
+      font-size: 11px;
+    }
+
+    .mobile-sticky-bar .btn-wishlist {
+      width: 48px;
+      height: 48px;
+    }
+
+    /* ===================== ACCORDION JS BEHAVIOR ===================== */
+    /* (handled in JS below) */
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 1100px) {
+      .footer-top {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 30px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .products-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .product-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 10px 20px 100px;
+      }
+
+      .product-gallery { position: static; }
+
+      .feature-band {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .feature-band .img-block { min-height: 300px; }
+      .feature-band .text-block { padding: 40px 30px; }
+      .feature-band .text-block.left { order: 0; }
+
+      .reviews-grid { grid-template-columns: 1fr; }
+
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .story-title { font-size: 30px; }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner { padding: 0 16px; height: 60px; }
+      .header-nav { display: none; }
+      .hamburger { display: flex; }
+
+      .breadcrumb { padding: 12px 16px; }
+
+      .product-section { padding: 10px 16px 100px; }
+
+      .product-gallery { flex-direction: column-reverse; }
+
+      .gallery-thumbs {
+        flex-direction: row;
+        overflow-x: auto;
+      }
+
+      .gallery-thumb { width: 60px; height: 60px; flex-shrink: 0; }
+
+      .product-info h1 { font-size: 26px; }
+
+      .quantity-row { flex-wrap: wrap; }
+
+      .story-section { padding: 50px 20px; }
+      .story-title { font-size: 26px; }
+
+      .reviews-section { padding: 50px 16px; }
+      .reviews-summary { flex-direction: column; gap: 16px; }
+      .rating-big { font-size: 48px; }
+
+      .also-like-section { padding: 40px 16px 80px; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        padding: 40px 16px 30px;
+        gap: 24px;
+      }
+
+      .footer-brand { grid-column: 1 / -1; }
+
+      .footer-bottom {
+        padding: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .mobile-sticky-bar { display: flex; }
+
+      .whatsapp-fab { bottom: 80px; right: 16px; }
+
+      .header-logo { font-size: 17px; letter-spacing: 2px; }
+    }
+
+    @media (max-width: 420px) {
+      .products-grid { grid-template-columns: 1fr 1fr; }
+      .product-card-name { font-size: 10px; }
+    }
+  </style>
 </head>
 <body>
-<!-- ANNOUNCEMENT BAR -->
-<div class="announce">Envío gratuito a España · Garantía 3 años · Devolución 30 días</div>
 
-<nav id="navbar">
-  <a href="index.html" class="nav-back">Volver a la Colección</a>
-  <div class="nav-logo-wrap">
-    <svg class="nav-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
-      <defs>
-        <linearGradient id="ng1p" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#0F4C3A"/>
-          <stop offset="55%" stop-color="#1e8a66"/>
-          <stop offset="100%" stop-color="#0d3d2e"/>
-        </linearGradient>
-        <linearGradient id="ng2p" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#666"/>
-          <stop offset="50%" stop-color="#444"/>
-          <stop offset="100%" stop-color="#555"/>
-        </linearGradient>
-      </defs>
-      <path d="M95 48 Q52 22 68 72 Q56 118 92 148" fill="none" stroke="url(#ng1p)" stroke-width="5.5" stroke-linecap="round" opacity="0.9"/>
-      <text x="88" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" font-style="italic" fill="url(#ng1p)" letter-spacing="-6">R</text>
-      <text x="206" y="168" font-family="Georgia,'Times New Roman',serif" font-size="152" font-weight="bold" fill="url(#ng1p)">H</text>
-      <line x1="68" y1="194" x2="332" y2="194" stroke="url(#ng2p)" stroke-width="1.2" opacity="0.6"/>
-      <text x="200" y="236" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="30" font-weight="300" letter-spacing="13" fill="url(#ng2p)" text-anchor="middle">LUXURY</text>
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    ENVÍO GRATUITO MUNDIAL EN TODOS LOS PEDIDOS &nbsp;·&nbsp; GARANTÍA DE 2 AÑOS &nbsp;·&nbsp; DEVOLUCIONES GRATIS 30 DÍAS
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Logo -->
+      <a href="index.html" class="header-logo">RH LUXURY</a>
+
+      <!-- Nav -->
+      <nav class="header-nav">
+        <ul>
+          <li class="has-dropdown">
+            <a href="index.html">Colección</a>
+            <ul class="dropdown-menu">
+              <li><a href="index.html">Todos los relojes</a></li>
+              <li><a href="rh01.html">RH-01 Classic Silver White</a></li>
+              <li><a href="rh06.html">RH-06 Two-Tone White</a></li>
+              <li><a href="green-signature.html">RH-09 Green Signature</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html">For Those Who Build</a></li>
+          <li><a href="#">Nuestra Historia</a></li>
+        </ul>
+      </nav>
+
+      <!-- Icons -->
+      <div class="header-icons">
+        <a href="#" aria-label="Buscar">
+          <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+        </a>
+        <a href="#" aria-label="Mi cuenta">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <a href="#" aria-label="Carrito">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span style="font-size:10px;background:var(--black);color:var(--white);border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;margin-left:-6px;margin-top:-10px;font-weight:700;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="#">Inicio</a>
+    <span>/</span>
+    <a href="#">Novedades</a>
+    <span>/</span>
+    <span style="color:var(--black);">Classic Silver Black</span>
+  </nav>
+
+  <!-- PRODUCT SECTION -->
+  <section class="product-section">
+
+    <!-- GALLERY -->
+    <div class="product-gallery">
+      <!-- Thumbnails -->
+      <div class="gallery-thumbs">
+        <div class="gallery-thumb active" onclick="switchImg(this)"></div>
+        <div class="gallery-thumb" onclick="switchImg(this)"></div>
+        <div class="gallery-thumb" onclick="switchImg(this)"></div>
+        <div class="gallery-thumb" onclick="switchImg(this)"></div>
+        <div class="gallery-thumb" onclick="switchImg(this)"></div>
+        <div class="gallery-thumb" onclick="switchImg(this)"></div>
+      </div>
+      <!-- Main Image -->
+      <div class="gallery-main">
+        <div class="gallery-badge">Nuevo</div>
+      </div>
+    </div>
+
+    <!-- PRODUCT INFO -->
+    <div class="product-info">
+      <p class="product-label">RH-02 · CLASSIC</p>
+      <h1>Classic Silver Black</h1>
+      <div class="product-price">149 €</div>
+
+      <!-- Color variants -->
+      <p class="variant-label">Esfera: <span>Negra con índices plateados</span></p>
+
+      <!-- Stock -->
+      <div class="stock-info">
+        <div class="stock-dot"></div>
+        En stock · Listo para enviar
+      </div>
+
+      <!-- Quantity + Add to cart -->
+      <div class="quantity-row">
+        <div class="qty-control">
+          <button onclick="changeQty(-1)">−</button>
+          <input type="number" id="qty" value="1" min="1" />
+          <button onclick="changeQty(1)">+</button>
+        </div>
+        <button class="btn-add-cart">Añadir al carrito</button>
+        <button class="btn-wishlist" aria-label="Lista de deseos">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Benefits -->
+      <div class="benefits-list">
+        <div class="benefit-item">
+          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          Envío gratuito mundial
+        </div>
+        <div class="benefit-item">
+          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Garantía de dos años
+        </div>
+        <div class="benefit-item">
+          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polyline points="9 11 12 14 22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+          Devoluciones gratuitas en 30 días
+        </div>
+      </div>
+
+      <!-- Short description -->
+      <p class="product-short-desc">
+        Negra como la ambición. Esfera oscura, línea limpia, carácter sin compromiso. Para los que construyen en silencio.
+      </p>
+
+      <!-- ACCORDION -->
+      <div class="accordion-section">
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            Especificaciones técnicas
+            <span class="plus-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <table class="specs-table">
+                <tr><td>Referencia</td><td>RH-02</td></tr>
+                <tr><td>Movimiento</td><td>Seiko VK63 Meca-Quartz</td></tr>
+                <tr><td>Resistencia al agua</td><td>100M / 10ATM</td></tr>
+                <tr><td>Diámetro caja</td><td>Acero inoxidable 316L plateado · 40mm</td></tr>
+                <tr><td>Cristal</td><td>Zafiro antirreflectante</td></tr>
+                <tr><td>Esfera</td><td>Negra con índices plateados</td></tr>
+                <tr><td>Correa / Brazalete</td><td>Goma negra premium</td></tr>
+                <tr><td>Bisel</td><td>Negro IP</td></tr>
+                <tr><td>Garantía</td><td>3 años</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            Envío y entrega
+            <span class="plus-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body" style="font-size:13px;color:var(--gray-text);line-height:1.8;">
+              <p>Todos los pedidos incluyen <strong>envío gratuito mundial</strong>. Los pedidos se procesan en 1–2 días hábiles. El tiempo estimado de entrega varía según la región: Europa 5–7 días, Américas 7–10 días, resto del mundo 10–14 días. Recibirás un número de seguimiento por correo electrónico una vez enviado tu pedido.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            Garantía y devoluciones
+            <span class="plus-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body" style="font-size:13px;color:var(--gray-text);line-height:1.8;">
+              <p>Todos nuestros relojes incluyen una <strong>garantía de 2 años</strong> contra defectos de fabricación. Además, aceptamos devoluciones sin costo durante los primeros <strong>30 días</strong> desde la recepción del pedido. El producto debe estar en condición original con todos sus accesorios.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            Cómo configurar tu reloj
+            <span class="plus-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body" style="font-size:13px;color:var(--gray-text);line-height:1.8;">
+              <p>Tu reloj automático NH35 se cargará con el movimiento natural de tu muñeca. Si necesitas ponerlo en hora por primera vez, saca suavemente la corona hasta la segunda posición y gírala para ajustar la hora. Para la fecha, usa la primera posición. Evita ajustar la fecha entre las 9pm y la 1am para no dañar el mecanismo.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /ACCORDION -->
+
+    </div>
+    <!-- /PRODUCT INFO -->
+
+  </section>
+  <!-- /PRODUCT SECTION -->
+
+  <!-- STORY SECTIONS -->
+  <div class="story-section">
+    <div class="story-inner">
+      <p class="story-tag">RH-02 Classic Black</p>
+      <h2 class="story-title">AMBICIÓN SIN LÍMITES.</h2>
+      <p class="story-text">El RH-02 Classic Black es la última incorporación a la colección Aquadiver: un reloj de buceo en esencia, diseñado para quienes aprecian la profundidad, la precisión y un toque de elegancia en igual medida.</p>
+    </div>
+  </div>
+
+  <div class="feature-band">
+    <div class="img-block"></div>
+    <div class="text-block">
+      <div class="text-content">
+        <p class="tag">El poder del color</p>
+        <h2>EL PODER DEL DISEÑO</h2>
+        <p>El RH-02 está construido con materiales de relojería suiza. Cada detalle, cada acabado, cada milímetro ha sido diseñado para durar y para impresionar.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature-band">
+    <div class="text-block left">
+      <div class="text-content">
+        <p class="tag">Herencia grabada</p>
+        <h2>CRAFTED FOR BUILDERS</h2>
+        <p>El cristal de zafiro antirreflectante protege cada detalle. El movimiento Seiko VK63 Meca-Quartz garantiza precisión milimétrica. Hecho para quienes no aceptan menos que lo mejor.</p>
+      </div>
+    </div>
+    <div class="img-block"></div>
+  </div>
+
+  <div class="feature-band">
+    <div class="img-block"></div>
+    <div class="text-block">
+      <div class="text-content">
+        <p class="tag">Versatilidad total</p>
+        <h2>FOR THOSE WHO BUILD</h2>
+        <p>Con 100M / 10ATM de resistencia al agua y correa/brazalete goma negra premium, el RH-02 está listo para cualquier situación. De la reunión más importante al desafío más exigente.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-section" style="background:#111;">
+    <div class="story-inner">
+      <p class="story-tag">Construcción</p>
+      <h2 class="story-title">CONSTRUIDO PARA DURAR.<br>DISEÑADO PARA DESTACAR.</h2>
+      <p class="story-text">El movimiento Seiko VK63 Meca-Quartz, garantía de 3 años y 100M / 10ATM de resistencia. La caja de Acero inoxidable 316L plateado · 40mm lo hace cómodo en la muñeca y elegante en cualquier ocasión.</p>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section">
+    <div class="section-header">
+      <p class="section-tag">Opiniones de clientes</p>
+      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+    </div>
+
+    <div class="reviews-summary">
+      <div class="rating-big">4.9</div>
+      <div class="rating-info">
+        <div class="stars-row">
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+        </div>
+        <div class="rating-count">Basado en 000 reseñas</div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <!-- Review 1 -->
+      <div class="review-card">
+        <div class="stars-row">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="review-title">TÍTULO DE LA RESEÑA</div>
+        <p class="review-body">TEXTO DE LA RESEÑA. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Un cliente satisfecho comparte su experiencia positiva con el producto y el servicio recibido.</p>
+        <div class="review-meta">NOMBRE DEL CLIENTE &nbsp;·&nbsp; FECHA</div>
+      </div>
+      <!-- Review 2 -->
+      <div class="review-card">
+        <div class="stars-row">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="review-title">TÍTULO DE LA RESEÑA</div>
+        <p class="review-body">TEXTO DE LA RESEÑA. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Calidad excepcional, envío rápido y diseño que supera todas las expectativas.</p>
+        <div class="review-meta">NOMBRE DEL CLIENTE &nbsp;·&nbsp; FECHA</div>
+      </div>
+      <!-- Review 3 -->
+      <div class="review-card">
+        <div class="stars-row">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span>
+        </div>
+        <div class="review-title">TÍTULO DE LA RESEÑA</div>
+        <p class="review-body">TEXTO DE LA RESEÑA. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excelente relación calidad-precio para un reloj automático de estas características.</p>
+        <div class="review-meta">NOMBRE DEL CLIENTE &nbsp;·&nbsp; FECHA</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALSO LIKE -->
+  <section class="also-like-section">
+    <div class="also-like-inner">
+      <div class="section-header">
+        <p class="section-tag">Puede que también te guste</p>
+        <h2 class="section-title">Otros modelos de la colección</h2>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-card-img">
+            <span class="product-card-badge">New</span>
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-name">NOMBRE DEL PRODUCTO 1</div>
+            <div class="product-card-price">149 €</div>
+            <button class="btn-card-cart">Añadir al carrito</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card-img">
+            <span class="product-card-badge">New</span>
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-name">NOMBRE DEL PRODUCTO 2</div>
+            <div class="product-card-price">149 €</div>
+            <button class="btn-card-cart">Añadir al carrito</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card-img">
+            <span class="product-card-badge">New</span>
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-name">NOMBRE DEL PRODUCTO 3</div>
+            <div class="product-card-price">149 €</div>
+            <button class="btn-card-cart">Añadir al carrito</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-card-img">
+            <span class="product-card-badge">New</span>
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-name">NOMBRE DEL PRODUCTO 4</div>
+            <div class="product-card-price">149 €</div>
+            <button class="btn-card-cart">Añadir al carrito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-logo">RH LUXURY</div>
+        <p>Relojes de precisión diseñados para quienes exigen lo mejor. Artesanía, movimiento y estilo en cada detalle.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Watches -->
+      <div class="footer-col">
+        <h4>Relojes</h4>
+        <ul>
+          <li><a href="index.html">Todos los relojes</a></li>
+          <li><a href="rh01.html">Classic (RH-01 / RH-02)</a></li>
+          <li><a href="rh03.html">Rose Gold (RH-03)</a></li>
+          <li><a href="rh04.html">Steel (RH-04 / RH-05)</a></li>
+          <li><a href="rh06.html">Two-Tone (RH-06 / RH-07 / RH-10)</a></li>
+          <li><a href="green-signature.html">Green Signature (RH-09)</a></li>
+        </ul>
+      </div>
+
+      <!-- Customer service -->
+      <div class="footer-col">
+        <h4>Servicio al cliente</h4>
+        <ul>
+          <li><a href="#">Contáctanos</a></li>
+          <li><a href="#">Mis pedidos</a></li>
+          <li><a href="#">Mi cuenta</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+          <li><a href="#">Devoluciones e intercambios</a></li>
+          <li><a href="#">Envíos y entrega</a></li>
+          <li><a href="#">Garantía y reparación</a></li>
+        </ul>
+      </div>
+
+      <!-- Privacy -->
+      <div class="footer-col">
+        <h4>Privacidad y términos</h4>
+        <ul>
+          <li><a href="#">Términos de uso</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Ventas y colaboraciones</a></li>
+        </ul>
+      </div>
+
+      <!-- Brand extra -->
+      <div class="footer-col">
+        <h4>Nuestra marca</h4>
+        <ul>
+          <li><a href="#">Nuestro universo</a></li>
+          <li><a href="#">Prensa</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer bottom -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2026 RH LUXURY. Todos los derechos reservados. Todos los pedidos serán procesados por nuestra empresa.</p>
+      <div class="payment-icons">
+        <span class="payment-icon">VISA</span>
+        <span class="payment-icon">MC</span>
+        <span class="payment-icon">AMEX</span>
+        <span class="payment-icon">PAYPAL</span>
+        <span class="payment-icon">APPLE PAY</span>
+        <span class="payment-icon">GOOGLE PAY</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FAB -->
+  <a href="#" class="whatsapp-fab" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
     </svg>
+  </a>
+
+  <!-- MOBILE STICKY BAR -->
+  <div class="mobile-sticky-bar">
+    <button class="btn-add-cart">Añadir al carrito — 149 €</button>
+    <button class="btn-wishlist" aria-label="Lista de deseos">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+    </button>
   </div>
-  <div class="nav-icons">
-    <a href="index.html" class="nav-icon" title="Colección">&#x1F6CD;</a>
-  </div>
-</nav>
 
+  <!-- SCRIPTS -->
+  <script>
+    // Accordion
+    function toggleAccordion(btn) {
+      const content = btn.nextElementSibling;
+      const isOpen = content.classList.contains('open');
 
-<section id="hero">
-  <img src="rh02-hero.webp" alt="Classic Silver Black" class="hero-img"
-       onerror="this.style.background='#0d1a14'"/>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-left">
-      <div class="hero-tag">RH-02 · Deportivo masculino · Audaz</div>
-      <h1 class="hero-title">Classic Silver<br><em>Black</em></h1>
-      <p class="hero-sub">Esfera negra · Bisel negro · Correa goma negra</p>
-      <div class="hero-btns">
-        <a href="#comprar" class="btn-primary">Comprar Ahora</a>
-        <a href="#detalle" class="btn-secondary">Ver Detalle</a>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="hero-price">149 €</div>
-      <div class="hero-price-meta">Envío gratuito · Garantía 3 años</div>
-    </div>
-  </div>
-</section>
+      // Close all
+      document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+      document.querySelectorAll('.accordion-trigger').forEach(b => b.classList.remove('open'));
 
-<div class="specs-strip" style="grid-template-columns:repeat(5,1fr)">
-  <div class="spec-cell"><div class="spec-label">Movimiento</div><div class="spec-val">Seiko VK63</div></div>
-  <div class="spec-cell"><div class="spec-label">Cristal</div><div class="spec-val">Zafiro</div></div>
-  <div class="spec-cell"><div class="spec-label">Caja</div><div class="spec-val">316L</div></div>
-  <div class="spec-cell"><div class="spec-label">Agua</div><div class="spec-val">100M</div></div>
-  <div class="spec-cell"><div class="spec-label">Garantía</div><div class="spec-val">3 años</div></div>
-</div>
+      if (!isOpen) {
+        content.classList.add('open');
+        btn.classList.add('open');
+      }
+    }
 
-<section class="product-section" id="detalle">
-  <div class="product-img-col">
-    <img src="rh02-hero.webp" alt="Classic Silver Black"
-         onerror="this.style.background='#0d1a14'"/>
-  </div>
-  <div class="product-info-col">
-    <div class="prod-ref">RH-02</div>
-    <h2 class="prod-name">Classic Silver<br><em>Black</em></h2>
-    <p class="prod-tagline">Look oscuro y potente</p>
-    
-    <p class="prod-headline">"Negra como la ambición.<br>Sin compromiso, sin disculpas."</p>
-    
-    <!-- 5 TECH ICONS -->
-    <div class="tech-icons">
-      <div class="tech-icon-cell"><div class="ti-icon">⚙️</div><div class="ti-val">Seiko VK63</div><div class="ti-key">Movimiento</div></div>
-      <div class="tech-icon-cell"><div class="ti-icon">💎</div><div class="ti-val">Zafiro</div><div class="ti-key">Cristal</div></div>
-      <div class="tech-icon-cell"><div class="ti-icon">🔩</div><div class="ti-val">316L</div><div class="ti-key">Acero</div></div>
-      <div class="tech-icon-cell"><div class="ti-icon">💧</div><div class="ti-val">100M</div><div class="ti-key">Agua</div></div>
-      <div class="tech-icon-cell"><div class="ti-icon">🛡️</div><div class="ti-val">3 Años</div><div class="ti-key">Garantía</div></div>
-    </div>
-    <div class="specs-table">
-      <div class="spec-row"><span class="s-label">Movimiento</span><span class="s-val">Seiko VK63 Meca-Quartz</span></div>
-      <div class="spec-row"><span class="s-label">Cristal</span><span class="s-val">Zafiro Antirreflejo</span></div>
-      <div class="spec-row"><span class="s-label">Caja</span><span class="s-val">Acero 316L · 40mm · 12mm grosor</span></div>
-      <div class="spec-row"><span class="s-label">Resistencia</span><span class="s-val">100M / 10 ATM</span></div>
-      <div class="spec-row"><span class="s-label">Correa</span><span class="s-val">Goma negra</span></div>
-      <div class="spec-row"><span class="s-label">Caja color</span><span class="s-val">Plata / Acero 316L</span></div>
-      <div class="spec-row"><span class="s-label">Función</span><span class="s-val">Cronógrafo + Fecha</span></div>
-      <div class="spec-row"><span class="s-label">Garantía</span><span class="s-val">3 años</span></div>
-    </div>
-    <div class="price-block" id="comprar">
-      <div class="price-main">149 €</div>
-      <div class="price-note">Envío gratuito</div>
-    </div>
-    <a href="#" class="buy-btn">Comprar Ahora</a>
-    <div class="payment-methods">
-      <span class="payment-methods-label">Pago seguro:</span>
-      <span class="pm-badge">Visa</span>
-      <span class="pm-badge">Mastercard</span>
-      <span class="pm-badge">PayPal</span>
-      <span class="pm-badge">Bizum</span>
-      <span class="pm-badge">Apple Pay</span>
-    </div>
-  </div>
-</section>
+    // Gallery thumbs
+    function switchImg(thumb, src) {
+      document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+      document.getElementById('main-img').src = src;
+    }
 
-<section class="specs-img-section">
-  <img src="rh02-specs.webp" alt="Especificaciones Classic Silver Black"
-       onerror="this.style.display='none'"/>
-</section>
+    // Color selector
+    function selectColor(swatch, name) {
+      document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+      swatch.classList.add('active');
+      document.querySelector('.variant-label span').textContent = name;
+    }
 
-<!-- LIFESTYLE -->
-<section class="lifestyle-section">
-  <div class="lifestyle-img-wrap">
-    <img src="rh02-lifestyle.webp" alt="RH-02 — La reunión que cambia todo"/>
-    <div class="lifestyle-overlay">
-      <div class="lifestyle-caption">
-        <div class="ls-eye">For Those Who Build</div>
-        <p class="ls-quote">"La reunión que cambia todo.<br>Tú en la sala. El reloj en tu muñeca."</p>
-      </div>
-    </div>
-  </div>
-</section>
+    // Quantity
+    function changeQty(delta) {
+      const input = document.getElementById('qty');
+      const val = parseInt(input.value) + delta;
+      if (val >= 1) input.value = val;
+    }
 
-<section class="manifesto-strip">
-  <p class="manifesto-text">"Oscuro por fuera.<br>Imparable por dentro."</p>
-  <p class="manifesto-tagline">For Those Who Build</p>
-</section>
+    // Hide mobile sticky bar when product CTA is in view
+    const addToCartBtn = document.querySelector('.product-info .btn-add-cart');
+    const stickyBar = document.querySelector('.mobile-sticky-bar');
 
-<section class="sell-section">
-  <div class="sell-card">
-    <div class="sell-num">01</div>
-    <p class="sell-text">La versión dark del clásico.</p>
-  </div>
-  <div class="sell-card">
-    <div class="sell-num">02</div>
-    <p class="sell-text">Perfecto para noche y eventos.</p>
-  </div>
-  <div class="sell-card">
-    <div class="sell-num">03</div>
-    <p class="sell-text">Para quienes prefieren el lado oscuro.</p>
-  </div>
-</section>
-
-<section class="cta-section">
-  <h2 class="cta-title">¿Listo para llevarlo<br><em>en tu muñeca?</em></h2>
-  <p class="cta-sub">Envío en 24–48h · Garantía 3 años · Devolución gratuita</p>
-  <a href="#comprar" class="buy-btn">Conseguir el RH-02</a>
-</section>
-
-<footer>
-  <div class="footer-brand">R<span>H</span> LUXURY</div>
-  <div class="footer-copy">© 2026 RH Luxury · For Those Who Build</div>
-</footer>
-
-
-<!-- STICKY BOTTOM BUY BAR (mobile) -->
-<div class="sticky-buy">
-  <div class="sticky-buy-name">
-    <span>RH-02 Classic Silver Black</span>
-    <strong>149 € · Envío gratis</strong>
-  </div>
-  <a href="#comprar" class="sticky-buy-btn">Comprar ahora</a>
-</div>
+    if (addToCartBtn && stickyBar && window.innerWidth <= 768) {
+      const observer = new IntersectionObserver(entries => {
+        stickyBar.style.display = entries[0].isIntersecting ? 'none' : 'flex';
+      }, { threshold: 0.1 });
+      observer.observe(addToCartBtn);
+    }
+  </script>
 
 </body>
 </html>
