@@ -1113,17 +1113,21 @@
 
     <!-- GALLERY -->
     <div class="product-gallery">
-      <!-- Thumbnails -->
+            <!-- Thumbnails -->
       <div class="gallery-thumbs">
-        <div class="gallery-thumb active" onclick="switchImg(this)"></div>
-        <div class="gallery-thumb" onclick="switchImg(this)"></div>
-        <div class="gallery-thumb" onclick="switchImg(this)"></div>
-        <div class="gallery-thumb" onclick="switchImg(this)"></div>
-        <div class="gallery-thumb" onclick="switchImg(this)"></div>
-        <div class="gallery-thumb" onclick="switchImg(this)"></div>
+        <div class="gallery-thumb active" onclick="switchImg(this,'rh03-hero.webp')">
+          <img src="rh03-hero.webp" style="width:100%;height:100%;object-fit:cover" alt=""/>
+        </div>
+        <div class="gallery-thumb" onclick="switchImg(this,'rh03-specs.webp')">
+          <img src="rh03-specs.webp" style="width:100%;height:100%;object-fit:cover" alt=""/>
+        </div>
+        <div class="gallery-thumb" onclick="switchImg(this,'rh03-lifestyle.webp')">
+          <img src="rh03-lifestyle.webp" style="width:100%;height:100%;object-fit:cover" alt=""/>
+        </div>
       </div>
       <!-- Main Image -->
       <div class="gallery-main">
+        <img id="main-img" src="rh03-hero.webp" class="gallery-main-img" alt=""/>
         <div class="gallery-badge">Premium</div>
       </div>
     </div>
@@ -1367,46 +1371,51 @@
       </div>
 
       <div class="products-grid">
-        <div class="product-card">
+        <div class="product-card" onclick="window.location='rh01.html'" style="cursor:pointer">
           <div class="product-card-img">
-            <span class="product-card-badge">New</span>
+            <img src="rh01-product.png" onerror="this.onerror=null;this.src='rh01-product.jpg'" style="width:100%;height:100%;object-fit:cover" alt=""/>
+            <span class="product-card-badge">Nuevo</span>
           </div>
           <div class="product-card-info">
-            <div class="product-card-name">NOMBRE DEL PRODUCTO 1</div>
-            <div class="product-card-price">159 €</div>
-            <button class="btn-card-cart">Añadir al carrito</button>
+            <div class="product-card-name">RH-01 Classic Silver White</div>
+            <div class="product-card-price">149 €</div>
+            <button class="btn-card-cart" onclick="event.stopPropagation();window.location='rh01.html'">Ver reloj</button>
           </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" onclick="window.location='rh06.html'" style="cursor:pointer">
           <div class="product-card-img">
-            <span class="product-card-badge">New</span>
+            <img src="rh06-product.png" onerror="this.onerror=null;this.src='rh06-product.jpg'" style="width:100%;height:100%;object-fit:cover" alt=""/>
+            <span class="product-card-badge">Más vendido</span>
           </div>
           <div class="product-card-info">
-            <div class="product-card-name">NOMBRE DEL PRODUCTO 2</div>
-            <div class="product-card-price">159 €</div>
-            <button class="btn-card-cart">Añadir al carrito</button>
+            <div class="product-card-name">RH-06 Two-Tone White</div>
+            <div class="product-card-price">169 €</div>
+            <button class="btn-card-cart" onclick="event.stopPropagation();window.location='rh06.html'">Ver reloj</button>
           </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" onclick="window.location='rh07.html'" style="cursor:pointer">
           <div class="product-card-img">
-            <span class="product-card-badge">New</span>
+            <img src="rh07-product.png" onerror="this.onerror=null;this.src='rh07-product.jpg'" style="width:100%;height:100%;object-fit:cover" alt=""/>
+            <span class="product-card-badge">Exclusivo</span>
           </div>
           <div class="product-card-info">
-            <div class="product-card-name">NOMBRE DEL PRODUCTO 3</div>
-            <div class="product-card-price">159 €</div>
-            <button class="btn-card-cart">Añadir al carrito</button>
+            <div class="product-card-name">RH-07 Two-Tone Salmon</div>
+            <div class="product-card-price">179 €</div>
+            <button class="btn-card-cart" onclick="event.stopPropagation();window.location='rh07.html'">Ver reloj</button>
           </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" onclick="window.location='rh10.html'" style="cursor:pointer">
           <div class="product-card-img">
-            <span class="product-card-badge">New</span>
+            <img src="rh10-product.png" onerror="this.onerror=null;this.src='rh10-product.jpg'" style="width:100%;height:100%;object-fit:cover" alt=""/>
+            <span class="product-card-badge">Nuevo</span>
           </div>
           <div class="product-card-info">
-            <div class="product-card-name">NOMBRE DEL PRODUCTO 4</div>
-            <div class="product-card-price">159 €</div>
-            <button class="btn-card-cart">Añadir al carrito</button>
+            <div class="product-card-name">RH-10 Two-Tone Black</div>
+            <div class="product-card-price">169 €</div>
+            <button class="btn-card-cart" onclick="event.stopPropagation();window.location='rh10.html'">Ver reloj</button>
           </div>
         </div>
+      
       </div>
     </div>
   </section>
