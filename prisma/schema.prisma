@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Plan {
+  FREE
+  PREMIUM
+}
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  passwordHash  String?
+  name          String?
+  plan          Plan     @default(FREE)
+  goal          String? // what the user wants to develop, from onboarding
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  readingPlans  ReadingPlan[]
+}
+
+model Book {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  author      String
+  coverUrl    String?
+  description String?
+  category    String // finanzas | desarrollo-personal | mentalidad | carisma | biografia
+  totalPages  Int
+  isPremium   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  chapters    Chapter[]
+  readingPlans ReadingPlan[]
+}
+
+model Chapter {
+  id        String  @id @default(cuid())
+  bookId    String
+  book      Book    @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  order     Int
+  title     String
+  startPage Int
+  endPage   Int
+  content   String // plain text / simple markup, rendered in-app only
+
+  @@unique([bookId, order])
+}
+
+// A user's plan to finish a specific book by a target date.
+model ReadingPlan {
+  id             String   @id @default(cuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bookId         String
+  book           Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  startDate      DateTime @default(now())
+  targetDate     DateTime
+  pagesPerDay    Int
+  currentPage    Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([userId, bookId])
+}
+
+// Cache of AI-generated context for a real person mentioned in a book,
+// keyed by name so it's generated once and reused across all readers.
+model PersonContext {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  summary   String
+  source    String   @default("anthropic")
+  createdAt DateTime @default(now())
+}
