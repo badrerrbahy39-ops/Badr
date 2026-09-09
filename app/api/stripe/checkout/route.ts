@@ -23,16 +23,23 @@ export async function POST() {
 
   const baseUrl = process.env.NEXTAUTH_URL ?? "http://localhost:3000";
 
-  const checkoutSession = await stripe.checkout.sessions.create({
-    mode: "subscription",
-    payment_method_types: ["card"],
-    line_items: [{ price: priceId, quantity: 1 }],
-    customer_email: session.user.email ?? undefined,
-    client_reference_id: session.user.id,
-    success_url: `${baseUrl}/account?upgraded=1`,
-    cancel_url: `${baseUrl}/account`,
-    metadata: { userId: session.user.id },
-  });
+  try {
+    const checkoutSession = await stripe.checkout.sessions.create({
+      mode: "subscription",
+      payment_method_types: ["card"],
+      line_items: [{ price: priceId, quantity: 1 }],
+      customer_email: session.user.email ?? undefined,
+      client_reference_id: session.user.id,
+      success_url: `${baseUrl}/account?upgraded=1`,
+      cancel_url: `${baseUrl}/account`,
+      metadata: { userId: session.user.id },
+    });
 
-  return NextResponse.json({ url: checkoutSession.url });
+    return NextResponse.json({ url: checkoutSession.url });
+  } catch {
+    return NextResponse.json(
+      { error: "No se pudo iniciar el pago. Revisa las claves de Stripe configuradas." },
+      { status: 502 }
+    );
+  }
 }

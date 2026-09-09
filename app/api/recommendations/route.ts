@@ -62,35 +62,34 @@ export async function POST(request: NextRequest) {
   if (!apiKey) {
     ranked = keywordFallback(goal, books);
   } else {
-    const anthropic = new Anthropic({ apiKey });
-    const catalogForPrompt = books.map((b) => ({
-      id: b.id,
-      title: b.title,
-      author: b.author,
-      category: b.category,
-      description: b.description,
-    }));
-
-    const message = await anthropic.messages.create({
-      model: RECOMMENDATION_MODEL,
-      max_tokens: 1000,
-      messages: [
-        {
-          role: "user",
-          content:
-            `Un usuario de la app de lectura Ledger describió este objetivo: "${goal}".\n\n` +
-            `Catálogo disponible (JSON): ${JSON.stringify(catalogForPrompt)}\n\n` +
-            `Elige hasta 5 libros del catálogo, ordenados del más al menos relevante para ese objetivo. ` +
-            `Responde EXCLUSIVAMENTE con JSON válido, sin markdown, con esta forma: ` +
-            `[{"id": "<id del libro>", "reason": "<una frase breve en español explicando por qué encaja>"}]`,
-        },
-      ],
-    });
-
-    const textBlock = message.content.find((b) => b.type === "text");
-    const raw = textBlock && textBlock.type === "text" ? textBlock.text.trim() : "[]";
-
     try {
+      const anthropic = new Anthropic({ apiKey });
+      const catalogForPrompt = books.map((b) => ({
+        id: b.id,
+        title: b.title,
+        author: b.author,
+        category: b.category,
+        description: b.description,
+      }));
+
+      const message = await anthropic.messages.create({
+        model: RECOMMENDATION_MODEL,
+        max_tokens: 1000,
+        messages: [
+          {
+            role: "user",
+            content:
+              `Un usuario de la app de lectura Ledger describió este objetivo: "${goal}".\n\n` +
+              `Catálogo disponible (JSON): ${JSON.stringify(catalogForPrompt)}\n\n` +
+              `Elige hasta 5 libros del catálogo, ordenados del más al menos relevante para ese objetivo. ` +
+              `Responde EXCLUSIVAMENTE con JSON válido, sin markdown, con esta forma: ` +
+              `[{"id": "<id del libro>", "reason": "<una frase breve en español explicando por qué encaja>"}]`,
+          },
+        ],
+      });
+
+      const textBlock = message.content.find((b) => b.type === "text");
+      const raw = textBlock && textBlock.type === "text" ? textBlock.text.trim() : "[]";
       const jsonMatch = raw.match(/\[[\s\S]*\]/);
       ranked = JSON.parse(jsonMatch ? jsonMatch[0] : raw);
     } catch {
